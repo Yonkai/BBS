@@ -4,9 +4,9 @@
   "description": "\"Bulletin Board System\"",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Yonkai/BBS#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "next": "^8.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"

@@ -1,5 +1,6 @@
-import Layout from '../components/MyLayout.js'
-import Link from 'next/link'
+import Layout from '../components/MyLayout.js';
+import React from 'react';
+import Link from 'next/link';
 
 const PostLink = (props) => (
   <li>
@@ -17,5 +18,22 @@ export default () => (
       <PostLink title="List Item 2"/>
       <PostLink title="List Item 3"/>
     </ul>
+  <ul>
+    <li>
+      <Link href='/b' as='/a'>
+        <a>a</a>
+      </Link>
+    </li>
+    <li>
+      <Link href='/a' as='/b'>
+        <a>b</a>
+      </Link>
+    </li>
+    <li>
+      <Link href={{ pathname: '/post', query: { id: '2000' } }} as='/posts/2'>
+        <a>post #2</a>
+      </Link>
+    </li>
+  </ul>
   </Layout>
 )
