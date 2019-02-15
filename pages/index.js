@@ -1,6 +1,7 @@
 import Layout from '../components/MyLayout.js';
 import React from 'react';
 import Link from 'next/link';
+import "../styles2.scss";
 
 const PostLink = (props) => (
   <li>
@@ -12,7 +13,7 @@ const PostLink = (props) => (
 
 export default () => (
   <Layout>
-    <h1>Heading 1</h1>
+    <h1 className="example">Heading 1</h1>
     <ul>
       <PostLink title="List Item 1"/>
       <PostLink title="List Item 2"/>
