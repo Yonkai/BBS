@@ -21,7 +21,7 @@ will eventually serve towards a backend, these will exist without any
 kind of connection to a real backend. New tag. Connects should be simple
 async. HTTP GET or POST requests with the async/await calls (Or something else like axios?).
 
-3. For BACKEND now, using an ORM (Sequelize? Mongoose?) and express routing/other middleware, properly setup all backend 
+3. For BACKEND now, using an ORM (Sequelize? Mongoose?)☠️ MySQL and express routing/other middleware, properly setup all backend 
 routes from within the nextjs application folder behavior including, can host the database on DigitalOcean:
     3.1 User Groups
     3.2 Threads
