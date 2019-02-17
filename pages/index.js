@@ -1,7 +1,13 @@
-import Layout from '../components/MyLayout.js';
 import React from 'react';
 import Link from 'next/link';
-import "../styles2.scss";
+import Head from 'next/head';
+
+import Header from '../components/Header.js';
+import Boards from '../components/Boards.js';
+import Footer from '../components/Footer.js';
+import Footer from '../components/Statistics.js';
+import "../styles.scss";
+
 
 const PostLink = (props) => (
   <li>
@@ -12,29 +18,11 @@ const PostLink = (props) => (
 )
 
 export default () => (
-  <Layout>
-    <h1 className="example">Heading 1</h1>
-    <ul>
-      <PostLink title="List Item 1"/>
-      <PostLink title="List Item 2"/>
-      <PostLink title="List Item 3"/>
-    </ul>
-  <ul>
-    <li>
-      <Link href='/b' as='/a'>
-        <a>a</a>
-      </Link>
-    </li>
-    <li>
-      <Link href='/a' as='/b'>
-        <a>b</a>
-      </Link>
-    </li>
-    <li>
-      <Link href={{ pathname: '/post', query: { id: '2000' } }} as='/posts/2'>
-        <a>post #2</a>
-      </Link>
-    </li>
-  </ul>
-  </Layout>
+  // React Fragment
+  <>
+    <Header/>
+    <Boards/>
+    <Statistics/>
+    <Footer/>
+  </>
 )

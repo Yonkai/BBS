@@ -1,11 +1,12 @@
+☠️✅🤔👀
 "Layers" for my simple BBS application, all information may be wrong or poorly understood, beware:
 
-0. Tear down the current application representation (as on 2/5/2019)
+✅0. Tear down the current application representation (as on 2/5/2019)
 and start from a new tag on github, using instead the react and nextjs framework
 as it fits better, IMO, with the native directory structure
 of nextjs and forums in general, as shown in the wikipedia article.
 
-0.5? Add Redux maybe for educational purposes, however I don't think the scale of this
+🤔0.5? Add Redux maybe for educational purposes, however I don't think the scale of this
 application will genuinely warrant it. Same applies to an error reporting service
 like sentry or a content integration system like Travis CI.
 
@@ -13,7 +14,7 @@ like sentry or a content integration system like Travis CI.
 representation of all interfaces that will be needed for the final
 application, including content locked html pages, i.e. admin access
 and moderation panels. There will be no content restriction on this
-version. Pages will exist without restriction, obviously.
+version. Pages will exist without restriction.
 
 2. Begin constructing all backend connections within the nextjs components that
 will eventually serve towards a backend, these will exist without any 

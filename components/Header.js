@@ -1,17 +1,8 @@
-import Link from 'next/link';
-
-const linkStyle = {
-  marginRight: 15
-}
+import "../styles.scss";
 
 const Header = () => (
     <div>
-        <Link href="/">
-          <a style={linkStyle}>Index</a>
-        </Link>
-        <Link href="/about">
-          <a style={linkStyle}>About</a>
-        </Link>
+        <h1>BBS Header Component</h1>
     </div>
 )
 
