@@ -1,5 +1,3 @@
-import "../styles.scss";
-
 const About = () => (
     <div>
         <h1>BBS About Component</h1>

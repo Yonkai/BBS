@@ -11,7 +11,7 @@ import Statistics from '../components/Statistics.js';
 import About from '../components/About.js';
 
 //styles
-import "../styles.scss";
+import "../index.scss";
 
 
 const PostLink = (props) => (
@@ -27,6 +27,8 @@ export default () => (
   <>
     <Head>
       <title>BBS title</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </Head>
     <Header/>
     <Boards/>
