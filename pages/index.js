@@ -10,6 +10,8 @@ import Footer from '../components/Footer.js';
 import Statistics from '../components/Statistics.js';
 import About from '../components/About.js';
 
+
+
 //styles
 import "../index.scss";
 
@@ -30,6 +32,7 @@ export default () => (
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </Head>
+
     <Header/>
     <Boards/>
     <About/>

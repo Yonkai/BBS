@@ -46,3 +46,10 @@ to hit main common issues.
 8. Host a live version on an ubuntu/nginx server on my DigitalOcean cloud account.
 
 9. Done?
+
+Current Stack: 
+NextJS 
+SASS
+ExpressJS 
+MySQL 
+MaterialUI 
