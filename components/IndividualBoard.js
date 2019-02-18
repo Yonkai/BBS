@@ -4,6 +4,12 @@ const IndividualBoard = () => (
 <>
     <Header/>
     <p>Indivdual board content</p>
+    <style jsx>{`
+      p{
+          color:red;
+          font-family:fantasy
+      }
+    `}</style>
 </>
 )
 

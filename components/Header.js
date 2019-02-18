@@ -1,7 +1,12 @@
 const Header = () => (
-    <div>
+    <>
         <h1>BBS Header Component</h1>
-    </div>
+        <style jsx>{`
+          h1 {
+            font-family: "Roboto";
+          }
+        `}</style>
+    </>
 )
 
 export default Header

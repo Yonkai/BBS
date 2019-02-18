@@ -1,18 +1,18 @@
 import Link from 'next/link';
-import Button from '@material-ui/core/Button';
 
 const Board = () => (
     <div>
         <Link href="/indivdualboard">
-          <Button variant="contained" color="primary">
-            Board 1
-          </Button>
+            <a className="boardLink">Board 1</a>
         </Link>
         <Link href="/indivdualboard">
-          <Button variant="contained" color="primary">
-              Board 2
-          </Button>
+            <a className="boardLink">Board 1</a>
         </Link>
+      <style jsx>{`
+        .boardLink {
+          margin-right: 15px;
+        }
+      `}</style>
     </div>
 )
 

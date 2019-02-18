@@ -9,8 +9,12 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  server.get('/posts/:id', (req, res) => {
-    return app.render(req, res, '/post', { id: req.params.id })
+  server.get('/', (req, res) => {
+    return app.render(req, res, '/', req.query)
+  })
+
+  server.get('/indivdualboard', (req, res) => {
+    return app.render(req, res, '/indivdualboard', req.query)
   })
 
   server.get('*', (req, res) => {
@@ -21,4 +25,8 @@ app.prepare().then(() => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
+})
+.catch((ex) => {
+  console.error(ex.stack)
+  process.exit(1)
 })

@@ -1,6 +1,5 @@
 //Modules
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 
 //components
@@ -9,20 +8,6 @@ import Boards from '../components/Boards.js';
 import Footer from '../components/Footer.js';
 import Statistics from '../components/Statistics.js';
 import About from '../components/About.js';
-
-
-
-//styles
-import "../index.scss";
-
-
-const PostLink = (props) => (
-  <li>
-    <Link href={`/post?title=${props.title}`}>
-      <a>{props.title}</a>
-    </Link>
-  </li>
-)
 
 export default () => (
   // React Fragment
@@ -39,6 +24,12 @@ export default () => (
     <Boards/>
     <About/>
     <Statistics/>
-    <Footer/>
+    <Footer/>    
+    <style jsx global>{`
+      html {
+        box-sizing:border-box;
+        margin:0;
+      }
+    `}</style>
   </>
 )

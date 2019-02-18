@@ -1,7 +1,12 @@
 const About = () => (
-    <div>
+    <>
         <h1>BBS About Component</h1>
-    </div>
+        <style jsx>{`
+          h1 {
+            font-family: "Roboto";
+          }
+        `}</style>
+    </>
 )
 
 export default About

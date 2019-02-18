@@ -1,6 +1,7 @@
 //Modules
 import IndividualBoard from '../components/IndividualBoard.js';
 import Head from 'next/head';
+import React from 'react';
 
 export default () => (
     // React Fragment
@@ -12,6 +13,13 @@ export default () => (
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
-      <IndividualBoard/>
+    <IndividualBoard/>
+
+    <style jsx global>{`
+      html {
+        box-sizing:border-box;
+        margin:0;
+      }
+    `}</style>
     </>
   )
