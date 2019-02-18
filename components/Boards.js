@@ -1,12 +1,17 @@
 import Link from 'next/link';
+import Button from '@material-ui/core/Button';
 
 const Board = () => (
     <div>
         <Link href="/indivdualboard">
-          <a className="boardtab">Board 1</a>
+          <Button variant="contained" color="primary">
+            Board 1
+          </Button>
         </Link>
         <Link href="/indivdualboard">
-          <a className="boardtab">Board 2</a>
+          <Button variant="contained" color="primary">
+              Board 2
+          </Button>
         </Link>
     </div>
 )
