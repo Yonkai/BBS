@@ -7,7 +7,7 @@ const IndividualBoard = () => (
     <p>Board navigator</p> 
     <p>Settings</p>
     <Link href="/">    
-      <p>Home Page</p>   
+      <a>Home Page</a>   
     </Link>
     <Header/>
     <p>Start New Discussion</p>
