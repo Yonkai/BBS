@@ -6,7 +6,7 @@ const Board = () => (
             <a className="boardLink">Board 1</a>
         </Link>
         <Link href="/indivdualboard">
-            <a className="boardLink">Board 1</a>
+            <a className="boardLink">Board 2</a>
         </Link>
       <style jsx>{`
         .boardLink {
