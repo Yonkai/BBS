@@ -4,10 +4,19 @@ import Head from 'next/head';
 
 //components
 import Header from '../components/Header.js';
-import Boards from '../components/Boards.js';
+import BoardLink from '../components/BoardLink.js';
 import Footer from '../components/Footer.js';
 import Statistics from '../components/Statistics.js';
 import About from '../components/About.js';
+
+
+const PostLink = (props) => (
+  <li>
+    <Link href={`/post?title=${props.title}`}>
+      <a>{props.title}</a>
+    </Link>
+  </li>
+)
 
 export default () => (
   // React Fragment
@@ -21,7 +30,9 @@ export default () => (
     </Head>
 
     <Header/>
-    <Boards/>
+    <BoardLink title="Board-1"/>
+    <BoardLink title="Board-2"/>
+    <BoardLink title="Board-3"/>
     <About/>
     <Statistics/>
     <Footer/>    

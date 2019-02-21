@@ -14,7 +14,7 @@ like sentry or a content integration system like Travis CI.
 representation of all interfaces that will be needed for the final
 application, including content locked html pages, i.e. admin access
 and moderation panels. There will be no content restriction on this
-version. Pages will exist without restriction. (Use Material UI later...🤔)
+version. Pages will exist without restriction. (Use Material UI later...?🤔)
 
 2. Begin constructing all backend connections within the nextjs components that
 will eventually serve towards a backend, these will exist without any 
