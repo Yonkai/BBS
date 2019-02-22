@@ -17,10 +17,15 @@ export default withRouter((props) => (
     <IndividualBoard title={props.router.query.pathname}/>
 
     <style jsx global>{`
-      html {
-        box-sizing:border-box;
-        margin:0;
-      }
-    `}</style>
+    html {
+      height:100%;
+      box-sizing:border-box;
+      margin:0;  
+      background: #FFEFBA;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom, #FFEFBA, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    
+  `}</style>
     </>
   ))

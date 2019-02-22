@@ -13,7 +13,8 @@ app.prepare().then(() => {
     return app.render(req, res, '/', req.query)
   })
 
-  server.get('/indivdualboard', (req, res) => {
+  // TODO: Dynamic interpreter Here
+  server.get('/Board-3', (req, res) => {
     return app.render(req, res, '/indivdualboard', req.query)
   })
 
