@@ -38,7 +38,6 @@ export default () => (
     <Footer/>    
     <style jsx global>{`
       html {
-        height:100%;
         box-sizing:border-box;
         margin:0;  
         background: #FFEFBA;  /* fallback for old browsers */
