@@ -18,6 +18,7 @@ export default withRouter((props) => (
 
     <style jsx global>{`
     html {
+      height:100vh;
       box-sizing:border-box;
       margin:0;  
       background: #FFEFBA;  /* fallback for old browsers */
