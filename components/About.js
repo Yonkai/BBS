@@ -1,7 +1,7 @@
 const About = () => (
     <>
         <h1>BBS About Component</h1>
-        <p>Content: Information on indivual boards</p>
+        {/* Content: Information on single boards */}
         <style jsx>{`
           h1 {
             font-family: "Roboto";

@@ -1,7 +1,7 @@
-const Statistics = () => (
+const Statistics = (props) => (
     <>
         <h1>BBS Statistics Component</h1>
-        <p>Content: Total Posts, Users</p>
+        {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`
           h1 {
             font-family: "Roboto";
