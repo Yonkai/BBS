@@ -10,13 +10,19 @@ import Navigator from './Navigator.js';
 const IndividualBoard = withRouter((props) => (
 <>
     <Navigator/>
-    <p>Settings</p>
-    <Link href="/">    
-      <a>Home Page</a>   
+    <Link href="/settings">
+      <a>Settings</a>   
+    </Link>
+    <Link href="/">
+        <a>Home Page</a>
     </Link>
     <Header/>
     <BoardContent boardTitle={props.router.query.title}/>
-    <Footer/>
+    <Footer/>      <style jsx>{`
+        a {
+          margin-right: 15px;
+        }
+      `}</style>
 
 </>
 ))

@@ -1,5 +1,6 @@
 import { withRouter } from 'next/router';
 import Navigator from './Navigator.js';
+import Link from 'next/link';
 
 const BoardContent = withRouter((props) => (
     <>
@@ -10,7 +11,9 @@ const BoardContent = withRouter((props) => (
         <p>Post 3 etc...</p>
         <p>..Post 10 (Bread crumbs to sub pages for this board exclusively)</p>
         <Navigator/>
-        <p>Settings</p>
+        <Link href="/settings">
+            <a>Settings</a>   
+        </Link>
         <style jsx>{`
         p{
             font-size:18px
