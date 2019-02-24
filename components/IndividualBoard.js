@@ -4,10 +4,12 @@ import BoardContent from './BoardContent.js';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
 import { checkPropTypes } from 'prop-types';
+import Navigator from './Navigator.js';
+
 
 const IndividualBoard = withRouter((props) => (
 <>
-    <p>Board navigator</p> 
+    <Navigator/>
     <p>Settings</p>
     <Link href="/">    
       <a>Home Page</a>   
