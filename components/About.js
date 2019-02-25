@@ -1,6 +1,7 @@
 const About = () => (
     <>
         <h1>BBS About Component</h1>
+
         {/* Content: Information on single boards */}
         <style jsx>{`
           h1 {

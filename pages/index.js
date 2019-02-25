@@ -31,6 +31,7 @@ export default () => (
     <div className="grid-container-index">
       <Header/>
       <div className="grid-boardlinks-container-item">
+      <h1 className="board-title">Our Boards</h1>
         <BoardLink title="Board-1"/>
         <BoardLink title="Board-2"/>
         <BoardLink title="Board-3"/>
@@ -55,9 +56,18 @@ export default () => (
       .grid-container-index{
         display:grid;
         justify-items: center;
+        grid-template-columns:1fr;
       }
       .grid-boardlinks-container-item{
         border:4px solid black;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: end;
+
+      }
+      .board-title{
+        justify-self:center;
+        grid-column:1/-1;
       }
       h1{
         border:5px solid black;
