@@ -12,6 +12,8 @@ export default () => (
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
       </meta>
     </Head>
+    <h3>News (MM-DD-YYYY):</h3>
+    <p>News placeholder.2</p>
 
     <style jsx global>{`
       html {
