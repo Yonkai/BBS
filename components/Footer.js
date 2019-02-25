@@ -19,7 +19,8 @@ const Footer = () => (
             font-family: "Roboto";
           }
           a{
-            display:block;
+            display:inline;
+            margin-right:20px;
           }
         `}</style>
     </div>

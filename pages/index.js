@@ -28,14 +28,21 @@ export default () => (
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
       </meta>
     </Head>
+    <div className="grid-container-index">
+      <Header/>
+      <div className="grid-boardlinks-container-item">
+        <BoardLink title="Board-1"/>
+        <BoardLink title="Board-2"/>
+        <BoardLink title="Board-3"/>
+        <BoardLink title="Board-4"/>
+        <BoardLink title="Board-5"/>
+        <BoardLink title="Board-6"/>
+      </div>
+      <About/>
+      <Statistics/>
+      <Footer/>
+    </div>
 
-    <Header/>
-    <BoardLink title="Board-1"/>
-    <BoardLink title="Board-2"/>
-    <BoardLink title="Board-3"/>
-    <About/>
-    <Statistics/>
-    <Footer/>    
     <style jsx global>{`
       html {
         height:100vh;
@@ -45,7 +52,13 @@ export default () => (
         background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       }
-      
+      .grid-container-index{
+        display:grid;
+        justify-items: center;
+      }
+      .grid-boardlinks-container-item{
+        border:4px solid black;
+      }
     `}</style>
   </>
 )

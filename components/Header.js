@@ -4,9 +4,8 @@ const Header = () => (
     <>
         {/* <h1>BBS Header Component</h1> */}
         {/* <p>Content: Image logo</p> */}
-        <div>
+        <div className="grid-header-item">
           <Link href="/">
-
             <a>
               <img src="../static/cat-and-header-text.png" alt="made by Eucalyp on flaticon."/>
             </a>
