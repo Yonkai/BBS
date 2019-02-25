@@ -15,6 +15,9 @@ const Header = () => (
           h1 {
             font-family: "Roboto";
           }
+          img{
+            border:5px solid black;
+          }
         `}</style>
     </>
 )

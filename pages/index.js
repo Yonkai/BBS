@@ -57,21 +57,21 @@ export default () => (
         display:grid;
         justify-items: center;
         grid-template-columns:1fr;
+        grid-gap:5px;
       }
       .grid-boardlinks-container-item{
-        border:4px solid black;
+        border:5px solid black;
         display:grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        justify-items: end;
+        width:900px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+        justify-items: start;
 
       }
       .board-title{
         justify-self:center;
         grid-column:1/-1;
       }
-      h1{
-        border:5px solid black;
-      }
+
     `}</style>
   </>
 )
