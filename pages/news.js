@@ -13,7 +13,7 @@ export default () => (
       </meta>
     </Head>
     <h3>News (MM-DD-YYYY):</h3>
-    <p>News placeholder.2</p>
+    <p>News placeholder</p>
 
     <style jsx global>{`
       html {
