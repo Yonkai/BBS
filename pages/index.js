@@ -59,6 +59,9 @@ export default () => (
       .grid-boardlinks-container-item{
         border:4px solid black;
       }
+      h1{
+        border:5px solid black;
+      }
     `}</style>
   </>
 )
