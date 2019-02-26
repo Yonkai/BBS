@@ -7,7 +7,7 @@ const Header = () => (
         <div className="grid-header-item">
           <Link href="/">
             <a>
-              <img src="../static/cat-and-header-text.png" alt="made by Eucalyp on flaticon."/>
+              <img src="../static/cat-and-header-text-mobile-s.png" alt="made by Eucalyp on flaticon."/>
             </a>
           </Link>
         </div>

@@ -8,6 +8,8 @@ const BoardLink = (props) => (
       <style jsx>{`
         .boardLink {
           margin-right: 15px;
+          font-size:20px;
+          
         }
       `}</style>
     </span>

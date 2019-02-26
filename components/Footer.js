@@ -26,7 +26,8 @@ const Footer = () => (
             }
             .footer{
               border:5px solid black;
-              width:900px;
+              display:grid;
+              grid-template-columns:minmax(320px,1200px);
             }
           `}</style>
     </>

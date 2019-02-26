@@ -51,6 +51,8 @@ Current Stack:
 NextJS 
 Css-Grid 
 
+Note on rd:Do mobile first, then scale up.
+
 Factors of 1200: 
 1,2,3,4,5,6,8,10,
 12,15,16,20,24,25,

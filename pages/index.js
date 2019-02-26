@@ -32,12 +32,14 @@ export default () => (
       <Header/>
       <div className="grid-boardlinks-container-item">
       <h1 className="board-title">Our Boards</h1>
+      <div className="board-links-container">
         <BoardLink title="Board-1"/>
         <BoardLink title="Board-2"/>
         <BoardLink title="Board-3"/>
         <BoardLink title="Board-4"/>
         <BoardLink title="Board-5"/>
         <BoardLink title="Board-6"/>
+      </div>
       </div>
       <About/>
       <Statistics/>
@@ -53,23 +55,29 @@ export default () => (
         background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       }
+      body{
+        margin:0;
+      }
       .grid-container-index{
         display:grid;
         justify-items: center;
-        grid-template-columns:1fr;
         grid-gap:5px;
+
       }
       .grid-boardlinks-container-item{
         border:5px solid black;
         display:grid;
-        width:900px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
-        justify-items: start;
+        grid-template-columns:minmax(320px,1200px);
+        justify-items: center;
 
       }
       .board-title{
         justify-self:center;
-        grid-column:1/-1;
+      }
+
+      .board-links-container{
+        display:grid;
+        grid-template-columns:1fr;
       }
 
     `}</style>

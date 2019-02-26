@@ -9,8 +9,9 @@ const About = () => (
             font-family: "Roboto";
           }
           div{
-            width:900px;
             border:5px black solid;
+            display:grid;
+            grid-template-columns:minmax(320px,1200px);
           }
         `}</style>
     </>
