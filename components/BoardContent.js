@@ -14,7 +14,7 @@ const BoardContent = withRouter((props) => (
         <p>..Post 10 (Bread crumbs to sub pages for this board exclusively)</p>
         <Navigator/>
         <p>Refresh</p>
-        <p>Bottom</p>
+        <p>Top</p>
         <Link href="/settings">
             <a>Settings</a>   
         </Link>
