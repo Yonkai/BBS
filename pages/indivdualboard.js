@@ -10,22 +10,29 @@ export default withRouter((props) => (
       <Head>
         <title>{props.router.query.pathname}</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
-      </meta>
+        </meta>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
-    <IndividualBoard title={props.router.query.pathname}/>
 
-    <style jsx global>{`
-    html {
-      height:100vh;
-      box-sizing:border-box;
-      margin:0;  
-      background: #FFEFBA;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to bottom, #FFEFBA, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
-    
-  `}</style>
+      <div>
+        <IndividualBoard title={props.router.query.pathname}/>
+      </div>
+
+      <style jsx global>{`
+      html {
+        box-sizing:border-box;
+        margin:0;  
+        background: #FFEFBA;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #FFEFBA, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-size: cover;
+      }
+
+      body{
+        margin:0;
+      }
+
+    `}</style>
     </>
   ))

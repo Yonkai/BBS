@@ -8,23 +8,31 @@ import Navigator from './Navigator.js';
 
 
 const IndividualBoard = withRouter((props) => (
-<>
-    <Navigator/>
-    <Link href="/settings">
-      <a>Settings</a>   
-    </Link>
-    <Link href="/">
+  <>
+    <div className="container">
+      <Navigator/>
+      <Link href="/settings">
+        <a>Settings</a>   
+      </Link>
+      <Link href="/">
         <a>Home Page</a>
-    </Link>
-    <Header/>
-    <BoardContent boardTitle={props.router.query.title}/>
-    <Footer/>      <style jsx>{`
+      </Link>
+      <Header/>
+      <BoardContent boardTitle={props.router.query.title}/>
+      <Footer/>
+    </div>    
+    <style jsx>{`
         a {
           margin-right: 15px;
         }
+
+        .container{
+          display:grid;
+          justify-items:center;
+        }
       `}</style>
 
-</>
+  </>
 ))
 
 export default IndividualBoard

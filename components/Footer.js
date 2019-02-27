@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Footer = () => (
     <>
-        <div className="footer">
+        <div>
           <h1>BBS Footer Component</h1>
           {/* Content:   */}
           <Link href="/">    
@@ -24,8 +24,8 @@ const Footer = () => (
               display:inline;
               margin-right:20px;
             }
-            .footer{
-              border:5px solid black;
+            div{
+              border:5px black solid;
               display:grid;
               grid-template-columns:minmax(320px,1200px);
             }

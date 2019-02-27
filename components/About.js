@@ -1,8 +1,8 @@
 const About = () => (
     <>
-    <div>
-        <h1>BBS About Component</h1>
-    </div>
+      <div>
+          <h1>BBS About Component</h1>
+      </div>
         {/* Content: Information on single boards */}
         <style jsx>{`
           h1 {

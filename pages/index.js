@@ -32,14 +32,14 @@ export default () => (
       <Header/>
       <div className="grid-boardlinks-container-item">
       <h1 className="board-title">Our Boards</h1>
-      <div className="board-links-container">
-        <BoardLink title="Board-1"/>
-        <BoardLink title="Board-2"/>
-        <BoardLink title="Board-3"/>
-        <BoardLink title="Board-4"/>
-        <BoardLink title="Board-5"/>
-        <BoardLink title="Board-6"/>
-      </div>
+        <div className="board-links-container">
+          <BoardLink title="Board-1"/>
+          <BoardLink title="Board-2"/>
+          <BoardLink title="Board-3"/>
+          <BoardLink title="Board-4"/>
+          <BoardLink title="Board-5"/>
+          <BoardLink title="Board-6"/>
+        </div>
       </div>
       <About/>
       <Statistics/>
@@ -48,12 +48,13 @@ export default () => (
 
     <style jsx global>{`
       html {
-        height:100vh;
+        height: 100vh;
         box-sizing:border-box;
         margin:0;  
         background: #FFEFBA;  /* fallback for old browsers */
         background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-size: cover;
       }
       body{
         margin:0;
