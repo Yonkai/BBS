@@ -13,6 +13,8 @@ const About = () => (
             display:grid;
             grid-template-columns:minmax(320px,1200px);
           }
+
+          
         `}</style>
     </>
 )

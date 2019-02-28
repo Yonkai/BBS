@@ -31,6 +31,15 @@ const IndividualBoard = withRouter((props) => (
           justify-items:center;
           grid-template-columns:1fr;
         }
+
+                 
+      @media all and (max-width: 500px) {
+        .container{
+          display:grid;
+          grid-template-columns:minmax(320px,1200px)
+        }
+
+      }
       `}</style>
 
   </>

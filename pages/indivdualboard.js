@@ -27,12 +27,9 @@ export default withRouter((props) => (
         background-size: cover;
       }
 
-      
-
       body{
         margin:0;
       }
-
     `}</style>
     </>
   ))
