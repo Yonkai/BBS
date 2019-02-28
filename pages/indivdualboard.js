@@ -15,9 +15,7 @@ export default withRouter((props) => (
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
 
-      <div>
         <IndividualBoard title={props.router.query.pathname}/>
-      </div>
 
       <style jsx global>{`
       html {
@@ -28,6 +26,8 @@ export default withRouter((props) => (
         background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         background-size: cover;
       }
+
+      
 
       body{
         margin:0;

@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 const BoardContent = withRouter((props) => (
     <>
-        <div>
             <p className={props.router.query.title}>{`Welcome to ${props.router.query.title}`}</p>
             <p>Refresh</p>
             <p>Bottom</p>
@@ -19,15 +18,15 @@ const BoardContent = withRouter((props) => (
             <Link href="/settings">
                 <a>Settings</a>   
             </Link>
-        </div>
-        
         <style jsx>{`
         p{
-            font-size:18px
+            font-size:18px;
+            justify-self:start;
         }
         .${props.router.query.title}{
             font-size:30px
         }
+
         `}</style>
     </>
 ))

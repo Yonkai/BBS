@@ -20,7 +20,7 @@ const IndividualBoard = withRouter((props) => (
       <Header/>
       <BoardContent boardTitle={props.router.query.title}/>
       <Footer/>
-    </div>    
+    </div>
     <style jsx>{`
         a {
           margin-right: 15px;
@@ -29,6 +29,7 @@ const IndividualBoard = withRouter((props) => (
         .container{
           display:grid;
           justify-items:center;
+          grid-template-columns:1fr;
         }
       `}</style>
 
