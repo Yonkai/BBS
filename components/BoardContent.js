@@ -1,6 +1,7 @@
 import { withRouter } from 'next/router';
 import Navigator from './Navigator.js';
 import Link from 'next/link';
+import ScrollTop from './ScrollTop';
 
 const BoardContent = withRouter((props) => (
     <>
@@ -16,7 +17,7 @@ const BoardContent = withRouter((props) => (
             <p>..Post 10 (Bread crumbs to sub pages for this board exclusively)</p>
             <Navigator/>
             <p>Refresh</p>
-            <p>Top</p>
+            <ScrollTop/>
             <Link href="/settings">
                 <a>Settings</a>   
             </Link>
