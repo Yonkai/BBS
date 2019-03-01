@@ -5,7 +5,9 @@ import Link from 'next/link';
 const BoardContent = withRouter((props) => (
     <>
             <p className={props.router.query.title}>{`Welcome to ${props.router.query.title}`}</p>
-            <p>Refresh</p>
+            <Link href={{ pathname: '/indivdualboard', query:{title:'f'}}}>
+                <a>Refresh</a>
+            </Link>
             <p>Bottom</p>
             <p>Start New Discussion</p>
             <p>Post 1 + replies</p>

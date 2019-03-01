@@ -4,7 +4,7 @@ const Footer = () => (
     <>
         <div>
           <h1>BBS Footer Component</h1>
-          {/* Content:   */}
+          {/* Content:*/}
           <Link href="/">    
           <a>Home Page</a>   
           </Link>
