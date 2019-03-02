@@ -13,8 +13,9 @@ const BoardContent = withRouter((props) => (
             <ScrollDown/>
             {/* Possible components to extract: 
             "NewThreadButton",
-            "ExpandToMainBoardThread" (If thread is over a certain size.)
-            "ThreadContainer"->"Thread"->"ThreadReply"->ThreadContent
+            "ThreadContainer"->"Thread"->"ThreadReply"->ThreadReplyContent
+            "ExpandFromThreadPreview" (If thread is over a certain size.)
+                |__>"ExclusiveThreadPage"
             "BoardPagination" */}
             <p>Start New Thread</p>
             <p>Stickied Board Description Thread</p>
