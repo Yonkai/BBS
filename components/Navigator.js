@@ -1,7 +1,7 @@
 const Navigator = (props) => (
     <>
       <div>
-        <h1>BBS Navigator Component</h1>
+        <h1>Board Navigator Component</h1>
       </div>
         {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`

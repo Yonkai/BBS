@@ -11,11 +11,18 @@ const BoardContent = withRouter((props) => (
                 <a>Refresh</a>
             </Link>
             <ScrollDown/>
-            <p>Start New Discussion</p>
-            <p>Post 1 + replies</p>
+            {/* Possible components to extract: 
+            "NewThreadButton",
+            "ExpandToMainBoardThread" (If thread is over a certain size.)
+            "ThreadContainer"->"Thread"->"ThreadReply"->ThreadContent
+            "BoardPagination" */}
+            <p>Start New Thread</p>
+            <p>Stickied Board Description Thread</p>
+            <p>Post 1</p>
+            <p>Post 1 replies</p>
             <p>Post 2 + replies</p>
             <p>Post 3 etc...</p>
-            <p>..Post 10 (Bread crumbs to sub pages for this board exclusively)</p>
+            <p>..Post 10 (Pagination for this board exclusively)</p>
             <Navigator/>
             <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
                 <a>Refresh</a>
