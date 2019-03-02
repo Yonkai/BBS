@@ -17,7 +17,9 @@ const BoardContent = withRouter((props) => (
             <p>Post 3 etc...</p>
             <p>..Post 10 (Bread crumbs to sub pages for this board exclusively)</p>
             <Navigator/>
-            <p>Refresh</p>
+            <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
+                <a>Refresh</a>
+            </Link>
             <ScrollTop/>
             <Link href="/settings">
                 <a>Settings</a>   
