@@ -69,7 +69,7 @@ export default () => (
         border:5px solid black;
         display:grid;
         grid-template-columns:minmax(320px,1200px);
-        justify-items: center;
+        // justify-items: center;
 
       }
       .board-title{
@@ -77,8 +77,10 @@ export default () => (
       }
 
       .board-links-container{
-        display:grid;
-        grid-template-columns:1fr;
+          // /* Supports Grid */
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
       }
 
     `}</style>
