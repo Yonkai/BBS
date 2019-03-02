@@ -48,16 +48,16 @@ export default () => (
 
     <style jsx global>{`
       html {
-        height: 100vh;
         box-sizing:border-box;
-        margin:0;  
+        margin:0;
+      }
+      body{
+        margin:0;
+        min-height:100vh;
         background: #FFEFBA;  /* fallback for old browsers */
         background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         background-size: cover;
-      }
-      body{
-        margin:0;
       }
       .grid-container-index{
         display:grid;
