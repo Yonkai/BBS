@@ -3,6 +3,8 @@ import Navigator from './Navigator.js';
 import Link from 'next/link';
 import ScrollTop from './ScrollTop';
 import ScrollDown from './ScrollDown.js';
+import NewThreadButton from './NewThreadButton.js';
+import BoardPagination from './BoardPagination.js';
 
 const BoardContent = withRouter((props) => (
     <>
@@ -17,13 +19,14 @@ const BoardContent = withRouter((props) => (
             "ExpandFromThreadPreview" (If thread is over a certain size.)
                 |__>"ExclusiveThreadPage"
             "BoardPagination" */}
-            <p>Start New Thread</p>
+            <NewThreadButton/>
             <p>Stickied Board Description Thread</p>
             <p>Post 1</p>
             <p>Post 1 replies</p>
             <p>Post 2 + replies</p>
             <p>Post 3 etc...</p>
-            <p>..Post 10 (Pagination for this board exclusively)</p>
+            <p>..Post 10</p>
+            <BoardPagination/>
             <Navigator/>
             <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
                 <a>Refresh</a>
