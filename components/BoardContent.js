@@ -4,9 +4,10 @@ import Link from 'next/link';
 import ScrollTop from './ScrollTop';
 import ScrollDown from './ScrollDown.js';
 import NewThreadButton from './NewThreadButton.js';
-import BoardPagination from './BoardPagination.js';
+import Pagination from './Pagination.js';
 
 const BoardContent = withRouter((props) => (
+         
     <>
             <p className={props.router.query.title}>{`Welcome to ${props.router.query.title}`}</p>
             <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
@@ -14,11 +15,9 @@ const BoardContent = withRouter((props) => (
             </Link>
             <ScrollDown/>
             {/* Possible components to extract: 
-            "NewThreadButton",
             "ThreadContainer"->"Thread"->"ThreadReply"->ThreadReplyContent
             "ExpandFromThreadPreview" (If thread is over a certain size.)
-                |__>"ExclusiveThreadPage"
-            "BoardPagination" */}
+                |__>"ExclusiveThreadPage" */}
             <NewThreadButton/>
             <p>Stickied Board Description Thread</p>
             <p>Post 1</p>
@@ -26,7 +25,7 @@ const BoardContent = withRouter((props) => (
             <p>Post 2 + replies</p>
             <p>Post 3 etc...</p>
             <p>..Post 10</p>
-            <BoardPagination/>
+            <Pagination items={[...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }))} onChangePage={()=>{console.log('Unrefined Paginator')}} />
             <Navigator/>
             <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
                 <a>Refresh</a>
