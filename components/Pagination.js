@@ -7,10 +7,10 @@ const propTypes = {
     initialPage: PropTypes.number,
     pageSize: PropTypes.number
 }
- 
+    
 const defaultProps = {
     initialPage: 1,
-    pageSize: 10
+    pageSize: 30
 }
  
 class Pagination extends React.Component {
@@ -135,9 +135,9 @@ class Pagination extends React.Component {
             <style jsx>{`
             li{
                 display: inline;
-                padding:5px;
-                margin:5px;
-                background:rgb(240,0,240,0.3);
+                
+                padding:3px;
+                background:rgb(248,251,245,1);
                 
             }
             `}</style>
