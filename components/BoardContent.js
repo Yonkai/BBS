@@ -14,10 +14,6 @@ const BoardContent = withRouter((props) => (
                 <a>Refresh</a>
             </Link>
             <ScrollDown/>
-            {/* Possible components to extract: 
-            "BoardThreadContainer"->"ContainedThread"->"ThreadReplyCotainer"->ThreadReplyUserContent
-            "ExpandFromThreadPreview" (IF thread is over a certain size so to reduce indiv. board index size.)
-                |__>"ExclusiveThreadPage" */}
             <NewThreadButton/>
             <p>Stickied Board Description Thread</p>
             <p>Post 1</p>
