@@ -1,16 +1,15 @@
-import ReplyRootComponenet from '../ReplyComponentsMobile/ReplyRootComponent.js';
-
-const ThreadPreviewRootComponent = (props) => (
+// From photoshop doc
+const ReplyRootComponenet = (props) => (
     <>
       <div>
-        <ReplyRootComponenet/>
+          <p>replyrootcomponent</p>
       </div>
         <style jsx>{`
           p {
             font-family: "Roboto";
           }
           div{
-            border:5px blue dashed;
+            border:5px black solid;
             margin:5px;
             padding:5px;
             display:grid;
@@ -20,7 +19,7 @@ const ThreadPreviewRootComponent = (props) => (
           @media all and (max-width: 520px) {
             div{
               display:grid;
-              grid-template-columns:minmax(320px,1200px);
+              grid-template-columns:minmax(320px,1200px)
             }
     
           }
@@ -28,6 +27,6 @@ const ThreadPreviewRootComponent = (props) => (
     </>
 )
 
-export default ThreadPreviewRootComponent
+export default ReplyRootComponenet
 
 // All content is mobile initially
