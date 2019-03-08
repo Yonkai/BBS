@@ -1,13 +1,8 @@
 const NewThreadButton = (props) => (
     <>
-      <div>
-        <a href="#">Start New Thread</a>
-      </div>
+        <a href="#">New Thread</a>
         <style jsx>{`
-          div{
-            border:5px black solid;
-            justify-self:center;
-          }
+
         `}</style>
     </>
 )

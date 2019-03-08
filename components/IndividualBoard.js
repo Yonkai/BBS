@@ -11,15 +11,17 @@ const IndividualBoard = withRouter((props) => (
   <>
     <div className="container">
       <Navigator/>
-      <Link href="/settings">
-        <a>Settings</a>   
-      </Link>
-      <Link href="/search">
-        <a>Search</a>
-      </Link>
-      <Link href="/">
-        <a>Home Page</a>
-      </Link>
+      <div className='settings-search-home'>
+        <Link href="/settings">
+          <a>Settings</a>   
+        </Link>
+        <Link href="/search">
+          <a>Search</a>
+        </Link>
+        <Link href="/">
+          <a>Home Page</a>
+        </Link>
+      </div>
       <Header/>
         <BoardContent boardTitle={props.router.query.title}/>
       <Footer/>

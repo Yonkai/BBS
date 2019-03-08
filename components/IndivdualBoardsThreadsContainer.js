@@ -17,7 +17,6 @@ const IndivdualBoardsThreadsContainer = (props) => (
 
         <ThreadPreviewRootComponent/>
         <ThreadPreviewRootComponent/>
-
       </div>
         <style jsx>{`
           h1 {

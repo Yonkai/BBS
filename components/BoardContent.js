@@ -11,22 +11,26 @@ const BoardContent = withRouter((props) => (
          
     <>
             <p className={props.router.query.title}>{`Welcome to ${props.router.query.title}`}</p>
-            <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
-                <a>Refresh</a>
-            </Link>
-            <ScrollDown/>
-            <NewThreadButton/>
+            <div className="linkgrouprefreshbottomnewthread">
+                <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
+                    <a>Refresh </a>
+                </Link>
+                <ScrollDown/>
+                <NewThreadButton/>
+            </div>
             <p>Stickied Board Description Thread</p>
             <IndivdualBoardsThreadsContainer/>
             <Pagination items={[...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }))} onChangePage={()=>{console.log('Unrefined Paginator')}} />
             <Navigator/>
-            <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
-                <a>Refresh</a>
-            </Link>
-            <ScrollTop/>
-            <Link href="/settings">
-                <a>Settings</a>   
-            </Link>
+            <div>
+                <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
+                    <a>Refresh</a>
+                </Link>
+                <ScrollTop/>
+                <Link href="/settings">
+                    <a>Settings</a>   
+                </Link>
+            </div>
         <style jsx>{`
         p{
             font-size:18px;
@@ -35,6 +39,10 @@ const BoardContent = withRouter((props) => (
         .${props.router.query.title}{
             font-size:30px
         }
+        a{
+            margin-right:15px;
+        }
+
 
         `}</style>
     </>

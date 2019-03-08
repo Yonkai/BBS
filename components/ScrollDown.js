@@ -12,6 +12,11 @@ class ScrollDown extends React.Component {
       return (
         <a href="#" onClick={this.scrollToTop}>
             Bottom
+            <style jsx>{`
+            a{
+              margin-right:15px;
+            }
+          `}</style>
         </a>
       );
     }
