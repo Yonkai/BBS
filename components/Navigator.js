@@ -15,7 +15,7 @@ const Navigator = (props) => (
             justify-self:start;
           
           }
-          @media all and (max-width: 500px) {
+          @media all and (max-width: 520px) {
             div{
               display:grid;
               grid-template-columns:minmax(320px,1200px)
