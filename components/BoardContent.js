@@ -5,6 +5,7 @@ import ScrollTop from './ScrollTop';
 import ScrollDown from './ScrollDown.js';
 import NewThreadButton from './NewThreadButton.js';
 import Pagination from './Pagination.js';
+import IndivdualBoardsThreadsContainer from './IndivdualBoardsThreadsContainer.js';
 
 const BoardContent = withRouter((props) => (
          
@@ -16,11 +17,7 @@ const BoardContent = withRouter((props) => (
             <ScrollDown/>
             <NewThreadButton/>
             <p>Stickied Board Description Thread</p>
-            <p>Thread 1</p>
-            <p>Thread 1 replies</p>
-            <p>Thread 2 + replies</p>
-            <p>Thread 3 etc...</p>
-            <p>..Thread 10</p>
+            <IndivdualBoardsThreadsContainer/>
             <Pagination items={[...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }))} onChangePage={()=>{console.log('Unrefined Paginator')}} />
             <Navigator/>
             <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
