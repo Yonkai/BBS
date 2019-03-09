@@ -1,21 +1,15 @@
 // From photoshop doc
-import ReplyInfoContainerComponent from './ReplyInfoContainerComponent.js';
-import ReplyContent from './ReplyContent.js';
-import ReplyFooterContainerComponent from './ReplyFooterContainerComponent.js';  
-
-const ReplyRootComponenet = (props) => (
+const ReplyFooterContainerComponent = (props) => (
     <>
       <div>
-        <ReplyInfoContainerComponent/>
-        <ReplyContent/>
-        <ReplyFooterContainerComponent/>
+          <p>ReplyFooterContainerComponent</p>
       </div>
         <style jsx>{`
           p {
             font-family: "Roboto";
           }
           div{
-            border:5px black solid;
+            border:5px darkblue solid;
             display:grid;
             justify-self:start;
           
@@ -31,6 +25,6 @@ const ReplyRootComponenet = (props) => (
     </>
 )
 
-export default ReplyRootComponenet
+export default ReplyFooterContainerComponent
 
 // All content will be mobile initially
