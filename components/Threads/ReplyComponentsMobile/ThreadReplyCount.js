@@ -1,19 +1,14 @@
-import ExpandToExclusiveThreadPage from './ExpandToExclusiveThreadPage' ;
-import ThreadReplyCount from './ThreadReplyCount';
-
-// From photoshop doc
-const ReplyFooterContainerComponent = (props) => (
+const ThreadReplyCount = (props) => (
     <>
       <div>
-          <ExpandToExclusiveThreadPage/>
-          <ThreadReplyCount/>
+          <p>ThreadReplyCount</p>
       </div>
         <style jsx>{`
           p {
             font-family: "Roboto";
           }
           div{
-            border:5px darkblue dashed;
+            border:5px MediumOrchid solid;
             display:grid;
             justify-self:start;
           
@@ -29,6 +24,4 @@ const ReplyFooterContainerComponent = (props) => (
     </>
 )
 
-export default ReplyFooterContainerComponent
-
-// All content will be mobile initially
+export default ThreadReplyCount
