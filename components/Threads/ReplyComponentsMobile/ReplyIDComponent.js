@@ -8,18 +8,9 @@ const ReplyIDComponent = (props) => (
             font-family: "Roboto";
           }
           div{
-            border:5px yellow solid;
-            display:grid;
-            justify-self:start;
-          
+            border:5px yellow solid;          
           }
-          @media all and (max-width: 520px) {
-            div{
-              display:grid;
-              grid-template-columns:minmax(320px,1200px)
-            }
-    
-          }
+
         `}</style>
     </>
 )

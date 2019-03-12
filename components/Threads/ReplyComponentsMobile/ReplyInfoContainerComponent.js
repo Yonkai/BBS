@@ -19,13 +19,14 @@ const ReplyInfoContainerComponent = (props) => (
           div{
             border:5px red dashed;
             display:grid;
-            justify-self:start;
+            grid-template-columns:1fr 8fr 4fr 4fr;
           
           }
           @media all and (max-width: 520px) {
             div{
               display:grid;
-              grid-template-columns:minmax(320px,1200px)
+              grid-template-columns:1fr 8fr 4fr 4fr;
+              
             }
     
           }

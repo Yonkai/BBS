@@ -9,17 +9,9 @@ const ReplyUsername = (props) => (
           }
           div{
             border:5px maroon solid;
-            display:grid;
-            justify-self:start;
           
           }
-          @media all and (max-width: 520px) {
-            div{
-              display:grid;
-              grid-template-columns:minmax(320px,1200px)
-            }
-    
-          }
+
         `}</style>
     </>
 )
