@@ -1,22 +1,15 @@
-import ReplyOptionalImage from './ReplyOptionalImage.js' ;
-import ReplyImageData from './ReplyImageData';
-import ReplyTextContent from './ReplyTextContent.js';
-
-// From photoshop doc
-const ReplyContent = (props) => (
+const ReplyTextContent = (props) => (
     <>
       <div>
-          <ReplyOptionalImage/>
-          <ReplyImageData/>
-          <ReplyTextContent/>
-
+          <p>ReplyTextContent</p>
       </div>
         <style jsx>{`
           p {
             font-family: "Roboto";
           }
           div{
-            border:5px cyan dashed;
+            border:5px darkorange solid;
+            margin:2px;
             display:grid;
             justify-self:start;
           
@@ -32,6 +25,4 @@ const ReplyContent = (props) => (
     </>
 )
 
-export default ReplyContent
-
-// All content will be mobile initially
+export default ReplyTextContent
