@@ -1,7 +1,7 @@
 const ReplyDateMade = (props) => (
     <>
       <div>
-          <p>ReplyDateMade</p>
+          <p>Reply Date Made</p>
       </div>
         <style jsx>{`
           p {

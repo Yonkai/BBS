@@ -1,7 +1,7 @@
 const ReplyIDComponent = (props) => (
     <>
       <div>
-          <p>ReplyIDComponent</p>
+          <p>Reply ID Component</p>
       </div>
         <style jsx>{`
           p {

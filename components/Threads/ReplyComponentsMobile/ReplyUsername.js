@@ -1,7 +1,7 @@
 const ReplyUsername = (props) => (
     <>
       <div>
-          <p>ReplyUsername</p>
+          <p>Reply Username</p>
       </div>
         <style jsx>{`
           p {

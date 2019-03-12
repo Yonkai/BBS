@@ -1,7 +1,7 @@
 const ReplyImageData = (props) => (
     <>
       <div>
-          <p>ReplyImageData</p>
+          <p>Reply Image Data</p>
       </div>
         <style jsx>{`
           p {

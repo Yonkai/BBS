@@ -1,7 +1,7 @@
 const ExpandToExclusiveThreadPage = (props) => (
     <>
       <div>
-          <p>ExpandToExclusiveThreadPage</p>
+          <p>Expand To Exclusive Thread Page</p>
       </div>
         <style jsx>{`
           p {
@@ -9,16 +9,7 @@ const ExpandToExclusiveThreadPage = (props) => (
           }
           div{
             border:5px GreenYellow solid;
-            display:grid;
-            justify-self:start;
           
-          }
-          @media all and (max-width: 520px) {
-            div{
-              display:grid;
-              grid-template-columns:minmax(320px,1200px)
-            }
-    
           }
         `}</style>
     </>

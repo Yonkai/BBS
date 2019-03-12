@@ -1,7 +1,7 @@
 const ThreadReplyCount = (props) => (
     <>
       <div>
-          <p>ThreadReplyCount</p>
+          <p>Thread Reply Count</p>
       </div>
         <style jsx>{`
           p {
@@ -9,16 +9,6 @@ const ThreadReplyCount = (props) => (
           }
           div{
             border:5px MediumOrchid solid;
-            display:grid;
-            justify-self:start;
-          
-          }
-          @media all and (max-width: 520px) {
-            div{
-              display:grid;
-              grid-template-columns:minmax(320px,1200px)
-            }
-    
           }
         `}</style>
     </>
