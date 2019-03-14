@@ -1,7 +1,9 @@
+var faker = require('faker');
+
 const ReplyImageData = (props) => (
     <>
       <div>
-          <p>Reply Image Data</p>
+          <p>{faker.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}")}</p>
       </div>
         <style jsx>{`
           p {
