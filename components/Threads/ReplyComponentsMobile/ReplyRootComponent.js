@@ -13,6 +13,8 @@ const ReplyRootComponenet = (props) => (
         <style jsx>{`
           p {
             font-family: "Roboto";
+            margin:0;
+
           }
           div{
             border:5px black solid;

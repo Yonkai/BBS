@@ -6,12 +6,14 @@ const ReplyTextContent = (props) => (
     <>
       <div>
       <ReplyOptionalImage/>
-          {/* <ReplyImageData/> */}
+          
           <p>{faker.lorem.paragraphs()}</p>
       </div>
         <style jsx>{`
           p {
             font-family: "Roboto";
+            margin:0;
+
           }
           div{
             border:5px darkorange solid;
