@@ -2,9 +2,8 @@ var faker = require('faker');
 
 const ReplyIDComponent = (props) => (
     <>
-      <div>
         <img src={faker.image.imageUrl(256,256)} alt="Missing"/>
-      </div>
+    
         <style jsx>{`
           p {
             font-family: "Roboto";
@@ -15,6 +14,9 @@ const ReplyIDComponent = (props) => (
             display:grid;
             justify-self:start;
           
+          }
+          img{
+            float: left;
           }
           @media all and (max-width: 520px) {
             div{

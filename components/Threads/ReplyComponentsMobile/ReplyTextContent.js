@@ -1,8 +1,12 @@
 var faker = require('faker');
+import ReplyOptionalImage from './ReplyOptionalImage.js' ;
+import ReplyImageData from './ReplyImageData';
 
 const ReplyTextContent = (props) => (
     <>
       <div>
+      <ReplyOptionalImage/>
+          {/* <ReplyImageData/> */}
           <p>{faker.lorem.paragraphs()}</p>
       </div>
         <style jsx>{`
@@ -11,17 +15,8 @@ const ReplyTextContent = (props) => (
           }
           div{
             border:5px darkorange solid;
-            margin:2px;
-            display:grid;
-            justify-self:start;
-          
+            margin:2px;          
           }
-          @media all and (max-width: 520px) {
-            div{
-              display:grid;
-              grid-template-columns:minmax(320px,1200px)
-            }
-    
           }
         `}</style>
     </>

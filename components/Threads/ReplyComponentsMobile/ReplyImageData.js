@@ -13,7 +13,7 @@ const ReplyImageData = (props) => (
             border:5px black solid;
             margin:2px;
             display:grid;
-            justify-self:start;
+           
           
           }
           @media all and (max-width: 520px) {

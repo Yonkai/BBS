@@ -1,13 +1,10 @@
-import ReplyOptionalImage from './ReplyOptionalImage.js' ;
-import ReplyImageData from './ReplyImageData';
+
 import ReplyTextContent from './ReplyTextContent.js';
 
 // From photoshop doc
 const ReplyContent = (props) => (
     <>
       <div>
-          <ReplyOptionalImage/>
-          <ReplyImageData/>
           <ReplyTextContent/>
 
       </div>
