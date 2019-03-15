@@ -3,7 +3,7 @@ var faker = require('faker');
 const ReplyImageData = (props) => (
     <>
       <div>
-          <img src={faker.image.imageUrl(256,256)} alt="Missing"/>
+          <p>243.4Kb</p>
       </div>
         <style jsx>{`
           p {

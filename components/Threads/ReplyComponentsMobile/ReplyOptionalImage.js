@@ -1,7 +1,9 @@
+var faker = require('faker');
+
 const ReplyIDComponent = (props) => (
     <>
       <div>
-          <p>Reply ID Component</p>
+        <img src={faker.image.imageUrl(256,256)} alt="Missing"/>
       </div>
         <style jsx>{`
           p {

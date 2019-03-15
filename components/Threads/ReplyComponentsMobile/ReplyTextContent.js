@@ -1,7 +1,9 @@
+var faker = require('faker');
+
 const ReplyTextContent = (props) => (
     <>
       <div>
-          <p>ReplyTextContent</p>
+          <p>{faker.lorem.paragraphs()}</p>
       </div>
         <style jsx>{`
           p {

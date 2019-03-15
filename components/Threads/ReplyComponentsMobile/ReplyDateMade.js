@@ -1,7 +1,9 @@
+var faker = require('faker');
+
 const ReplyDateMade = (props) => (
     <>
       <div>
-          <p>Reply Date Made</p>
+          <p>xx/xx/xxxx x:xxAM</p>
       </div>
         <style jsx>{`
           p {

@@ -1,7 +1,9 @@
+var faker = require('faker');
+
 const ReplyIDComponent = (props) => (
     <>
       <div>
-          <p>Reply ID Component</p>
+          <p>{faker.random.alphaNumeric(10)}</p>
       </div>
         <style jsx>{`
           p {
