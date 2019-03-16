@@ -1,7 +1,13 @@
 const Navigator = (props) => (
     <>
       <div>
-        <h1>Board Navigator Component</h1>
+        <h3>Board Navigator Component</h3>
+        <select ClassName="boardNavigatorMobile">
+        {/* TODO: Interpolate the options through props to go to other boards: */}
+          <option value="Board1">Board-1 ->Topic</option>
+          <option value="Board2">Board-2 ->Topic</option>
+          <option value="Board3">Board-3 ->Topic</option>
+        </select>
       </div>
         {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`

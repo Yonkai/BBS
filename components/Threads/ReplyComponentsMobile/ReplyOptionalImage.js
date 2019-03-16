@@ -2,7 +2,8 @@ var faker = require('faker');
 
 const ReplyIDComponent = (props) => (
     <>
-        <img src={faker.image.imageUrl(256,256)} alt="Missing"/>
+    {/* max size for preview, expands to max csize for current container, maybe? */}
+        <img src={faker.image.imageUrl(180,180)} alt="Missing"/>
         
     
         <style jsx>{`
