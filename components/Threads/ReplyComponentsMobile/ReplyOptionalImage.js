@@ -1,27 +1,32 @@
 var faker = require('faker');
 
-const ReplyIDComponent = (props) => (
+const ReplyOptionalImage = (props) => (
     <>
     {/* max size for preview, expands to max csize for current container, maybe? */}
-        <img src={faker.image.imageUrl(180,180)} alt="Missing"/>
-        
-    
+    <figure>
+      <img src={faker.image.imageUrl(180,180)} alt="Missing"/>
+      <figcaption>description, data</figcaption>
+    </figure>
         <style jsx>{`
-          p {
-            font-family: "Roboto";
-            margin:0;
-
+          figure {
+            display: flex;
+            padding: 5px;
+            flex-direction:column;
+            max-width: 220px;
+            margin: auto;
+            float:left;
+        }
+        
+          img {
+              max-width: 220px;
+              max-height: 150px;
           }
-          div{
-            border:5px chartreuse solid;
-            margin:2px;
-            display:grid;
-            justify-self:start;
           
-          }
-          img{
-            float: left;
-            padding:4px;
+          figcaption {
+              background-color: #222;
+              color: #fff;
+              font: italic smaller sans-serif;
+              padding: 3px;
           }
           @media all and (max-width: 520px) {
             div{
@@ -34,4 +39,4 @@ const ReplyIDComponent = (props) => (
     </>
 )
 
-export default ReplyIDComponent
+export default ReplyOptionalImage

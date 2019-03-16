@@ -7,6 +7,7 @@ import ReplyIDComponent from './ReplyIDComponent.js';
 const ReplyInfoContainerComponent = (props) => (
     <>
       <div>
+        {/* grey-white-grey patterning for visibility/UI/UX maybe? */}
         <ReplyOptions/>
         <ReplyUsername/>
         <ReplyDateMade/>
