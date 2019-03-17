@@ -1,7 +1,7 @@
 const ExpandToExclusiveThreadPage = (props) => (
     <>
       <div>
-          <p>Expand Thread</p>
+          <a href="#">Expand Thread</a>
       </div>
         <style jsx>{`
           p {
