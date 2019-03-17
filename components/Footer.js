@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Footer = () => (
     <>
         <div>
-          <h1>BBS Footer Component</h1>
+          <h2>BBS Footer Component</h2>
           {/* Content:*/}
           <Link href="/">    
           <a>Home Page</a>   

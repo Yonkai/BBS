@@ -7,7 +7,6 @@ const ReplyOptions = (props) => (
           p {
             font-family: "Roboto";
             margin:0;
-
           }
           div{
             border:5px olive solid;

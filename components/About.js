@@ -1,7 +1,7 @@
 const About = () => (
     <>
       <div>
-          <h1>BBS About Component</h1>
+          <h2>BBS About Component</h2>
           <p>Welcome to the Cat Bullentein Board System! Here you can dicuss a various range of topics related to cats.</p>
       </div>
         {/* Content: Information on single boards */}

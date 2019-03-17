@@ -5,7 +5,8 @@ const IndivdualBoardsThreadsContainer = (props) => (
       <div>
       {/* Obviously this will be automated (probably in a mapping function)when the backend is implemented, it would be needed to
       have a "threads per page" functionality, for example.*/}
-        <h1>Board's Thread's Container</h1>
+        <h2>Board's Thread's Container</h2>
+        <p>Stickied Board Description Thread</p>
         <ThreadPreviewRootComponent/>
         <ThreadPreviewRootComponent/>
         <ThreadPreviewRootComponent/>
@@ -27,7 +28,10 @@ const IndivdualBoardsThreadsContainer = (props) => (
             border:5px black solid;
             display:grid;
             justify-self:start;
-          
+          }
+          // need to decompose this rule, someway to do it in nextjs way..
+          p{
+            margin:5px;
           }
           @media all and (max-width: 520px) {
             div{

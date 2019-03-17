@@ -14,20 +14,17 @@ const ReplyRootComponenet = (props) => (
           p {
             font-family: "Roboto";
             margin:0;
-
           }
           div{
             border:5px black solid;
             display:grid;
             justify-self:start;
-          
           }
           @media all and (max-width: 520px) {
             div{
               display:grid;
               grid-template-columns:minmax(320px,1200px)
             }
-    
           }
         `}</style>
     </>

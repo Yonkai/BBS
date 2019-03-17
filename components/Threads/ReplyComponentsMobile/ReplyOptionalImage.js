@@ -16,12 +16,10 @@ const ReplyOptionalImage = (props) => (
             margin: auto;
             float:left;
         }
-        
           img {
               max-width: 220px;
               max-height: 150px;
           }
-          
           figcaption {
               background-color: #222;
               color: #fff;

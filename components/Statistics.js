@@ -1,7 +1,7 @@
 const Statistics = (props) => (
     <>  
     <div className="statistics">
-        <h1>BBS Statistics Component</h1>
+        <h2>BBS Statistics Component</h2>
     </div>
         {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`

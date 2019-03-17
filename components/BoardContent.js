@@ -15,10 +15,9 @@ const BoardContent = withRouter((props) => (
                 <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
                     <a>Refresh </a>
                 </Link>
-                <ScrollDown/>
                 <NewThreadButton/>
+                <ScrollDown/>
             </div>
-            <p>Stickied Board Description Thread</p>
             <IndivdualBoardsThreadsContainer/>
             <Pagination items={[...Array(150).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }))} onChangePage={()=>{console.log('Unrefined Paginator')}} />
             <Navigator/>
