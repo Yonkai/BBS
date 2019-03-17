@@ -4,7 +4,7 @@ const ReplyOptionalImage = (props) => (
     <>
     {/* max size for preview, expands to max csize for current container, maybe? */}
     <figure>
-      <img src={faker.image.imageUrl(180,180)} alt="Missing"/>
+      <img src={faker.image.imageUrl(180,180)} alt="Missing" title="Image Description"/>
       <figcaption>description, data</figcaption>
     </figure>
         <style jsx>{`
