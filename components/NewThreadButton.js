@@ -15,18 +15,33 @@ class NewThreadButton extends React.Component {
     }
     
     render(){
-        var form;
+        let form;
         if(!this.state.openStatus){
-            form=<button className="check" onClick={this.openNewThreadForm}>New Thread</button>
+            form=
+            <>
+                <button className="check" onClick={this.openNewThreadForm}>New Thread</button>
+                <style jsx>{`button { margin-right:15px;} `}</style>
+            </>
         }else{
-            form=<button onClick={this.openNewThreadForm}>Post Form</button>
+        form=
+        <>
+            <form>
+                <input type="text" name="name" placeholder="Name"/>
+                <input type="text" name="name" placeholder="Subject"/>
+                <input type="text" name="name" placeholder="Comments"/>
+                <input type="text" name="name" placeholder="Image?"/>
+                <input type="submit" value="Submit" />
+            </form>
+            <button className="check" onClick={this.openNewThreadForm}>Close Form</button>
+            <style jsx>{`button { margin-right:15px;display:block} input{display:block}`}</style>
+        </>
         }
 
         return (
-            <>
+            <div>
                 {form}
-                <style jsx>{`button { margin-right:15px; }`}</style>
-            </>
+                <style jsx>{`button { margin-right:15px;}div{display:inline; }`}</style>
+            </div>
         );
     }
 }
