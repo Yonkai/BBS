@@ -1,7 +1,7 @@
 const ReplyOptions = (props) => (
     <>
       <div>
-          <p>O</p>
+          <p>X</p>
       </div>
         <style jsx>{`
           p {

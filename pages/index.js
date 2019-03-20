@@ -2,6 +2,9 @@
 import React from 'react';
 import Head from 'next/head';
 
+//Util
+var faker = require('faker');
+
 //components
 import Header from '../components/Header.js';
 import BoardLink from '../components/BoardLink.js';
@@ -33,12 +36,12 @@ export default () => (
       <div className="grid-boardlinks-container-item">
       <h1 className="board-title">Our Boards</h1>
         <div className="board-links-container">
-          <BoardLink title="Board-1"/>
-          <BoardLink title="Board-2"/>
-          <BoardLink title="Board-3"/>
-          <BoardLink title="Board-4"/>
-          <BoardLink title="Board-5"/>
-          <BoardLink title="Board-6"/>
+          <BoardLink title={faker.hacker.verb()}/>
+          <BoardLink title={faker.hacker.verb()}/>
+          <BoardLink title={faker.hacker.verb()}/>
+          <BoardLink title={faker.hacker.verb()}/>
+          <BoardLink title={faker.hacker.verb()}/>
+          <BoardLink title={faker.hacker.verb()}/>
         </div>
       </div>
       <About/>
