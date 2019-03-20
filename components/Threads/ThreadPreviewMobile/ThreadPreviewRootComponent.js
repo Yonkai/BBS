@@ -3,7 +3,7 @@ import ReplyRootComponenet from '../ReplyComponentsMobile/ReplyRootComponent.js'
 const ThreadPreviewRootComponent = (props) => (
     <>
       <div>
-        <ReplyRootComponenet/>
+        <ReplyRootComponenet exclusiveThreadSlug={props.exclusiveThreadSlug}/>
       </div>
         <style jsx>{`
           p {

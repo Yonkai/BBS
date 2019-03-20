@@ -1,7 +1,12 @@
+var faker = require('faker');
+import Link from 'next/link';
+
 const ExpandToExclusiveThreadPage = (props) => (
     <>
       <div>
-          <a href="#">Expand Thread</a>
+        <Link href={{ pathname: 'exclusivethread', query: { t: props.exclusiveThreadSlug } }} >
+            <a className="boardLink">Expand Thread</a>
+        </Link>
       </div>
         <style jsx>{`
           p {

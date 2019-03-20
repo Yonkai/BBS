@@ -5,8 +5,8 @@ import ThreadReplyCount from './ThreadReplyCount';
 const ReplyFooterContainerComponent = (props) => (
     <>
       <div>
-          <ExpandToExclusiveThreadPage/>
-          <ThreadReplyCount/>
+          <ExpandToExclusiveThreadPage exclusiveThreadSlug={props.exclusiveThreadSlug}/>
+          <ThreadReplyCount />
       </div>
         <style jsx>{`
           p {

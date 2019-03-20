@@ -1,4 +1,5 @@
 import ThreadPreviewRootComponent from './Threads/ThreadPreviewMobile/ThreadPreviewRootComponent.js'; 
+var faker = require('faker');
 
 const IndivdualBoardsThreadsContainer = (props) => (
     <>
@@ -7,7 +8,8 @@ const IndivdualBoardsThreadsContainer = (props) => (
       have a "threads per page" functionality, for example.*/}
         <h2>Board's Thread's Container</h2>
         <p>Stickied Board Description Thread</p>
-        <ThreadPreviewRootComponent/>
+        {/* Automate this with mapping. */}
+        <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(9999999)}/>
         <ThreadPreviewRootComponent/>
         <ThreadPreviewRootComponent/>
         <ThreadPreviewRootComponent/>
