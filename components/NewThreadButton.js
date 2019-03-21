@@ -27,10 +27,10 @@ class NewThreadButton extends React.Component {
         <>
             <form>
                 <input type="text" name="name" placeholder="Name" />
-                <input type="text" name="name" placeholder="Subject"/>
+                <input type="text" name="subject" placeholder="Subject"/>
                 <textarea id="story" placeholder='Comments' name="story" rows="5" cols="25"/>
-                <input type="text" name="name" placeholder="Image?"/>
-                <input type="text" name="name" placeholder="captcha"/>
+                <input type="text" name="image" placeholder="Image?"/>
+                <input type="text" name="captcha" placeholder="captcha"/>
                 <input type="submit" value="Submit" />
             </form>
             <button className="check" onClick={this.openNewThreadForm}>Close Form</button>
