@@ -1,30 +1,83 @@
 const Navigator = (props) => (
     <>
-      <div>
-        <h3>Board Navigator Component</h3>
-        <select ClassName="boardNavigatorMobile">
-        {/* TODO: Interpolate the options through props to go to other boards: */}
-          <option value="Board1">Board-1 ->Topic</option>
-          <option value="Board2">Board-2 ->Topic</option>
-          <option value="Board3">Board-3 ->Topic</option>
-        </select>
-      </div>
+    <div id="navigationMenu" class="navigationMenuContainer">
+        <nav role="navigation">
+        <ul>
+          <li><a href="#">Boards</a>
+          <ul class="dropdown">
+            <li><a href="#">Sub-1</a></li>
+            <li><a href="#">Sub-2</a></li>
+            <li><a href="#">Sub-3</a></li>
+          </ul>
+         </li>
+        </ul>
+      </nav>
+    </div>
         {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`
-          h1 {
-            font-family: "Roboto";
-            // width:100;
+          #navigationMenu{
+            justify-self:stretch;
           }
-          div{
-            border:5px black solid;
-            display:grid;
-            justify-self:start;
           
+          nav {
+              font-family: monospace;
+              font-size:14px;
+          }
+
+          ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+          }
+
+          li {
+            color: #fff;
+            background: darkorange;
+            display: block;
+            // float: left;
+            // padding: .5rem;
+            position: relative;
+            text-decoration: none;
+          }
+            
+          li a {
+            color: #fff;
+            text-decoration:none; 
+          }
+
+          li:hover,
+          li:focus-within {
+              background:red;
+              cursor: pointer;
+          }
+
+          ul li ul {
+            background: orange;
+            visibility: hidden;
+            opacity: 0;
+            min-width: 5rem;
+            position: absolute;
+            left: 0;
+            display: none;
+          }
+
+          ul li:hover > ul,
+          ul li:focus-within > ul,
+          ul li ul:hover,
+          ul li ul:focus {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+          }
+
+          ul li ul li {
+            clear: both;
+            width: 100%;
           }
           @media all and (max-width: 520px) {
             div{
               display:grid;
-              grid-template-columns:minmax(320px,1200px)
+              grid-template-columns:minmax(320px,1200px);
             }
     
           }

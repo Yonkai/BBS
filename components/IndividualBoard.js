@@ -37,6 +37,11 @@ const IndividualBoard = withRouter((props) => (
           grid-template-columns:1fr;
         }
 
+        .navigationMenuContainer{
+          display:grid;
+          justify-self:stretch;
+        }
+
       @media all and (max-width: 520px) {
         .container{
           display:grid;

@@ -13,7 +13,9 @@ export default () => (
       </meta>
     </Head>
     <h3>Search:</h3>
-    <p>placeholder</p>
+    <form>
+        <input type="text" name="name" placeholder="fake_search" />
+    </form>
 
     <style jsx global>{`
       html {
