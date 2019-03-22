@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { withRouter } from 'next/router';
+
 const Navigator = (props) => (
     <>
     <div id="navigationMenu" class="navigationMenuContainer">
@@ -5,9 +8,21 @@ const Navigator = (props) => (
         <ul>
           <li><a href="#">Boards</a>
           <ul class="dropdown">
-            <li><a href="#">Sub-1</a></li>
-            <li><a href="#">Sub-2</a></li>
-            <li><a href="#">Sub-3</a></li>
+            <li>        
+              <Link href="/indivdualboard?title=placeholder">
+                <a>BoardA</a>   
+              </Link>
+            </li>
+            <li>        
+              <Link href="/indivdualboard?title=placeholder">
+                <a>BoardB</a>   
+              </Link>
+            </li>
+            <li>        
+              <Link href="/indivdualboard?title=placeholder">
+                <a>BoardC</a>   
+              </Link>
+            </li>
           </ul>
          </li>
         </ul>
