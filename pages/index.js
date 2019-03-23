@@ -36,12 +36,18 @@ export default () => (
       <div className="grid-boardlinks-container-item">
       <h1 className="board-title">Our Boards</h1>
         <div className="board-links-container">
+          <BoardLink title={faker.database.collation()}/>
           <BoardLink title={faker.hacker.verb()}/>
-          <BoardLink title={faker.hacker.verb()}/>
-          <BoardLink title={faker.hacker.verb()}/>
-          <BoardLink title={faker.hacker.verb()}/>
-          <BoardLink title={faker.hacker.verb()}/>
-          <BoardLink title={faker.hacker.verb()}/>
+          <BoardLink title={faker.helpers.randomize()}/>
+          <BoardLink title={faker.internet.url()}/>
+          <BoardLink title={faker.lorem.word()}/>
+          <BoardLink title={faker.helpers.slugify('s l u g i f y')}/>
+          <BoardLink title={faker.internet.ipv6()}/>
+          <BoardLink title={faker.internet.color()}/>
+          <BoardLink title={faker.name.jobType()}/>
+          <BoardLink title={faker.system.commonFileType()}/>
+          <BoardLink title={faker.system.semver()}/>
+          <BoardLink title={faker.name.jobTitle()}/>
         </div>
       </div>
       <About/>
@@ -62,19 +68,20 @@ export default () => (
         // background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         // background-size: cover;
       }
+      
       .grid-container-index{
         display:grid;
         justify-items: center;
         grid-gap:5px;
-
       }
+
       .grid-boardlinks-container-item{
         border:5px solid black;
         display:grid;
         grid-template-columns:minmax(320px,1200px);
         // justify-items: center;
-
       }
+
       .board-title{
         justify-self:center;
       }
@@ -83,7 +90,6 @@ export default () => (
           // /* Supports Grid */
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
       }
 
     `}</style>

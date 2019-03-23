@@ -62,12 +62,12 @@ const Navigator = (props) => (
 
           li:hover,
           li:focus-within {
-              background:red;
+              background:rgba(255,0,0,.25);
               cursor: pointer;
           }
 
           ul li ul {
-            background: orange;
+            background: rgba(200,100,0,.25);
             visibility: hidden;
             opacity: 0;
             min-width: 5rem;

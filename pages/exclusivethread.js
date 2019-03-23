@@ -3,6 +3,8 @@ import faker from 'faker';
 import ThreadPreviewRootComponent from '../components/Threads/ThreadPreviewMobile/ThreadPreviewRootComponent.js'; 
 import Head from 'next/head';
 import React from 'react';
+import Navigator from '../components/Navigator.js';
+import Header from '../components/Header.js';
 import {withRouter} from 'next/router';
 
 export default withRouter((props) => (
@@ -15,8 +17,10 @@ export default withRouter((props) => (
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
+      <Navigator/>
 
         <h3>Placeholder exclusive thread page. slug:{props.router.query.t}</h3>
+        <Header/>
         <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(0)}/>
         
 
