@@ -5,6 +5,9 @@ import Head from 'next/head';
 import React from 'react';
 import Navigator from '../components/Navigator.js';
 import Header from '../components/Header.js';
+import Footer from '../components/Footer.js';
+import NewThreadButton from '../components/NewThreadButton.js';
+
 import {withRouter} from 'next/router';
 
 export default withRouter((props) => (
@@ -21,8 +24,9 @@ export default withRouter((props) => (
 
         <h3>Placeholder exclusive thread page. slug:{props.router.query.t}</h3>
         <Header/>
+        <NewThreadButton/>
         <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(0)}/>
-        
+        <Footer/>
 
       <style jsx global>{`
       html {
