@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { withRouter } from 'next/router';
 
 const Navigator = (props) => (
-    <>
-    <div id="navigationMenu" class="navigationMenuContainer">
+    <div>
+    <div id="navigationMenu">
         <nav role="navigation">
         <ul>
           <li><a href="#">Boards</a>
@@ -28,7 +28,8 @@ const Navigator = (props) => (
         </ul>
       </nav>
     </div>
-        {/* Content: Total Posts, Users (Use getInitialProps?) */}
+    
+         {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`
           #navigationMenu{
             justify-self:stretch;
@@ -97,7 +98,7 @@ const Navigator = (props) => (
     
           }
         `}</style>
-    </>
+    </div>
 )
 
 export default Navigator

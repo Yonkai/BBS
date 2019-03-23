@@ -34,14 +34,13 @@ class NewThreadButton extends React.Component {
                 <input type="submit" value="Submit" />
             </form>
             <button className="check" onClick={this.openNewThreadForm}>Close Form</button>
-            <style jsx>{`button { margin-right:15px;display:block} input{display:block}`}</style>
+            <style jsx>{`button { margin-right:15px;} input{display:block;}`}</style>
         </>
         }
 
         return (
             <div>
                 {form}
-                <style jsx>{`button { margin-right:15px;}div{display:inline; }`}</style>
             </div>
         );
     }
