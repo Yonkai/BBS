@@ -42,7 +42,6 @@ export default () => (
           <BoardLink title={faker.internet.url()}/>
           <BoardLink title={faker.lorem.word()}/>
           <BoardLink title={faker.helpers.slugify('s l u g i f y')}/>
-          <BoardLink title={faker.internet.ipv6()}/>
           <BoardLink title={faker.internet.color()}/>
           <BoardLink title={faker.name.jobType()}/>
           <BoardLink title={faker.system.commonFileType()}/>

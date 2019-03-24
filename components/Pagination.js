@@ -1,3 +1,4 @@
+//CREDIT/SOURCE: http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google
 import React from 'react';
 import PropTypes from 'prop-types';
  
@@ -10,7 +11,7 @@ const propTypes = {
     
 const defaultProps = {
     initialPage: 1,
-    pageSize: 30
+    pageSize: 10
 }
  
 class Pagination extends React.Component {
@@ -36,7 +37,8 @@ class Pagination extends React.Component {
     setPage(page) {
         var { items, pageSize } = this.props;
         var pager = this.state.pager;
- 
+        
+        // exit condition
         if (page < 1 || page > pager.totalPages) {
             return;
         }
@@ -46,6 +48,7 @@ class Pagination extends React.Component {
  
         // get new page of items from items array
         var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
+        
  
         // update state
         this.setState({ pager: pager });
@@ -135,10 +138,11 @@ class Pagination extends React.Component {
             <style jsx>{`
             li{
                 display: inline;
-                
                 padding:3px;
                 background:rgb(248,251,245,1);
-                
+            }
+            li:nth-child(${this.state.pager.currentPage+2}){
+                background-color:red;
             }
             `}</style>
         </ul>
