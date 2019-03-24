@@ -19,7 +19,7 @@ class NewThreadButton extends React.Component {
         if(!this.state.openStatus){
             form=
             <>
-                <button className="check" onClick={this.openNewThreadForm}>New Thread</button>
+                <button className="check" onClick={this.openNewThreadForm}>{this.props.isThisPartOfAnExclusiveThread?'New Reply':'New Thread'}</button>
                 <style jsx>{`button { margin-right:15px;} `}</style>
             </>
         }else{

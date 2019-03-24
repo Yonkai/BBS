@@ -24,7 +24,7 @@ export default withRouter((props) => (
 
         <h3>Placeholder exclusive thread page. slug:{props.router.query.t}</h3>
         <Header/>
-        <NewThreadButton/>
+        <NewThreadButton isThisPartOfAnExclusiveThread={true} />
         <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(0)}/>
         <Footer/>
 
