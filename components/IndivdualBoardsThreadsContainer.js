@@ -20,7 +20,7 @@ const IndivdualBoardsThreadsContainer = (props) => (
         <ThreadPreviewRootComponent/>
 
         <ThreadPreviewRootComponent/>
-        <ThreadPreviewRootComponent/>
+        <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(9999999)}/>
       </div>
         <style jsx>{`
           h1 {

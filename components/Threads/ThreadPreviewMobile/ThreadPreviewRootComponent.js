@@ -1,9 +1,11 @@
-import ReplyRootComponenet from '../ReplyComponentsMobile/ReplyRootComponent.js';
+import ReplyRootComponent from '../ReplyComponentsMobile/ReplyRootComponent.js';
+import SubReplyRootComponent from '../ReplyComponentsMobile/SubReplyRootComponent.js';
 
 const ThreadPreviewRootComponent = (props) => (
     <>
       <div>
-        <ReplyRootComponenet exclusiveThreadSlug={props.exclusiveThreadSlug}/>
+        <ReplyRootComponent exclusiveThreadSlug={props.exclusiveThreadSlug}/>
+
       </div>
         <style jsx>{`
           p {

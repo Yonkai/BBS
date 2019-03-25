@@ -7,6 +7,7 @@ import Navigator from '../components/Navigator.js';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import NewThreadButton from '../components/NewThreadButton.js';
+import SubReplyRootComponent from '../components/Threads/ReplyComponentsMobile/SubReplyRootComponent.js';
 
 import {withRouter} from 'next/router';
 
@@ -26,6 +27,8 @@ export default withRouter((props) => (
         <Header/>
         <NewThreadButton isThisPartOfAnExclusiveThread={true} />
         <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(0)}/>
+        {/* For exlcusive pages: */}
+        <SubReplyRootComponent/>
         <Footer/>
 
       <style jsx global>{`
