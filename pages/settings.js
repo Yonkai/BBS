@@ -4,6 +4,7 @@ import Head from 'next/head';
 
 export default () => (
   // React Fragment
+  // Controlled through browser cookies/other client side storage.
   <>
     <Head>
       <title>BBS title</title>
