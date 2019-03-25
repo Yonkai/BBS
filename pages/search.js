@@ -12,6 +12,7 @@ export default () => (
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
       </meta>
     </Head>
+    {/* Needs an actual database to query. */}
     <h3>Search:</h3>
     <form>
         <input type="text" name="name" placeholder="fake_search" />
@@ -21,10 +22,11 @@ export default () => (
       html {
         height:100vh;
         box-sizing:border-box;
-        margin:0;  
-        background: #FFEFBA;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        margin:0;
+        background: DimGrey;  /* fallback for old browsers */  
+        // background: #FFEFBA;  /* fallback for old browsers */
+        // background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+        // background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       }
       
     `}</style>

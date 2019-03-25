@@ -8,7 +8,7 @@ const BoardLink = (props) => (
  
       <style jsx>{`
         .module {
-          background-color: deepPink;
+          background-color: DimGrey;
           padding: 20px;
           color: #fff;
           border: 1px solid #fff;

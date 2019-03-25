@@ -2,9 +2,9 @@ const Statistics = (props) => (
     <>  
     <div className="statistics">
         <h2>BBS Statistics Component</h2>
-        <div>Total Posts:</div>
-        <div>Total Threads:</div>
-        <div>Top Threads:</div>
+        <div>Total Posts: Queried on page load</div>
+        <div>Total Threads: Queried on page load</div>
+        <div>Top Threads: Queried on page load</div>
     </div>
         {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`

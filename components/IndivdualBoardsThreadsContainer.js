@@ -8,6 +8,7 @@ const IndivdualBoardsThreadsContainer = (props) => (
       have a "threads per page" functionality, for example.*/}
         <h2>Board's Thread's Container</h2>
         <p>Stickied Board Description Thread</p>
+        {/* Data is queried from backend on page load or refresh. */}
         {/* Automate this with mapping. */}
         <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(9999999)}/>
         <ThreadPreviewRootComponent/>
