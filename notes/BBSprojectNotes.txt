@@ -9,44 +9,46 @@ of nextjs and forums in general, as shown in the wikipedia article.
 🤔0.5? Add Redux maybe for educational purposes, however I don't think the scale of this
 application will genuinely warrant it. Same applies to an error reporting service
 like sentry or a content integration system like Travis CI.
+(Do last.)
 
-1. Begin with a FRONTEND basic html/jsx that represents a bare minimum 
+✅1. Begin with a FRONTEND basic html/jsx that represents a bare minimum 
 representation of all interfaces that will be needed for the final
 application, including content locked html pages, i.e. admin access
 and moderation panels. There will be no content restriction on this
-version. Pages will exist without restriction. (Use Material UI later...?🤔)
-Use composition.
+version. Pages will exist without restriction. Use composition. 
+(Moderation will require backend work w/Auth.)
 
-2. Begin constructing all backend connections within the nextjs components that
-will eventually serve towards a backend, these will exist without any 
-kind of connection to a real backend. New tag. Connects should be simple
-async. HTTP GET or POST requests with the async/await calls (Or something else like axios?).
 
-3. For BACKEND now, using an ORM (Sequelize? Mongoose?)☠️ MySQL and express routing/other middleware, properly setup all backend 
-routes from within the nextjs application folder behavior including, can host the database on DigitalOcean:
-    3.1 User Groups
-    3.2 Threads
-    3.3 Posts
+1.5 Design MySQL Schema in MySQL Workbench.
 
-Make sure to sanitize! This will probably require quite a bit a research and be the longest section of development. Although perhaps because
-intend for the database to be a type of buffer only holding a certain amount of space, it won't be too difficult because
-normalization won't be such a huge issue, although throughput might be an issue.
+2. For backend now, using an ORM (Sequelize?) with MySQL and express middlewares, create connections to the express or node web server
+from the nextjs part of the application, and from the express web server to the MySQL DigitalOcean database server, and any other transverals
+as need, conceptually in MVC style:
 
-Make sure to make physical flow diagrams to internalize these processes better, better yet, do that for the whole application. These backend routes will evnetually hook up to
-the frontend, of course.
+NextJS-> View
+Express/Node-> Controller
+MySQL-> Model
 
-4. Write tests with Jest or whatever else to make sure everything is in working order. Do an OWASP Top 10 review
-to hit main common issues.
+Make sure to sanitize, normalize, and limit throughput. 
+There is intent for the database to be a buffer only holding a certain amount of space at once (images/text).
+
+Make physical flow diagrams to internalize these processes better, better yet, do that for the whole application. 
+
+4. Write tests with Jest or whatever else.
 
 5. Make a production version of the application, making changes as needed.
 
-6. Add SASS: Media queries, CSS-Grid, styling, etc as the final touch.
+6. Add SASS/CSS/UI refinements: Media queries, styling, etc.
 
 7. Update HTTP headers for better DNS caching.
 
 8. Host a live version on an ubuntu/nginx server on my DigitalOcean cloud account.
 
+8.5 Do an OWASP Top 10 review to hit top security issues.
+
 9. Done?
+
+10. Post online for review, refine more, etc.
 
 Current Stack: 
 NextJS 
