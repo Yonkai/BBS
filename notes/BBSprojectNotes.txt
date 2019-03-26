@@ -46,6 +46,8 @@ Make physical flow diagrams to internalize these processes better, better yet, d
 
 8.5 Do an OWASP Top 10 review to hit top security issues.
 
+8.75 SEO Optimizations.
+
 9. Done?
 
 10. Post online for review, refine more, etc.
