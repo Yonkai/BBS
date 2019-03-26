@@ -7,7 +7,7 @@ const Navigator = (props) => (
         <nav role="navigation">
         <ul>
           <li><a href="#">Boards</a>
-          <ul class="dropdown">
+          <ul className="dropdown">
             <li>        
               <Link href="/indivdualboard?title=placeholder">
                 <a>BoardA</a>   
