@@ -19,11 +19,11 @@ version. Pages will exist without restriction. Use composition.
 (Moderation will require backend work w/Auth.)
 
 
-1.5 Design MySQL Schema in MySQL Workbench.
+1.5 Design MySQL Schema.
 
 2. For backend now, using an ORM (Sequelize?) with MySQL and express middlewares, create connections to the express or node web server
 from the nextjs part of the application, and from the express web server to the MySQL DigitalOcean database server, and any other transverals
-as need, conceptually in MVC style:
+as needed, conceptually in MVC style:
 
 NextJS-> View
 Express/Node-> Controller
