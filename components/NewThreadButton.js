@@ -1,3 +1,4 @@
+// Use 'Formik' library?
 import React from 'react';
 
 class NewThreadButton extends React.Component {
@@ -18,6 +19,8 @@ class NewThreadButton extends React.Component {
 
     handleChange = (name) => {
         return (event) => {
+            // This syntax is just another way to set the key of an object without 
+            // knowing ahead of time what you want it to be called.
            this.setState({ [name]: event.target.value });
         }
     }
@@ -39,15 +42,20 @@ class NewThreadButton extends React.Component {
         form=
         <>
             <form onSubmit={this.handleSubmit}>
-                <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" placeholder="Name" />
-                <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" name="subject" placeholder="Subject"/>
-                <textarea onChange={this.handleChange('comments')}  value={this.state.comments} id="story" placeholder='Comments' name="story" rows="5" cols="25"/>
-                <input type="text" name="image" placeholder="Image?"/>
-                <input type="text" name="captcha" placeholder="captcha"/>
+                <label for="name">Name:</label>
+                <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" id="name" />
+                <label for="subject">Subject:</label>
+                <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" placeholder="Subject"/>
+                <div>
+                    <label for="comments">Comments:</label>
+                    <textarea onChange={this.handleChange('comments')}  value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
+                    {/* <input type="text" name="image" placeholder="Image?"/>
+                    <input type="text" name="captcha" placeholder="captcha"/> */}
+                </div>
                 <input type="submit" value="Submit" />
             </form>
             <button className="check" onClick={this.openNewThreadForm}>Close Form</button>
-            <style jsx>{`button { margin-right:15px;} input{display:block;}`}</style>
+            <style jsx>{`button { margin-right:15px;} input{display:block;} textarea{display:block;}`}</style>
         </>
         }
 
