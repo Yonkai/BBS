@@ -3,8 +3,10 @@ import React from 'react';
 class NewThreadButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {openStatus: false};
+        this.state = {openStatus: false, name:' ', subject:' ', comments:' '};
         this.openNewThreadForm = this.openNewThreadForm.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     openNewThreadForm(e){
@@ -13,6 +15,17 @@ class NewThreadButton extends React.Component {
             openStatus: !state.openStatus
           }));
     }
+
+    handleChange = (name) => {
+        return (event) => {
+           this.setState({ [name]: event.target.value });
+        }
+    }
+    
+    handleSubmit(event) {
+        alert('A thing was submitted: ' + this.state.name + this.state.subject + this.state.comments);
+        event.preventDefault();
+      }
     
     render(){
         let form;
@@ -25,10 +38,10 @@ class NewThreadButton extends React.Component {
         }else{
         form=
         <>
-            <form>
-                <input type="text" name="name" placeholder="Name" />
-                <input type="text" name="subject" placeholder="Subject"/>
-                <textarea id="story" placeholder='Comments' name="story" rows="5" cols="25"/>
+            <form onSubmit={this.handleSubmit}>
+                <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" placeholder="Name" />
+                <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" name="subject" placeholder="Subject"/>
+                <textarea onChange={this.handleChange('comments')}  value={this.state.comments} id="story" placeholder='Comments' name="story" rows="5" cols="25"/>
                 <input type="text" name="image" placeholder="Image?"/>
                 <input type="text" name="captcha" placeholder="captcha"/>
                 <input type="submit" value="Submit" />

@@ -18,8 +18,8 @@ app.prepare().then(() => {
 
   //Handles 404 error
   server.get('*', (req, res) => {
-    console.log('Request URL:', req.originalUrl);
-    console.log('Request Type:', req.method);
+    // console.log('Request URL:', req.originalUrl);
+    // console.log('Request Type:', req.method);
     return handle(req, res)
   })
   server.listen(port, err => {
