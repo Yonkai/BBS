@@ -24,6 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
+  //Make sure to change this to only the nextjs server in production, setting * for the header value
+  //can be a security issue.
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
