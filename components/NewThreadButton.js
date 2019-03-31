@@ -1,5 +1,6 @@
 // Use 'Formik' library?
 import React from 'react';
+import axios from 'axios';
 
 class NewThreadButton extends React.Component {
     constructor(props) {
@@ -29,16 +30,21 @@ class NewThreadButton extends React.Component {
         event.preventDefault();
         alert('A thing was submitted: ' + this.state.name + this.state.subject + this.state.comments);
             const data = {name:this.state.name,subject:this.state.subject,comments:this.state.comments};
-            console.log(data);
-            fetch('http://localhost:4000/api/', {
-              method: 'POST',
-              body: JSON.stringify(data),
-              mode: "cors",
-              headers:{
-                'Content-Type': 'application/json'
-              },
-             credentials: 'omit',
-            });
+            // console.log(data);
+            // fetch('http://localhost:4000/api/', {
+            //   method: 'POST',
+            //   body: JSON.stringify(data),
+            //   mode: "cors",
+            //   headers:{
+            //     'Content-Type': 'application/json'
+            //   },
+            //  credentials: 'omit',
+            // });
+            axios.post('http://localhost:4000/api/', {
+                name: this.state.name,
+                subject: this.state.subject,
+                comments: this.state.comments
+              })
           }
     
     render(){
