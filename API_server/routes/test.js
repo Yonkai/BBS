@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
+    console.log(req.body);
     res.json({"_id":"5c9d9b8c81d2c615c98b34cd",
     "isActive":false,"balance":"$3,164.82",
     "picture":"http://placehold.it/32x32","age":22,
