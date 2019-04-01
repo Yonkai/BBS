@@ -40,7 +40,7 @@ class NewThreadButton extends React.Component {
             //   },
             //  credentials: 'omit',
             // });
-            axios.post('http://localhost:4000/api/', {
+            axios.post('http://localhost:4000/api/threadpost', {
                 name: this.state.name,
                 subject: this.state.subject,
                 comments: this.state.comments
