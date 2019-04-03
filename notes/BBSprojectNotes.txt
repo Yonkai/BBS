@@ -20,6 +20,28 @@ version. Pages will exist without restriction. Use composition.
 
 
 1.5 Design MySQL Schema.
+1.5.1
+Schema:
+Database: BBS
+
+Tables: boards, threads, replys, metadata
+
+Column headings:
+
+//board_name is part of url
+Boards: board_names, Surrogate PK
+
+//thread_board_position refers to the threads position between 1->100 on the main 10 pages.
+//thread_exclusive_id is part of url for exclusive page of this thread.
+threads: FK->Boards PK,thread_reply_count,thread_subject, thread_board_position,thread_exclusive_id, Surrogate PK
+
+//Maybe remove 'reply' and 'thread' from all column headings where thread_board_position
+//the table name, it is self evident.
+//FK reference is an inherit indicator of ownership? 
+replys: FK->threads PK, reply_id, reply_no, reply_username, reply_in_thread_pos,
+reply_original_bool, reply_username, reply_comment_text,reply_image,reply_time
+
+metadata:visitor_count, popular_threads
 
 2. For backend now, using an ORM (Sequelize?) with MySQL and express middlewares, create connections to the express or node web server
 from the nextjs part of the application, and from the express web server to the MySQL DigitalOcean database server, and any other transverals
