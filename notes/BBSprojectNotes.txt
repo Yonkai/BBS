@@ -43,6 +43,29 @@ reply_original_bool, reply_username, reply_comment_text,reply_image,reply_time
 
 metadata:visitor_count, popular_threads
 
+Add validator for submit for like in mdn example, push to database,
+do all fields server side that can be made server side in express so it
+can be 'shielded' by nginx.
+
+Express may need to query db before submitting to the db for tings
+like the LIFO portion and finding positions/bumping info. Paginator
+component can be passed info as part of props instead of doing its own
+API calls.
+
+Test routes to mysql database just to make sure they work, then populate info.
+to the database from jsfaker for the initial getinitialprops in nextjs
+for that api restful call.
+
+Make sure to review nextjs, express, owasp, mysql, etc for security guidlines.
+Make sure sensitive files are .gitignored from the repo. and nginx has https TLS 
+enabled from the digitalocean tutorial. Post online for reviews.
+
+Make design aesthetically please but also practical.
+
+Set up trip codes and administrative features that allow for access to protected routes,
+although you might be able to do that from the server, express passport authentication
+middleware might be useful.
+
 2. For backend now, using an ORM (Sequelize?) with MySQL and express middlewares, create connections to the express or node web server
 from the nextjs part of the application, and from the express web server to the MySQL DigitalOcean database server, and any other transverals
 as needed, conceptually in MVC style:
