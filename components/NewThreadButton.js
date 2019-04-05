@@ -67,7 +67,7 @@ class NewThreadButton extends React.Component {
                 <textarea onChange={this.handleChange('comments')}  value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
                 {/* <input type="text" name="image" placeholder="Image?"/>
                     <input type="text" name="captcha" placeholder="captcha"/> */}
-                <button>Send data!</button>
+                <button>Send data</button>
             </form>
             {/* This might disable using enter? bad ux if so(the onClick): */}
             <button className="check" onClick={this.openNewThreadForm}>Close Form</button>

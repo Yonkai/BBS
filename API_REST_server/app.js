@@ -5,7 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 
-var testRouter = require('./routes/test');
+var APIRouter = require('./routes/APIRouter');
 
 var app = express();
 
