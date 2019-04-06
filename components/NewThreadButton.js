@@ -28,18 +28,18 @@ class NewThreadButton extends React.Component {
     
     handleSubmit(event) {
         event.preventDefault();
-        alert('A thing was submitted: ' + this.state.name + this.state.subject + this.state.comments);
-            const data = {name:this.state.name,subject:this.state.subject,comments:this.state.comments};
-            // console.log(data);
-            // fetch('http://localhost:4000/api/', {
-            //   method: 'POST',
-            //   body: JSON.stringify(data),
-            //   mode: "cors",
-            //   headers:{
-            //     'Content-Type': 'application/json'
-            //   },
-            //  credentials: 'omit',
-            // });
+        //alert('A thing was submitted: ' + this.state.name + this.state.subject + this.state.comments);
+        // const data = {name:this.state.name,subject:this.state.subject,comments:this.state.comments};
+        // console.log(data);
+        // fetch('http://localhost:4000/api/', {
+        //   method: 'POST',
+        //   body: JSON.stringify(data),
+        //   mode: "cors",
+        //   headers:{
+        //     'Content-Type': 'application/json'
+        //   },
+        //  credentials: 'omit',
+        // });
             axios.post('http://localhost:4000/api/threadpost', {
                 name: this.state.name,
                 subject: this.state.subject,

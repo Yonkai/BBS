@@ -22,26 +22,52 @@ version. Pages will exist without restriction. Use composition.
 1.5 Design MySQL Schema.
 1.5.1
 Schema:
-Database: bbs
+✅Database: bbs (may need to normalize these forms)
 
 Tables: boards, threads, replys, metadata
 
 Column headings:
 
 //board_name is part of url
-Boards: board_name, Surrogate PK
+✅Boards: board_name, Surrogate PK
 
 //thread_board_position refers to the threads position between 1->100 on the main 10 pages.
 //thread_exclusive_id is part of url for exclusive page of this thread.
-threads: FK->Boards PK,thread_reply_count,thread_subject, thread_board_position,thread_exclusive_id, Surrogate PK
+threads: FK->Boards PK,thread_reply_count,thread_subject,thread_board_position,thread_exclusive_id, thread_id (Surrogate PK)
 
 //Maybe remove 'reply' and 'thread' from all column headings where thread_board_position
 //the table name, it is self evident.
 //FK reference is an inherit indicator of ownership? 
-replys: FK->threads PK, reply_id, reply_no, reply_user name, reply_in_thread_pos,
+replys: FK->threads PK, reply_id, reply_no?, reply_in_thread_pos,
 reply_original_bool, reply_username, reply_comment_text,reply_image,reply_time
 
 metadata:visitor_count, popular_threads
+//DD:
+CREATE TABLE threads (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    reply_count INT UNSIGNED,
+    subject VARCHAR(30),
+    board_position TINYINT UNSIGNED,
+    board_owner TINYINT UNSIGNED NOT NULL REFERENCES boards(id),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE replys (
+    id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    reply_in_thread_pos SMALLINT NOT NULL,
+    reply_original BOOLEAN DEFAULT 0,
+    reply_username VARCHAR(12) DEFAULT 'anon',
+    reply_comment VARCHAR(1000) NOT NULL,
+    reply_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    thread_owner INT UNSIGNED NOT NULL REFERENCES threads(id),
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE metadata (
+    id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (id)
+);
 
 Add validator for submit for like in mdn example, push to database,
 do all fields server side that can be made server side in express so it
