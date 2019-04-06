@@ -4,7 +4,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-
 var APIRouter = require('./routes/APIRouter');
 
 var app = express();
@@ -30,6 +29,6 @@ app.use(function(req, res, next) {
     next();
   });
   
-app.use('/api', testRouter);
+app.use('/api', APIRouter);
 
 module.exports = app;
