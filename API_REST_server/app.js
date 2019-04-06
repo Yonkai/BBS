@@ -5,6 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var APIRouter = require('./routes/APIRouter');
+var SeedRouter =require('./config/seeder')
 
 var app = express();
 
@@ -30,5 +31,6 @@ app.use(function(req, res, next) {
   });
   
 app.use('/api', APIRouter);
+app.use('/seed', SeedRouter);
 
 module.exports = app;
