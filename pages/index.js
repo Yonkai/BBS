@@ -36,17 +36,13 @@ export default () => (
       <div className="grid-boardlinks-container-item">
       <h1 className="board-title">Our Boards</h1>
         <div className="board-links-container">
-          <BoardLink title={faker.database.collation()}/>
-          <BoardLink title={faker.hacker.verb()}/>
-          <BoardLink title={faker.helpers.randomize()}/>
-          <BoardLink title={faker.internet.url()}/>
-          <BoardLink title={faker.lorem.word()}/>
-          <BoardLink title={faker.helpers.slugify('s l u g i f y')}/>
-          <BoardLink title={faker.internet.color()}/>
-          <BoardLink title={faker.name.jobType()}/>
-          <BoardLink title={faker.system.commonFileType()}/>
-          <BoardLink title={faker.system.semver()}/>
-          <BoardLink title={faker.name.jobTitle()}/>
+          <BoardLink title={'BoardA'}/>
+          <BoardLink title={'BoardB'}/>
+          <BoardLink title={'BoardC'}/>
+          <BoardLink title={'BoardD'}/>
+          <BoardLink title={'BoardE'}/>
+          <BoardLink title={'BoardF'}/>
+          <BoardLink title={'BoardV'}/>
         </div>
       </div>
       <About/>
