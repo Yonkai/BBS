@@ -15,7 +15,7 @@ var faker = require('faker');
 
 
 //To generate data for databases:
-function seedGenerator(){
+const seedGen = function seedGenerator(){
     var seedData = {seedReplys:{},seedThreads:{}};
     var threadCount = 100; //Maximum value:100
     
@@ -54,5 +54,4 @@ function seedGenerator(){
 //    }
 
 }
-
-seedGenerator();
+module.exports =  seedGen;
