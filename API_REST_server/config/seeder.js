@@ -8,8 +8,8 @@ router.post('/database', function(req, res, next) {
     var seed = seedGen();
     console.log(seed);
 
-    //Seeding Replys
-    for(i=0;i<5;i++){
+    //Seeding Replys, TODO: needs some normalization design fixes
+    for(i=0;i<seed.replyCount;i++){
         //Send seeding data into database:
         hidden_connection.query('INSERT INTO replys (reply_in_thread_pos,reply_original,reply_username,reply_comment,thread_owner) VALUES (?,?,?,?,?)',
         [seed.seedReplys[i].reply_in_thread_pos,

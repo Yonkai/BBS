@@ -16,7 +16,7 @@ var faker = require('faker');
 
 //To generate data for databases:
 const seedGen = function seedGenerator(){
-    var seedData = {seedReplys:{},seedThreads:{}};
+    var seedData = {seedReplys:{},seedThreads:{},replyCount:0};
     var threadCount = 100; //Maximum value:100
     
     //Generate initial threads:
@@ -29,19 +29,18 @@ const seedGen = function seedGenerator(){
     //console.log(seedData);
 
     //Generate replys to those initial threads that were just generated:
-    var replyCount=0;
     var replyKey=0;
     
     //iterates through each thread object (i<reply_count) number of times, and and assigns reply object that thread object as an owner based on its key, and
     //sets a bool to 1 if its the first 'reply'.
     for (var key in seedData.seedThreads) {
         for(i=0;i<seedData.seedThreads[key].reply_count;i++){
-            seedData.seedReplys[replyKey++] = {reply_in_thread_pos: i, reply_original: i===0?1:0, reply_username:faker.random.word(10),reply_comment:faker.lorem.sentences(10),thread_owner:key};
+            seedData.seedReplys[replyKey++] = {reply_in_thread_pos: i, reply_original: i===0?1:0, reply_username:faker.name.firstName(10),reply_comment:faker.lorem.sentences(10),thread_owner:key};
         }
-        replyCount += seedData.seedThreads[key].reply_count;
-        console.log(replyCount);
+        seedData.replyCount += seedData.seedThreads[key].reply_count;
+        console.log(seedData.replyCount);
       }
-      console.log(replyCount);
+      console.log(seedData.replyCount);
       console.log(seedData);
 
 
