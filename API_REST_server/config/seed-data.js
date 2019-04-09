@@ -52,6 +52,7 @@ const seedGen = function seedGenerator(){
 //             //seedData.seedThreads[i] = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
 //         }
 //    }
+      return seedData;
 
 }
 module.exports =  seedGen;
