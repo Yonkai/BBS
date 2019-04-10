@@ -16,11 +16,11 @@ var faker = require('faker');
 
 //To generate data for databases:
 const seedGen = function seedGenerator(){
-    var seedData = {seedReplys:{},seedThreads:{},replyCount:0};
-    var threadCount = 100; //Maximum value:100
+    //threadCount max is 100 on pages, with a 10 threads/10 pages setup on paginator component
+    var seedData = {seedReplys:{},seedThreads:{},replyCount:0,threadCount:100};
     
     //Generate initial threads:
-    for(i=0;i<threadCount;i++){
+    for(i=0;i<seedData.threadCount;i++){
         // let reply = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
         // let thread = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
         //seedData.seedReplys[i] = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};

@@ -22,6 +22,20 @@ router.post('/database', function(req, res, next) {
         });
     }
 
+    for(i=0;i<seed.threadCount;i++){
+        //Send seeding data into database:
+        hidden_connection.query('INSERT INTO threads (reply_count,subject,board_position,board_owner) VALUES (?,?,?,?)',
+        [seed.seedThreads[i].reply_count,
+        seed.seedThreads[i].subject,
+        seed.seedThreads[i].board_position,
+        seed.seedThreads[i].board_owner],
+        function (error, results, fields) {
+        if (error) throw error;
+        });
+    }
+    
+    hidden_connection.end();
+
     //res.json(req.body);
 });
 
