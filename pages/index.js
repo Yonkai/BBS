@@ -1,6 +1,7 @@
 //Modules
 import React from 'react';
 import Head from 'next/head';
+import axios from 'axios';
 
 //Util
 var faker = require('faker');
@@ -20,6 +21,8 @@ const PostLink = (props) => (
     </Link>
   </li>
 )
+
+//Pull boardnames and load into app:
 
 export default () => (
   // React Fragment

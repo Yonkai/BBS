@@ -31,20 +31,33 @@ router.post('/replytothread', function(req, res, next) {
 
 
 //Readers
-router.post('/populateboardfromdatabase', function(req, res, next) {
+router.post('/readboards', function(req, res, next) {
     console.log(req.body);
     
     //test code
-    hidden_connection.query('SELECT 222 + 333 AS solution', function (error, results, fields) {
+    hidden_connection.query('SELECT * FROM threads', function (error, results, fields) {
       if (error) throw error;
-      console.log('The solution is: ', results[0].solution);
+      console.log('The results are: ', results);
     });
 
     res.json(req.body);
 });
 
+router.post('/readthreads', function(req, res, next) {
+  console.log(req.body);
+  
+  //test code
+  hidden_connection.query('SELECT * FROM threads', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The results are: ', results);
+  });
+
+  res.json(req.body);
+});
+
+
 //Updaters
-router.post('/editreply', function(req, res, next) {
+router.post('/updatereply', function(req, res, next) {
     console.log(req.body);
 
     hidden_connection.query('SELECT 222 + 333 AS solution', function (error, results, fields) {
@@ -68,15 +81,14 @@ router.post('/deletethread', function(req, res, next) {
 });
 
 router.post('/deletereply', function(req, res, next) {
-    console.log(req.body);
+  console.log(req.body);
 
-    hidden_connection.query('SELECT 222 + 333 AS solution', function (error, results, fields) {
-      if (error) throw error;
-      console.log('The solution is: ', results[0].solution);
-    });
+  hidden_connection.query('SELECT 222 + 333 AS solution', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+  });
 
-    res.json(req.body);
+  res.json(req.body);
 });
-
 
 module.exports = router;
