@@ -3,7 +3,7 @@ var router = express.Router();
 var hidden_connection = require('../config/hidden-db.js');
 
 //Creaters
-router.post('/threadpost', function(req, res, next) {
+router.post('/createthread', function(req, res, next) {
     console.log(req.body);
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
@@ -16,7 +16,7 @@ router.post('/threadpost', function(req, res, next) {
     res.json(req.body);
 });
 
-router.post('/replytothread', function(req, res, next) {
+router.post('/createreply', function(req, res, next) {
     console.log(req.body);
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
@@ -31,7 +31,7 @@ router.post('/replytothread', function(req, res, next) {
 
 
 //Readers
-router.post('/readboards', function(req, res, next) {
+router.post('/readboardnames', function(req, res, next) {
     console.log(req.body);
     
     //test code
