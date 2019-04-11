@@ -1,4 +1,5 @@
 //Run with node client...
+//(Note: Using the 'postman' application is a way better tool for testing routes like this)
 var axios = require('axios');
 
 const runSeedGenRoute = function runSeedGenRoute(){
