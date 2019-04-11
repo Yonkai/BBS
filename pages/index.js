@@ -23,6 +23,7 @@ const PostLink = (props) => (
 )
 
 const Index = (props) => (
+   
   // React Fragment
   <>
     <Head>
@@ -35,15 +36,13 @@ const Index = (props) => (
     <div className="grid-container-index">
       <Header/>
       <div className="grid-boardlinks-container-item">
-      <h1 className="board-title">Our Boards {props.data}</h1>
+      <h1 className="board-title">Our Boards</h1>
         <div className="board-links-container">
-          <BoardLink title={'BoardA'}/>
-          <BoardLink title={'BoardB'}/>
-          <BoardLink title={'BoardC'}/>
-          <BoardLink title={'BoardD'}/>
-          <BoardLink title={'BoardE'}/>
-          <BoardLink title={'BoardF'}/>
-          <BoardLink title={'BoardV'}/>
+          {
+            props.boards.map((boards) =>
+            <BoardLink title={boards.board_name} key={boards.id}/>
+            )
+          }
         </div>
       </div>
       <About/>
@@ -93,10 +92,20 @@ const Index = (props) => (
 )
 
 //Pull boardnames and load into app:
+//See axios npm docs for response schema.
+//Can only use getInitialProps on NextJS pages files
+//Need absolute path unless using a baseurl in axios
 Index.getInitialProps =  async() => {
-  const response =  await axios.get('https://jsonplaceholder.typicode.com/todos/5');
-  console.log(response.data);
-  return {data:response.data.title};
+  const response = await axios.post('http://localhost:4000/api/readboardnames');
+  console.log(
+    response.data, 
+    response.status,
+    response.statusText,
+    response.headers,
+    // response.config,
+    // response.request
+    );
+  return {boards:response.data};
 }
 
 export default Index;

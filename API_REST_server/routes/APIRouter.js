@@ -36,9 +36,9 @@ router.post('/readboardnames', function(req, res, next) {
     hidden_connection.query('SELECT * FROM boards', function (error, results, fields) {
       if (error) throw error;
       console.log('The boards are: ', results);
+      res.json(results);
     });
-
-    res.json(req.body);
+    
 });
 
 router.post('/readthreads', function(req, res, next) {
