@@ -22,9 +22,7 @@ const PostLink = (props) => (
   </li>
 )
 
-//Pull boardnames and load into app:
-
-export default () => (
+const Index = (props) => (
   // React Fragment
   <>
     <Head>
@@ -37,7 +35,7 @@ export default () => (
     <div className="grid-container-index">
       <Header/>
       <div className="grid-boardlinks-container-item">
-      <h1 className="board-title">Our Boards</h1>
+      <h1 className="board-title">Our Boards {props.data}</h1>
         <div className="board-links-container">
           <BoardLink title={'BoardA'}/>
           <BoardLink title={'BoardB'}/>
@@ -93,3 +91,12 @@ export default () => (
     `}</style>
   </>
 )
+
+//Pull boardnames and load into app:
+Index.getInitialProps =  async() => {
+  const response =  await axios.get('https://jsonplaceholder.typicode.com/todos/5');
+  console.log(response.data);
+  return {data:response.data.title};
+}
+
+export default Index;
