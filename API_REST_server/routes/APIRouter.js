@@ -8,7 +8,6 @@ router.post('/createthread', function(req, res, next) {
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
     
-    //test code
     hidden_connection.query('INSERT INTO boards (board_name) VALUES (?)',req.body.name, function (error, results, fields) {
       if (error) throw error;
     });
@@ -21,7 +20,6 @@ router.post('/createreply', function(req, res, next) {
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
     
-    //test code
     hidden_connection.query('INSERT INTO boards (board_name) VALUES (?)',req.body.name, function (error, results, fields) {
       if (error) throw error;
     });
@@ -35,9 +33,9 @@ router.post('/readboardnames', function(req, res, next) {
     console.log(req.body);
     
     //test code
-    hidden_connection.query('SELECT * FROM threads', function (error, results, fields) {
+    hidden_connection.query('SELECT * FROM boards', function (error, results, fields) {
       if (error) throw error;
-      console.log('The results are: ', results);
+      console.log('The boards are: ', results);
     });
 
     res.json(req.body);
@@ -49,7 +47,19 @@ router.post('/readthreads', function(req, res, next) {
   //test code
   hidden_connection.query('SELECT * FROM threads', function (error, results, fields) {
     if (error) throw error;
-    console.log('The results are: ', results);
+    console.log('The threads are: ', results);
+  });
+
+  res.json(req.body);
+});
+
+router.post('/readreplys', function(req, res, next) {
+  console.log(req.body);
+  
+  //test code
+  hidden_connection.query('SELECT * FROM replys', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The replys are:', results);
   });
 
   res.json(req.body);
@@ -62,7 +72,7 @@ router.post('/updatereply', function(req, res, next) {
 
     hidden_connection.query('SELECT 222 + 333 AS solution', function (error, results, fields) {
       if (error) throw error;
-      console.log('The solution is: ', results[0].solution);
+      console.log('The solution is: ', results);
     });
 
     res.json(req.body);
