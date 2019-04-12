@@ -29,10 +29,10 @@ router.post('/createreply', function(req, res, next) {
 
 
 //Readers
-router.post('/readboardnames', function(req, res, next) {
+router.post('/readboards', function(req, res, next) {
     console.log(req.body);
     
-    //test code
+    //SELECT all columns from boards table from MySQL database:
     hidden_connection.query('SELECT * FROM boards', function (error, results, fields) {
       if (error) throw error;
       console.log('The boards are: ', results);
@@ -44,25 +44,22 @@ router.post('/readboardnames', function(req, res, next) {
 router.post('/readthreads', function(req, res, next) {
   console.log(req.body);
   
-  //test code
+  //SELECT all columns from threads table from MySQL database:
   hidden_connection.query('SELECT * FROM threads', function (error, results, fields) {
     if (error) throw error;
     console.log('The threads are: ', results);
+    res.json(results);
   });
-
-  res.json(req.body);
 });
 
 router.post('/readreplys', function(req, res, next) {
   console.log(req.body);
   
-  //test code
+  //SELECT all columns from replys table from MySQL database:
   hidden_connection.query('SELECT * FROM replys', function (error, results, fields) {
     if (error) throw error;
-    console.log('The replys are:', results);
+    res.json(results);
   });
-
-  res.json(req.body);
 });
 
 

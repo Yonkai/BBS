@@ -96,7 +96,7 @@ const Index = (props) => (
 //Can only use getInitialProps on NextJS pages files
 //Need absolute path unless using a baseurl in axios
 Index.getInitialProps =  async() => {
-  const response = await axios.post('http://localhost:4000/api/readboardnames');
+  const response = await axios.post('http://localhost:4000/api/readboards');
   console.log(
     response.data, 
     response.status,
