@@ -105,6 +105,7 @@ Index.getInitialProps =  async() => {
     // response.config,
     // response.request
     );
+    //TODO: add error handler
   return {boards:response.data};
 }
 

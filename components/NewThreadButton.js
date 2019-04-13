@@ -26,6 +26,7 @@ class NewThreadButton extends React.Component {
         }
     }
     
+    //3. TODO: Write to database here through the express routes...
     handleSubmit(event) {
         event.preventDefault();
         //alert('A thing was submitted: ' + this.state.name + this.state.subject + this.state.comments);

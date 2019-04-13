@@ -119,6 +119,8 @@ Make physical flow diagrams to internalize these processes better, better yet, d
 
 8.75 SEO Optimizations.
 
+8.88 Clean Architecture Design Review?
+
 9. Done?
 
 10. Post online for review, refine more, etc.

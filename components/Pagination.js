@@ -1,4 +1,5 @@
 //CREDIT/SOURCE: http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google
+//5. Send database tables to this component as props through pages.
 import React from 'react';
 import PropTypes from 'prop-types';
  

@@ -3,8 +3,9 @@ import IndividualBoard from '../components/IndividualBoard.js';
 import Head from 'next/head';
 import React from 'react';
 import {withRouter} from 'next/router';
+import axios from 'axios';
 
-export default withRouter((props) => (
+const individualboard = withRouter((props) => (
     // React Fragment
     <>
       <Head>
@@ -14,7 +15,7 @@ export default withRouter((props) => (
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
-        
+
         <IndividualBoard title={props.router.query.pathname}/>
 
       <style jsx global>{`
@@ -34,3 +35,27 @@ export default withRouter((props) => (
     `}</style>
     </>
   ))
+
+//1.Pull in database props/tables/columns here...
+
+//Pull replys/threads and load into app:
+//See axios npm docs for response schema.
+//Can only use getInitialProps on NextJS pages files
+//Need absolute path unless using a baseurl in axios
+individualboard.getInitialProps =  async() => {
+  const thread_response = await axios.post('http://localhost:4000/api/readthreads');
+  const reply_response = await axios.post('http://localhost:4000/api/readreplys');
+  console.log(
+    thread_response.data, 
+    thread_response.status,
+    thread_response.statusText,
+    thread_response.headers,
+    // response.config,
+    // response.request
+    );
+    //TODO:Error/.catch handler
+  return {threads:thread_response.data};
+}
+
+
+export default individualboard;

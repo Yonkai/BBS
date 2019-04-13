@@ -48,3 +48,5 @@ export default withRouter((props) => (
     `}</style>
     </>
   ))
+
+//2.(And also) pull in database props/tables/columns here...
