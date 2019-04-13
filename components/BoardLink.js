@@ -15,7 +15,6 @@ const BoardLink = (props) => (
         }
         a{
           font-size:24px;
-
         }
       `}</style>
   </div>

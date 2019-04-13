@@ -24,7 +24,7 @@ const seedGen = function seedGenerator(){
         // let reply = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
         // let thread = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
         //seedData.seedReplys[i] = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
-        seedData.seedThreads[i] = {reply_count: faker.random.number(15), subject: faker.random.word(25), board_position:i, board_owner:faker.random.number(7) + 1};
+        seedData.seedThreads[i] = {reply_count: faker.random.number(10), subject: faker.random.word(20), board_position:i, board_owner:1};
     }
     //console.log(seedData);
 
@@ -35,7 +35,7 @@ const seedGen = function seedGenerator(){
     //sets a bool to 1 if its the first 'reply'.
     for (var key in seedData.seedThreads) {
         for(i=0;i<seedData.seedThreads[key].reply_count;i++){
-            seedData.seedReplys[replyKey++] = {reply_in_thread_pos: i, reply_original: i===0?1:0, reply_username:faker.name.firstName(10),reply_comment:faker.lorem.sentences(10),thread_owner:key};
+            seedData.seedReplys[replyKey++] = {reply_in_thread_pos: i, reply_original: i===0?1:0, reply_username:faker.name.firstName(10),reply_comment:faker.lorem.sentences(5),thread_owner:key};
         }
         seedData.replyCount += seedData.seedThreads[key].reply_count;
         console.log(seedData.replyCount);
