@@ -9,11 +9,6 @@ const Navigator = (props) => (
         <ul>
           <li><a href="#">Boards</a>
           <ul className="dropdown">
-             <li>        
-              <Link href="/indivdualboard?title=placeholder">
-                <a>BoardA</a>   
-              </Link>
-            </li>
             {
               //Explaination of why cond. rendering is used here:
               //https://stackoverflow.com/questions/50845894/reactjs-typeerror-cannot-read-property-map-of-undefined
