@@ -27,6 +27,7 @@ class NewThreadButton extends React.Component {
     }
     
     //3. TODO: Write to database here through the express routes...
+    //TODO: Also, add error handlers here as well.
     handleSubmit(event) {
         event.preventDefault();
         //alert('A thing was submitted: ' + this.state.name + this.state.subject + this.state.comments);
@@ -41,11 +42,20 @@ class NewThreadButton extends React.Component {
         //   },
         //  credentials: 'omit',
         // });
-            axios.post('http://localhost:4000/api/threadpost', {
+        if(this.props.isThisPartOfAnExclusiveThread){
+            axios.post('http://localhost:4000/api/createreply', {
                 name: this.state.name,
                 subject: this.state.subject,
                 comments: this.state.comments
               })
+          }
+          else{
+            axios.post('http://localhost:4000/api/createthread', {
+                name: this.state.name,
+                subject: this.state.subject,
+                comments: this.state.comments
+              })
+            }
           }
     
     render(){

@@ -11,8 +11,9 @@ router.post('/createthread', function(req, res, next) {
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
     
-    hidden_connection.query('INSERT INTO boards (board_name) VALUES (?)',req.body.name, function (error, results, fields) {
+    hidden_connection.query('SELECT 888 + 32 AS solution',req.body.name, function (error, results, fields) {
       if (error) throw error;
+      console.log('The solution is: ', results[0].solution);
     });
 
     res.json(req.body);
@@ -23,8 +24,9 @@ router.post('/createreply', function(req, res, next) {
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
     
-    hidden_connection.query('INSERT INTO boards (board_name) VALUES (?)',req.body.name, function (error, results, fields) {
+    hidden_connection.query('SELECT 2000 + 1111 AS solution',req.body.name, function (error, results, fields) {
       if (error) throw error;
+      console.log('The solution is: ', results[0].solution);
     });
 
     res.json(req.body);

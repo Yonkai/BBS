@@ -37,7 +37,6 @@ const individualboard = withRouter((props) => (
   ))
 
 //1.Pull in database props/tables/columns here...
-
 //Pull replys/threads and load into app:
 //See axios npm docs for response schema.
 //Can only use getInitialProps on NextJS pages files
@@ -48,10 +47,10 @@ individualboard.getInitialProps =  async() => {
   console.log(
     thread_response.data, 
     thread_response.status,
-    thread_response.statusText,
-    thread_response.headers,
-    // response.config,
-    // response.request
+    // thread_response.statusText,
+    // thread_response.headers,
+    reply_response.data,
+    reply_response.status
     );
     //TODO:Error/.catch handler
   return {threads:thread_response.data};

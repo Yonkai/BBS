@@ -8,10 +8,11 @@ import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import NewThreadButton from '../components/NewThreadButton.js';
 import SubReplyRootComponent from '../components/Threads/ReplyComponentsMobile/SubReplyRootComponent.js';
+import axios from 'axios';
 
 import {withRouter} from 'next/router';
 
-export default withRouter((props) => (
+const exclusivethread = withRouter((props) => (
     // React Fragment
     <>
       <Head>
@@ -50,3 +51,23 @@ export default withRouter((props) => (
   ))
 
 //2.(And also) pull in database props/tables/columns here...
+//Pull replys/threads and load into app:
+//See axios npm docs for response schema.
+//Can only use getInitialProps on NextJS pages files
+//Need absolute path unless using a baseurl in axios
+exclusivethread.getInitialProps =  async() => {
+  const thread_response = await axios.post('http://localhost:4000/api/readthreads');
+  const reply_response = await axios.post('http://localhost:4000/api/readreplys');
+  console.log(
+    thread_response.data, 
+    thread_response.status,
+    // thread_response.statusText,
+    // thread_response.headers,
+    reply_response.data,
+    reply_response.status
+    );
+    //TODO:Error/.catch handler
+  return {threads:thread_response.data, replys:reply_response.data};
+}
+
+export default exclusivethread;
