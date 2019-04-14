@@ -16,7 +16,7 @@ const individualboard = withRouter((props) => (
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
 
-        <IndividualBoard title={props.router.query.pathname}/>
+        <IndividualBoard title={props.router.query.pathname} boards={props.boards}/>
 
       <style jsx global>{`
       html {
@@ -44,6 +44,7 @@ const individualboard = withRouter((props) => (
 individualboard.getInitialProps =  async() => {
   const thread_response = await axios.post('http://localhost:4000/api/readthreads');
   const reply_response = await axios.post('http://localhost:4000/api/readreplys');
+  const board_response = await axios.post('http://localhost:4000/api/readboards');
   console.log(
     thread_response.data, 
     thread_response.status,
@@ -53,7 +54,11 @@ individualboard.getInitialProps =  async() => {
     reply_response.status
     );
     //TODO:Error/.catch handler
-  return {threads:thread_response.data};
+  return {
+    threads:thread_response.data, 
+    replys:reply_response.data,
+    boards:board_response.data
+  };
 }
 
 

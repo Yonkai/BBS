@@ -10,7 +10,7 @@ import Navigator from './Navigator.js';
 const IndividualBoard = withRouter((props) => (
   <>
     <div className="container">
-      <Navigator/>
+      <Navigator boardNames={props.boards}/>
       <div className='settings-search-home'>
         <Link href="/settings">
           <a>Settings</a>   

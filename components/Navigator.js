@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { withRouter } from 'next/router';
+import React from 'react';
 
+//props.boardNames
 const Navigator = (props) => (
     <div>
     <div id="navigationMenu">
@@ -8,21 +9,23 @@ const Navigator = (props) => (
         <ul>
           <li><a href="#">Boards</a>
           <ul className="dropdown">
-            <li>        
+             <li>        
               <Link href="/indivdualboard?title=placeholder">
                 <a>BoardA</a>   
               </Link>
             </li>
-            <li>        
-              <Link href="/indivdualboard?title=placeholder">
-                <a>BoardB</a>   
-              </Link>
-            </li>
-            <li>        
-              <Link href="/indivdualboard?title=placeholder">
-                <a>BoardC</a>   
-              </Link>
-            </li>
+            {
+              //Explaination of why cond. rendering is used here:
+              //https://stackoverflow.com/questions/50845894/reactjs-typeerror-cannot-read-property-map-of-undefined
+
+            props.boardNames && props.boardNames.map((boardNames) =>
+              <li key={boardNames.id}>
+                <Link href={`/indivdualboard?title=${boardNames.board_name}`}>
+                  <a>{boardNames.board_name}</a>   
+                </Link> 
+              </li>
+            )
+            }
           </ul>
          </li>
         </ul>
@@ -101,4 +104,9 @@ const Navigator = (props) => (
     </div>
 )
 
-export default Navigator
+Navigator.defaultProps = {
+  boardNames: [],
+}
+
+
+export default Navigator;
