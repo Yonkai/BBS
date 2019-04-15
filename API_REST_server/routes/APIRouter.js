@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var hidden_connection = require('../config/hidden-db.js');
-
+//https://www.red-gate.com/simple-talk/sql/database-administration/ten-common-database-design-mistakes/
 //4. Validation here and database logic here, parse logic out to functions and import them similar to the MDN example.
 //Authorization/access control/Authentication later on prod. Also load any needed metadata information into database here.
 
@@ -64,7 +64,7 @@ router.post('/readoriginalthreadreplys', function(req, res, next) {
   //SELECT all columns from threads table from MySQL database:
   hidden_connection.query('SELECT id,reply_comment,reply_original,reply_username,reply_in_thread_pos,thread_owner,reply_time FROM replys WHERE reply_original=1', function (error, results, fields) {
     if (error) throw error;
-    console.log('The original replys and also threads are: ', results);
+    console.log('The original replys/thread starters are and also threads are: ', results);
     res.json(results);
   });
 });

@@ -119,7 +119,7 @@ Make physical flow diagrams to internalize these processes better, better yet, d
 
 8.75 SEO Optimizations.
 
-8.88 Clean Architecture Design Review?
+8.88 Clean Architecture Design Review? Need to follow react design suggestions better, moving state logic up?
 
 9. Done?
 

@@ -5,9 +5,8 @@ import ReplyImageData from './ReplyImageData';
 const ReplyTextContent = (props) => (
     <>
       <div>
-      <ReplyOptionalImage/>
-          
-          <p>{faker.lorem.paragraphs()}</p>
+        <ReplyOptionalImage/>  
+        <p>{props.replyComment}</p>
       </div>
         <style jsx>{`
           p {

@@ -5,7 +5,7 @@ import ReplyTextContent from './ReplyTextContent.js';
 const ReplyContent = (props) => (
     <>
       <div>
-          <ReplyTextContent/>
+          <ReplyTextContent replyComment={props.replyComment}/>
 
       </div>
         <style jsx>{`

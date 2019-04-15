@@ -14,14 +14,13 @@ const IndivdualBoardsThreadsContainer = (props) => (
         {
               //Explaination of why cond. rendering is used here:
               //https://stackoverflow.com/questions/50845894/reactjs-typeerror-cannot-read-property-map-of-undefined
-              
-            props.threads && props.threads.slice(0,10).map((threads) =>
+            props.threads && props.threads.slice(0,10).map((threads, index) =>
               // <li key={threads.id}>
               //   <Link href={`/indivdualboard?title=${boards.board_name}`}>
               //     <a>{boards.board_name}</a>   
               //   </Link> 
               // </li>
-              <ThreadPreviewRootComponent indivdualThreadData={threads}/>
+              <ThreadPreviewRootComponent indivdualThreadData={threads} originalThreadReplyData={props.original[index]}/>
             )
         }
 {/* 
@@ -64,5 +63,6 @@ const IndivdualBoardsThreadsContainer = (props) => (
 export default IndivdualBoardsThreadsContainer;
 
 IndivdualBoardsThreadsContainer.defaultProps = {
-  threads: [],
+  threads:[],
+  original:[]
 }

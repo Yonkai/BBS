@@ -9,7 +9,7 @@ const ReplyInfoContainerComponent = (props) => (
       <div>
         {/* grey-white-grey patterning for visibility/UI/UX maybe? */}
         <ReplyOptions/>
-        <ReplyUsername/>
+        <ReplyUsername replyUsername={props.replyUsername} replySubject={props.replySubject || ''}/>
         <ReplyDateMade threadTime={props.threadTime}/>
         <ReplyIDComponent threadID={props.threadID}/>
       </div>

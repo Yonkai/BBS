@@ -3,12 +3,13 @@ import ReplyInfoContainerComponent from './ReplyInfoContainerComponent.js';
 import ReplyContent from './ReplyContent.js';
 import ReplyFooterContainerComponent from './ReplyFooterContainerComponent.js';  
 
+
 const ReplyRootComponenet = (props) => (
     <>
       <div>
-        <ReplyInfoContainerComponent threadTime={props.indivdualThreadData.thread_time} threadID={props.threadID} />
-        <ReplyContent/>
-        <ReplyFooterContainerComponent replyCount={props.indivdualThreadData.reply_count} threadID={props.threadID}/>
+        <ReplyInfoContainerComponent replyUsername={props.originalThreadReplyData.reply_username} replySubject={props.indivdualThreadData.subject} threadTime={props.indivdualThreadData.thread_time} threadID={props.threadID} />
+        <ReplyContent replyComment={props.originalThreadReplyData.reply_comment}/>
+        <ReplyFooterContainerComponent replyCount={props.indivdualThreadData.reply_count} threadID={props.indivdualThreadData.id}/>
       </div>
         <style jsx>{`
           p {
