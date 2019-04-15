@@ -13,10 +13,10 @@ const Navigator = (props) => (
               //Explaination of why cond. rendering is used here:
               //https://stackoverflow.com/questions/50845894/reactjs-typeerror-cannot-read-property-map-of-undefined
 
-            props.boardNames && props.boardNames.map((boardNames) =>
-              <li key={boardNames.id}>
-                <Link href={`/indivdualboard?title=${boardNames.board_name}`}>
-                  <a>{boardNames.board_name}</a>   
+            props.boards && props.boards.map((boards) =>
+              <li key={boards.id}>
+                <Link href={`/indivdualboard?title=${boards.board_name}`}>
+                  <a>{boards.board_name}</a>   
                 </Link> 
               </li>
             )
@@ -100,7 +100,7 @@ const Navigator = (props) => (
 )
 
 Navigator.defaultProps = {
-  boardNames: [],
+  boards: [],
 }
 
 

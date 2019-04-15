@@ -16,7 +16,7 @@ const individualboard = withRouter((props) => (
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
 
-        <IndividualBoard title={props.router.query.pathname} boards={props.boards}/>
+        <IndividualBoard title={props.router.query.pathname} boards={props.boards} threads={props.threads} replys={props.replys}/>
 
       <style jsx global>{`
       html {

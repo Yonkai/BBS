@@ -10,7 +10,7 @@ import Navigator from './Navigator.js';
 const IndividualBoard = withRouter((props) => (
   <>
     <div className="container">
-      <Navigator boardNames={props.boards}/>
+      <Navigator boards={props.boards}/>
       <div className='settings-search-home'>
         <Link href="/settings">
           <a>Settings</a>   
@@ -23,7 +23,7 @@ const IndividualBoard = withRouter((props) => (
         </Link>
       </div>
       <Header/>
-        <BoardContent boardTitle={props.router.query.title}/>
+        <BoardContent boardTitle={props.router.query.title} boards={props.boards} threads={props.threads} replys={props.replys}/>
       <Footer/>
     </div>
     <style jsx>{`
