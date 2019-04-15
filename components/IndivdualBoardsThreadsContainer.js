@@ -21,7 +21,7 @@ const IndivdualBoardsThreadsContainer = (props) => (
               //     <a>{boards.board_name}</a>   
               //   </Link> 
               // </li>
-              <ThreadPreviewRootComponent exclusiveThreadSlug={threads.id}/>
+              <ThreadPreviewRootComponent indivdualThreadData={threads} exclusiveThreadSlug={threads.id}/>
             )
         }
 {/* 

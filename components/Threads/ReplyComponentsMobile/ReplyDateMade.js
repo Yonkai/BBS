@@ -4,7 +4,7 @@ const ReplyDateMade = (props) => (
     <>
       <div>
         
-          <p>xx/xx/xxxx x:xxAM</p>
+          <p>{props.threadTime?props.threadTime:0}</p>
       </div>
         <style jsx>{`
           p {

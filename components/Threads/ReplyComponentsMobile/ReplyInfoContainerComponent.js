@@ -10,8 +10,8 @@ const ReplyInfoContainerComponent = (props) => (
         {/* grey-white-grey patterning for visibility/UI/UX maybe? */}
         <ReplyOptions/>
         <ReplyUsername/>
-        <ReplyDateMade/>
-        <ReplyIDComponent/>
+        <ReplyDateMade threadTime={props.threadTime}/>
+        <ReplyIDComponent threadID={props.threadID}/>
       </div>
         <style jsx>{`
           p {

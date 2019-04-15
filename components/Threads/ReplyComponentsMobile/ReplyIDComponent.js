@@ -3,7 +3,7 @@ var faker = require('faker');
 const ReplyIDComponent = (props) => (
     <>
       <div>
-          <p> No.{faker.random.number(99999)}</p>
+          <p> No.{props.threadID}</p>
       </div>
         <style jsx>{`
           p {

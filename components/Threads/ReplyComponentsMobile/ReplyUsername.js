@@ -3,7 +3,7 @@ var faker = require('faker');
 const ReplyUsername = (props) => (
     <>
       <div>
-          <p>Username</p>
+          <p>UN:</p>
       </div>
         <style jsx>{`
           p {

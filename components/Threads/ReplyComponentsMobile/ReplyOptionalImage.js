@@ -3,11 +3,11 @@ var faker = require('faker');
 const ReplyOptionalImage = (props) => (
     <>
     {/* max size for preview, expands to max csize for current container, maybe? */}
-    <figure>
+    {/* <figure>
       <img src={faker.image.imageUrl(180,180)} alt="Missing" title="Image Description 
       "/>
       <figcaption>description, data</figcaption>
-    </figure>
+    </figure> */}
         <style jsx>{`
           figure {
             display: flex;
@@ -38,4 +38,4 @@ const ReplyOptionalImage = (props) => (
     </>
 )
 
-export default ReplyOptionalImage
+export default ReplyOptionalImage;

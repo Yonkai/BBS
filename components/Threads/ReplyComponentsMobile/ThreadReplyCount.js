@@ -3,7 +3,7 @@ var faker = require('faker');
 const ThreadReplyCount = (props) => (
     <>
       <div>
-          <p>Replies: {faker.random.number(100)}</p>
+          <p>Replies: {props.replyCount}</p>
       </div>
         <style jsx>{`
           p {

@@ -6,9 +6,9 @@ import ReplyFooterContainerComponent from './ReplyFooterContainerComponent.js';
 const ReplyRootComponenet = (props) => (
     <>
       <div>
-        <ReplyInfoContainerComponent />
+        <ReplyInfoContainerComponent threadTime={props.indivdualThreadData.thread_time} threadID={props.indivdualThreadData.id} />
         <ReplyContent/>
-        <ReplyFooterContainerComponent exclusiveThreadSlug={props.exclusiveThreadSlug}/>
+        <ReplyFooterContainerComponent replyCount={props.indivdualThreadData.reply_count} exclusiveThreadSlug={props.exclusiveThreadSlug}/>
       </div>
         <style jsx>{`
           p {
