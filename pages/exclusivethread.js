@@ -23,11 +23,11 @@ const exclusivethread = withRouter((props) => (
       </Head>
       <Navigator/>
 
-        <h3>Placeholder exclusive thread page. slug:{props.router.query.threadID}</h3>
+        <h3>Placeholder exclusive thread page. thread id:{props.router.query.threadID}</h3>
         <Header/>
         <NewThreadButton isThisPartOfAnExclusiveThread={true} />
         {/* Data needs to be loaded here again: */}
-        <ThreadPreviewRootComponent indivdualThreadData={props.threads} exclusiveThreadSlug={faker.random.number(0)}/>
+        <ThreadPreviewRootComponent indivdualThreadData={props.threads} threadID={props.threadID}/>
         {/* For exlcusive pages: */}
         <SubReplyRootComponent/>
         <Footer/>

@@ -57,6 +57,19 @@ router.post('/readthreads', function(req, res, next) {
   });
 });
 
+//Slightly confusing, but the first reply contains content that is both a reference to a reply and a thread table row at the same time. 
+router.post('/readoriginalthreadreplys', function(req, res, next) {
+  console.log(req.body);
+  
+  //SELECT all columns from threads table from MySQL database:
+  hidden_connection.query('SELECT id,reply_comment,reply_original,reply_username,reply_in_thread_pos,thread_owner,reply_time FROM replys WHERE reply_original=1', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The original replys and also threads are: ', results);
+    res.json(results);
+  });
+});
+
+
 router.post('/readreplys', function(req, res, next) {
   console.log(req.body);
   
