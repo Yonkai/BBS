@@ -1,5 +1,6 @@
 import ThreadPreviewRootComponent from './Threads/ThreadPreviewMobile/ThreadPreviewRootComponent.js'; 
 var faker = require('faker');
+import React from 'react';
 
 const IndivdualBoardsThreadsContainer = (props) => (
     <>
@@ -10,6 +11,20 @@ const IndivdualBoardsThreadsContainer = (props) => (
         <p>Stickied Board Description Thread</p>
         {/* Data is queried from backend on page load or refresh. */}
         {/* Automate this with mapping. */}
+        {
+              //Explaination of why cond. rendering is used here:
+              //https://stackoverflow.com/questions/50845894/reactjs-typeerror-cannot-read-property-map-of-undefined
+              
+            props.threads && props.threads.slice(0,10).map((threads) =>
+              // <li key={threads.id}>
+              //   <Link href={`/indivdualboard?title=${boards.board_name}`}>
+              //     <a>{boards.board_name}</a>   
+              //   </Link> 
+              // </li>
+              <ThreadPreviewRootComponent exclusiveThreadSlug={threads.id}/>
+            )
+        }
+{/* 
         <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(9999999)}/>
         <ThreadPreviewRootComponent/>
         <ThreadPreviewRootComponent/>
@@ -21,7 +36,7 @@ const IndivdualBoardsThreadsContainer = (props) => (
         <ThreadPreviewRootComponent/>
 
         <ThreadPreviewRootComponent/>
-        <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(9999999)}/>
+        <ThreadPreviewRootComponent exclusiveThreadSlug={faker.random.number(9999999)}/> */}
       </div>
         <style jsx>{`
           h1 {
@@ -46,4 +61,8 @@ const IndivdualBoardsThreadsContainer = (props) => (
     </>
 )
 
-export default IndivdualBoardsThreadsContainer
+export default IndivdualBoardsThreadsContainer;
+
+IndivdualBoardsThreadsContainer.defaultProps = {
+  threads: [],
+}

@@ -54,4 +54,4 @@ const IndividualBoard = withRouter((props) => (
   </>
 ))
 
-export default IndividualBoard
+export default IndividualBoard;

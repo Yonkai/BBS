@@ -19,7 +19,7 @@ const BoardContent = withRouter((props) => (
                 <NewThreadButton/>
                 <ScrollDown/>
             </div>
-            <IndivdualBoardsThreadsContainer/>
+            <IndivdualBoardsThreadsContainer threads={props.threads}/>
             <Pagination initialPage={1} pageSize={10} items={[...Array(100).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }))} onChangePage={()=>{console.log('Unrefined Paginator')}} />
             <Navigator boards = {props.boards}/>
             <div>
