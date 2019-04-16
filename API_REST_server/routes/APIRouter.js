@@ -69,7 +69,6 @@ router.post('/readoriginalthreadreplys', function(req, res, next) {
   });
 });
 
-
 router.post('/readreplys', function(req, res, next) {
   console.log(req.body);
   
@@ -79,7 +78,6 @@ router.post('/readreplys', function(req, res, next) {
     res.json(results);
   });
 });
-
 
 //Updaters
 router.post('/updatereply', function(req, res, next) {

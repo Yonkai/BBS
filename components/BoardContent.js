@@ -13,14 +13,18 @@ const BoardContent = withRouter((props) => (
     <>
             <p className={props.router.query.title}>{`Welcome to ${props.router.query.title}`}</p>
             <div className="linkgrouprefreshbottomnewthread">
-                <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
-                    <a>Refresh </a>
+                <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title,page:props.router.query.page}}}>
+                    <a>Refresh</a>
                 </Link>
                 <NewThreadButton/>
                 <ScrollDown/>
             </div>
             <IndivdualBoardsThreadsContainer threads={props.threads} original={props.original}/>
-            <Pagination initialPage={1} pageSize={10} items={[...Array(100).keys()].map(i => ({ id: (i+1), name: 'Item ' + (i+1) }))} onChangePage={()=>{console.log('Unrefined Paginator')}} />
+            <Pagination 
+            initialPage={1} 
+            pageSize={10} 
+            items={props.threads} 
+            onChangePage={(currentPageIndex)=>{console.log(currentPageIndex)}} />
             <Navigator boards = {props.boards}/>
             <div>
                 <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>
@@ -42,8 +46,6 @@ const BoardContent = withRouter((props) => (
         a{
             margin-right:15px;
         }
-
-
         `}</style>
     </>
 ))

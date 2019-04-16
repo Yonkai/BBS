@@ -50,7 +50,6 @@ class Pagination extends React.Component {
         // get new page of items from items array
         var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
         
- 
         // update state
         this.setState({ pager: pager });
  
