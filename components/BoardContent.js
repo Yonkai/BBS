@@ -44,7 +44,7 @@ class BoardContent extends React.Component {
                 // 5. Also include a fresh database call as a function in the new class function inside the render method, or possibly include that
                 // as an addition to the pager item (the database call) and pass that alongside the props from step 3.
                 // https://stackoverflow.com/questions/47461803/nextjs-componentwillmount-vs-getinitialprops
-                onChangePage={(pager)=>{console.log(pager)}} />
+                onChangePage={(updatedPager)=>{this.setState({pager:updatedPager})}} />
                 <Navigator boards = {this.props.boards}/>
                 <div>
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title}}}>
