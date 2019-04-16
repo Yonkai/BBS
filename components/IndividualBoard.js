@@ -23,7 +23,12 @@ const IndividualBoard = withRouter((props) => (
         </Link>
       </div>
       <Header/>
-        <BoardContent boardTitle={props.router.query.title} boards={props.boards} threads={props.threads} replys={props.replys} original={props.original}/>
+        <BoardContent 
+         boardTitle={props.router.query.title} 
+         boards={props.boards}
+         threads={props.threads}
+         replys={props.replys}
+         original={props.original}/>
       <Footer/>
     </div>
     <style jsx>{`

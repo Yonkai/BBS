@@ -14,11 +14,12 @@ const IndivdualBoardsThreadsContainer = (props) => (
         {
               //Explaination of why cond. rendering is used here:
               //https://stackoverflow.com/questions/50845894/reactjs-typeerror-cannot-read-property-map-of-undefined
+              //2. Pass here as props to load info (pager info)
             props.threads && props.threads.slice(0,10).map((threads, index) =>
               // <li key={threads.id}>
               //   <Link href={`/indivdualboard?title=${boards.board_name}`}>
               //     <a>{boards.board_name}</a>   
-              //   </Link> 
+              //   </Link>
               // </li>
               <ThreadPreviewRootComponent key={index} indivdualThreadData={threads} originalThreadReplyData={props.original[index]}/>
             )

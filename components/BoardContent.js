@@ -20,11 +20,18 @@ const BoardContent = withRouter((props) => (
                 <ScrollDown/>
             </div>
             <IndivdualBoardsThreadsContainer threads={props.threads} original={props.original}/>
-            <Pagination 
-            initialPage={1} 
-            pageSize={10} 
-            items={props.threads} 
-            onChangePage={(currentPageIndex)=>{console.log(currentPageIndex)}} />
+            <Pagination
+            initialPage={1}
+            pageSize={10}
+            items={props.threads}
+            // 1. Switch this to class function
+            // 2. Track the state of pager in this component (Could be useful later)
+            // 3. Add the state of pager to the render function to a component to props
+            // 4. Handle state changes from BoardContent in lower components (That were passed in as props.) (Only IndivdualBoardsThreadsContainer?)
+            // 5. Also include a fresh database call as a function in the new class function inside the render method, or possibly include that
+            // as an addition to the pager item (the database call) and pass that alongside the props from step 3.
+            // https://stackoverflow.com/questions/47461803/nextjs-componentwillmount-vs-getinitialprops
+            onChangePage={(pager)=>{console.log(pager)}} />
             <Navigator boards = {props.boards}/>
             <div>
                 <Link href={{ pathname: '/indivdualboard', query:{title:props.router.query.title}}}>

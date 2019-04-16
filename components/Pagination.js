@@ -54,7 +54,7 @@ class Pagination extends React.Component {
         this.setState({ pager: pager });
  
         // call change page function in parent component
-        this.props.onChangePage(pageOfItems);
+        this.props.onChangePage(pager);
     }
  
     getPager(totalItems, currentPage, pageSize) {
@@ -142,7 +142,7 @@ class Pagination extends React.Component {
                 background:rgb(248,251,245,1);
             }
             li:nth-child(${this.state.pager.currentPage+2}){
-                background-color:red;
+                background-color:orange;
             }
             li a{
                 -webkit-touch-callout: none; /* iOS Safari */
