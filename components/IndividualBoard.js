@@ -3,7 +3,6 @@ import Footer from './Footer.js';
 import BoardContent from './BoardContent.js';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
-import { checkPropTypes } from 'prop-types';
 import Navigator from './Navigator.js';
 
 
@@ -28,7 +27,9 @@ const IndividualBoard = withRouter((props) => (
          boards={props.boards}
          threads={props.threads}
          replys={props.replys}
-         original={props.original}/>
+         original={props.original}
+         router={props.router}
+         />
       <Footer/>
     </div>
     <style jsx>{`
@@ -55,7 +56,6 @@ const IndividualBoard = withRouter((props) => (
 
       }
       `}</style>
-
   </>
 ))
 

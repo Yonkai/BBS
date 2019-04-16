@@ -94,4 +94,4 @@ class NewThreadButton extends React.Component {
     }
 }
 
-export default NewThreadButton
+export default NewThreadButton;
