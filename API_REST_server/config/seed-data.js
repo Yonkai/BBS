@@ -24,7 +24,7 @@ const seedGen = function seedGenerator(){
         // let reply = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
         // let thread = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
         //seedData.seedReplys[i] = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
-        seedData.seedThreads[i] = {reply_count: faker.random.number(10), subject: faker.random.word(20), board_position:i, board_owner:1};
+        seedData.seedThreads[i] = {reply_count: faker.random.number(12) + 1, subject: faker.random.word(20), board_position:i, board_owner:1};
     }
     //console.log(seedData);
 

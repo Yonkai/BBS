@@ -32,7 +32,7 @@ class BoardContent extends React.Component {
                     <NewThreadButton/>
                     <ScrollDown/>
                 </div>
-                <IndivdualBoardsThreadsContainer threads={this.props.threads} original={this.props.original}/>
+                <IndivdualBoardsThreadsContainer threads={this.props.threads} original={this.props.original} pager={this.state.pager}/>
                 <Pagination
                 initialPage={1}
                 pageSize={10}
