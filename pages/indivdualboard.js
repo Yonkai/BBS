@@ -12,13 +12,11 @@ class IndivdualBoardPage extends React.Component {
      }
 
      componentDidMount() {
-      console.log('Component DID MOUNT!')
-        axios.post('http://localhost:4000/api/readthreads').then((response)=>this.setState({threads:response.data}));
-        axios.post('http://localhost:4000/api/readreplys').then((response)=>this.setState({replys:response.data}));
-        axios.post('http://localhost:4000/api/readboards').then((response)=>this.setState({boards:response.data}));
-        axios.post('http://localhost:4000/api/readoriginalthreadreplys').then((response)=>this.setState({original:response.data})).catch(function (error) {
-          console.log(error);
-        });
+       //add error handling
+      axios.post('http://localhost:4000/api/readoriginalthreadreplys').then((response)=>this.setState({original:response.data})); 
+      axios.post('http://localhost:4000/api/readthreads').then((response)=>this.setState({threads:response.data}));
+      axios.post('http://localhost:4000/api/readreplys').then((response)=>this.setState({replys:response.data}));
+      axios.post('http://localhost:4000/api/readboards').then((response)=>this.setState({boards:response.data}));
      }
 
   render(){
