@@ -11,6 +11,8 @@ import React from 'react';
 class BoardContent extends React.Component {
     constructor(props){
         super(props);
+        //Dont copy props into state, experienced some bugs with that while messing around, also react docs says not to do that.
+        //Use component did update instead
         this.state = {pager:{}};
         this.onChangePage = this.onChangePage.bind(this);
     }
@@ -26,13 +28,13 @@ class BoardContent extends React.Component {
             <>
                 <p className={this.props.router.query.title}>{`Welcome to ${this.props.router.query.title}`}</p>
                 <div className="linkgrouprefreshbottomnewthread">
-                    <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title,page:this.props.router.query.page}}}>
+                    <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title, page:this.props.router.query.page}}}>
                         <a>Refresh</a>
                     </Link>
                     <NewThreadButton/>
                     <ScrollDown/>
                 </div>
-                <IndivdualBoardsThreadsContainer threads={this.props.threads} original={this.props.original} pager={this.state.pager}/>
+                <IndivdualBoardsThreadsContainer pager={this.state.pager} threads={this.props.threads} original={this.props.original}/>
                 <Pagination
                 initialPage={1}
                 pageSize={10}
@@ -40,10 +42,8 @@ class BoardContent extends React.Component {
                 // 1. Switch this to a class function
                 // 2. Track the state of pager in this component (Could be useful later)
                 // 3. Add the state of pager to the render function to a component to props
-                // 4. Handle state changes from BoardContent in lower components (That were passed in as props.) (Only IndivdualBoardsThreadsContainer?)
-                // 5. Also include a fresh database call as a function in the new class function inside the render method, or possibly include that
-                // as an addition to the pager item (the database call) and pass that alongside the props from step 3.
-                // https://stackoverflow.com/questions/47461803/nextjs-componentwillmount-vs-getinitialprops
+                // REDACTED
+                // 6. Set a cookie to remember last used page, or push to history state on client?
                 onChangePage={(updatedPager)=>{this.setState({pager:updatedPager})}} />
                 <Navigator boards = {this.props.boards}/>
                 <div>

@@ -4,7 +4,7 @@ import SubReplyRootComponent from '../ReplyComponentsMobile/SubReplyRootComponen
 const ThreadPreviewRootComponent = (props) => (
     <>
       <div>
-        <ReplyRootComponent indivdualThreadData = {props.indivdualThreadData} threadID={props.indivdualThreadData.id} originalThreadReplyData={props.originalThreadReplyData}/>
+        <ReplyRootComponent indivdualThreadData = {props.indivdualThreadData} threadID={props.indivdualThreadData.id} original={props.original}/>
       </div>
         <style jsx>{`
           p {
@@ -29,6 +29,6 @@ const ThreadPreviewRootComponent = (props) => (
     </>
 )
 
-export default ThreadPreviewRootComponent
+export default ThreadPreviewRootComponent;
 
 // All content is mobile initially

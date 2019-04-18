@@ -13,6 +13,7 @@ const BoardLink = (props) => (
           color: #fff;
           border: 1px solid #fff;
         }
+        
         a{
           font-size:24px;
         }
@@ -20,4 +21,4 @@ const BoardLink = (props) => (
   </div>
 )
 
-export default BoardLink
+export default BoardLink;

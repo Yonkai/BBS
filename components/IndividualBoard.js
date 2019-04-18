@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { withRouter } from 'next/router';
 import Navigator from './Navigator.js';
 
-
 const IndividualBoard = withRouter((props) => (
   <>
     <div className="container">

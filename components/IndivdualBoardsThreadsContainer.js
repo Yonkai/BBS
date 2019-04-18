@@ -1,5 +1,4 @@
 import ThreadPreviewRootComponent from './Threads/ThreadPreviewMobile/ThreadPreviewRootComponent.js'; 
-var faker = require('faker');
 import React from 'react';
 
 const IndivdualBoardsThreadsContainer = (props) => (
@@ -21,7 +20,7 @@ const IndivdualBoardsThreadsContainer = (props) => (
               //     <a>{boards.board_name}</a>   
               //   </Link>
               // </li>
-              <ThreadPreviewRootComponent key={index} indivdualThreadData={threads} originalThreadReplyData={props.original[props.pager.startIndex+index]}/>
+              <ThreadPreviewRootComponent key={props.pager.startIndex+index} indivdualThreadData={threads} original={props.original[props.pager.startIndex+index]}/>
             )
         }
 {/* 
