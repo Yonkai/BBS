@@ -20,6 +20,7 @@ class BoardContent extends React.Component {
     onChangePage(e,pager){
         e.preventDefault;
         console.log(pager);
+
     }
 
     render(){
@@ -44,6 +45,9 @@ class BoardContent extends React.Component {
                 // 3. Add the state of pager to the render function to a component to props
                 // REDACTED
                 // 6. Set a cookie to remember last used page, or push to history state on client?
+
+                //Add a callback function here that updates the state in the higher component from the new database synchronously, so the props
+                //can be rerendered before the call, and then set the state of pager in this component.
                 onChangePage={(updatedPager)=>{this.setState({pager:updatedPager})}} />
                 <Navigator boards = {this.props.boards}/>
                 <div>
