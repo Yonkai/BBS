@@ -8,16 +8,38 @@ import axios from 'axios';
 class IndivdualBoardPage extends React.Component {
      constructor(props){
         super(props);
-        this.state = {threads:[],replys:[],boards:[],original:[]};
+        this.state = {threads:[],replys:[],boards:[],original:[],isLoading:false,error:null};
      }
 
      componentDidMount() {
-       //add error handling
-      axios.post('http://localhost:4000/api/readoriginalthreadreplys').then((response)=>this.setState({original:response.data})); 
-      axios.post('http://localhost:4000/api/readthreads').then((response)=>this.setState({threads:response.data}));
-      axios.post('http://localhost:4000/api/readreplys').then((response)=>this.setState({replys:response.data}));
-      axios.post('http://localhost:4000/api/readboards').then((response)=>this.setState({boards:response.data}));
-     }
+      this.setState({isLoading:true});
+      axios.post('http://localhost:4000/api/readoriginalthreadreplys')
+      .then((response)=>this.setState({original:response.data}))
+      .catch(error => this.setState({
+        error,
+      }));
+      
+      axios.post('http://localhost:4000/api/readthreads')
+      .then((response)=>this.setState({threads:response.data}))
+      .catch(error => this.setState({
+        error,
+      }));
+      
+
+      axios.post('http://localhost:4000/api/readreplys')
+      .then((response)=>this.setState({replys:response.data}))
+      .catch(error => this.setState({
+        error,
+      }));
+      
+
+      axios.post('http://localhost:4000/api/readboards')
+     .then((response)=>this.setState({boards:response.data}))
+     .catch(error => this.setState({
+      error,
+      isLoading:false
+    }));
+  }
 
   render(){
         return(
