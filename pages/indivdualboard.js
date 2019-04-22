@@ -8,9 +8,16 @@ import axios from 'axios';
 class IndivdualBoardPage extends React.Component {
      constructor(props){
         super(props);
-        this.state = {threads:[],replys:[],boards:[],original:[],isLoading:false,error:null};
-     }
-
+        this.handlePagerChange = this.handlePagerChange.bind(this);
+        this.state =
+        { threads:[],
+          replys:[],
+          boards:[],
+          original:[],
+          pager:{},
+          isLoading:false,
+          error:null};
+       }
      componentDidMount() {
       this.setState({isLoading:true});
       axios.post('http://localhost:4000/api/readoriginalthreadreplys')
@@ -41,6 +48,10 @@ class IndivdualBoardPage extends React.Component {
     }));
   }
 
+  handlePagerChange(UpdatedPager){
+    this.setState({pager:UpdatedPager});
+  }
+
   render(){
         return(
           <>
@@ -58,7 +69,10 @@ class IndivdualBoardPage extends React.Component {
             boards={this.state.boards} 
             threads={this.state.threads} 
             replys={this.state.replys} 
-            original={this.state.original}/>
+            original={this.state.original}
+            onPagerChange={this.handlePagerChange}
+            pager={this.state.pager}
+            />
 
             <style jsx global>{`
             html {

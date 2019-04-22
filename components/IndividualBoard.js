@@ -28,6 +28,8 @@ const IndividualBoard = withRouter((props) => (
          replys={props.replys}
          original={props.original}
          router={props.router}
+         onPagerChange={props.onPagerChange}
+         pager={props.pager}
          />
       <Footer/>
     </div>

@@ -13,14 +13,12 @@ class BoardContent extends React.Component {
         super(props);
         //Dont copy props into state, experienced some bugs with that while messing around, also react docs says not to do that.
         //Use component did update instead
-        this.state = {pager:{}};
-        this.onChangePage = this.onChangePage.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    onChangePage(e,pager){
-        e.preventDefault;
-        console.log(pager);
-
+    handleChange(pager){
+        //Sends page state ton individualboard component
+        this.props.onPagerChange(pager);
     }
 
     render(){
@@ -35,20 +33,15 @@ class BoardContent extends React.Component {
                     <NewThreadButton/>
                     <ScrollDown/>
                 </div>
-                <IndivdualBoardsThreadsContainer pager={this.state.pager} threads={this.props.threads} original={this.props.original}/>
+                <IndivdualBoardsThreadsContainer pager={this.props.pager} threads={this.props.threads} original={this.props.original}/>
                 <Pagination
                 initialPage={1}
                 pageSize={10}
                 items={this.props.threads}
-                // 1. Switch this to a class function
-                // 2. Track the state of pager in this component (Could be useful later)
-                // 3. Add the state of pager to the render function to a component to props
-                // REDACTED
                 // 6. Set a cookie to remember last used page, or push to history state on client?
-
                 //Add a callback function here that updates the state in the higher component from the new database synchronously, so the props
                 //can be rerendered before the call, and then set the state of pager in this component.
-                onChangePage={(updatedPager)=>{this.setState({pager:updatedPager})}} />
+                onChangePage={this.handleChange} />
                 <Navigator boards = {this.props.boards}/>
                 <div>
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title}}}>
