@@ -1,5 +1,4 @@
 //CREDIT/SOURCE: http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google
-//5. Send database tables to this component as props through pages.
 import React from 'react';
 import PropTypes from 'prop-types';
  
@@ -18,10 +17,10 @@ const defaultProps = {
 class Pagination extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { pager: {} };
+        // this.state = { pager: {} };
     }
  
-    componentWillMount() {
+    componentDidMount() {
         // set page if items array isn't empty
         if (this.props.items && this.props.items.length) {
             this.setPage(this.props.initialPage);
@@ -30,14 +29,18 @@ class Pagination extends React.Component {
  
     componentDidUpdate(prevProps, prevState) {
         // reset page if items array has changed
-        if (this.props.items !== prevProps.items) {
+        if (this.props.items !== prevProps.items ) {
             this.setPage(this.props.initialPage);
+            // this.props.requery();
         }
     }
+
+
  
     setPage(page) {
         var { items, pageSize } = this.props;
-        var pager = this.state.pager;
+        var pager = this.props.pager;
+    
         
         // exit condition
         if (page < 1 || page > pager.totalPages) {
@@ -51,13 +54,15 @@ class Pagination extends React.Component {
         var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
         
         // update state
-        this.setState({ pager: pager });
+        this.props.onChangePage(pager);
  
         // call change page function in parent component
         this.props.onChangePage(pager);
     }
  
     getPager(totalItems, currentPage, pageSize) {
+
+
         // default to first page
         currentPage = currentPage || 1;
  
@@ -108,7 +113,7 @@ class Pagination extends React.Component {
     }
  
     render() {
-        var pager = this.state.pager;
+        var pager = this.props.pager;
  
         if (!pager.pages || pager.pages.length <= 1) {
             // don't display pager if there is only 1 page
@@ -141,7 +146,7 @@ class Pagination extends React.Component {
                 padding:3px;
                 background:rgb(248,251,245,1);
             }
-            li:nth-child(${this.state.pager.currentPage+2}){
+            li:nth-child(${this.props.pager.currentPage+2}){
                 background-color:orange;
             }
             li a{

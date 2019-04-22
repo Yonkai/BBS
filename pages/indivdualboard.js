@@ -9,27 +9,61 @@ class IndivdualBoardPage extends React.Component {
      constructor(props){
         super(props);
         this.handlePagerChange = this.handlePagerChange.bind(this);
+        this.queryBBSAPIs = this.queryBBSAPIs.bind(this);
         this.state =
         { threads:[],
           replys:[],
           boards:[],
           original:[],
-          pager:{},
+          pager:{
+            CurrentPage:null,
+            endIndex:null,
+            endPage:null,
+            pageSize:null,
+            pages:null,
+            startIndex:null,
+            startPage:null,
+            totalItems:100,
+            totalPages:10
+          },
           isLoading:false,
           error:null};
        }
-     componentDidMount() {
+
+//currentPage:
+// 1
+// endIndex:
+// 9
+// endPage:
+// 10
+// pageSize:
+// 10
+// pages:
+// Array[10]
+// startIndex:
+// 0
+// startPage:
+// 1
+// totalItems:
+// 100
+// totalPages:
+// 10
+    
+    queryBBSAPIs(){
       this.setState({isLoading:true});
       axios.post('http://localhost:4000/api/readoriginalthreadreplys')
       .then((response)=>this.setState({original:response.data}))
       .catch(error => this.setState({
         error,
+        isLoading: false
       }));
       
+      // Only get inifinite loops from this one????
       axios.post('http://localhost:4000/api/readthreads')
       .then((response)=>this.setState({threads:response.data}))
       .catch(error => this.setState({
         error,
+        isLoading: false
       }));
       
 
@@ -37,19 +71,32 @@ class IndivdualBoardPage extends React.Component {
       .then((response)=>this.setState({replys:response.data}))
       .catch(error => this.setState({
         error,
+        isLoading: false
       }));
-      
 
-      axios.post('http://localhost:4000/api/readboards')
-     .then((response)=>this.setState({boards:response.data}))
-     .catch(error => this.setState({
+    axios.post('http://localhost:4000/api/readboards')
+    .then((response)=>this.setState({boards:response.data, isLoading: false}))
+    .catch(error => this.setState({
       error,
       isLoading:false
     }));
+    }
+
+  componentDidMount() {
+    this.queryBBSAPIs();
+  }
+
+  componentDidUpdate(){
+    console.log('cpd');
   }
 
   handlePagerChange(UpdatedPager){
-    this.setState({pager:UpdatedPager});
+    this.setState(function() {
+      return {
+        pager: UpdatedPager
+      };
+    });
+    // this.queryBBSAPIs();
   }
 
   render(){
@@ -63,14 +110,15 @@ class IndivdualBoardPage extends React.Component {
               <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
             </Head>
 
-             <IndividualBoard 
+             <IndividualBoard
             router={this.props.router} 
             title={this.props.router.pathname} 
             boards={this.state.boards} 
             threads={this.state.threads} 
             replys={this.state.replys} 
-            original={this.state.original}
-            onPagerChange={this.handlePagerChange}
+            original={this.state.original} 
+            onPagerChange={this.handlePagerChange} 
+            requery={this.queryBBSAPIs}
             pager={this.state.pager}
             />
 
