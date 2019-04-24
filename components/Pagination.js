@@ -35,8 +35,6 @@ class Pagination extends React.Component {
         }
     }
 
-
- 
     setPage(page) {
         var { items, pageSize } = this.props;
         var pager = this.props.pager;
@@ -54,7 +52,7 @@ class Pagination extends React.Component {
         var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
         
         // update state
-        this.props.onChangePage(pager);
+        // this.props.onChangePage(pager);
  
         // call change page function in parent component
         this.props.onChangePage(pager);

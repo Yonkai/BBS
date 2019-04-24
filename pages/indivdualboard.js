@@ -11,43 +11,15 @@ class IndivdualBoardPage extends React.Component {
         this.handlePagerChange = this.handlePagerChange.bind(this);
         this.queryBBSAPIs = this.queryBBSAPIs.bind(this);
         this.state =
-        { threads:[],
+        { 
+          threads:[],
           replys:[],
           boards:[],
           original:[],
-          pager:{
-            CurrentPage:null,
-            endIndex:null,
-            endPage:null,
-            pageSize:null,
-            pages:null,
-            startIndex:null,
-            startPage:null,
-            totalItems:100,
-            totalPages:10
-          },
+          pager:{},
           isLoading:false,
           error:null};
        }
-
-//currentPage:
-// 1
-// endIndex:
-// 9
-// endPage:
-// 10
-// pageSize:
-// 10
-// pages:
-// Array[10]
-// startIndex:
-// 0
-// startPage:
-// 1
-// totalItems:
-// 100
-// totalPages:
-// 10
     
     queryBBSAPIs(){
       this.setState({isLoading:true});
@@ -86,17 +58,22 @@ class IndivdualBoardPage extends React.Component {
     this.queryBBSAPIs();
   }
 
-  componentDidUpdate(){
-    console.log('cpd');
+  componentDidUpdate(prevProps, prevState){
+    if((prevState.pager.endIndex !== this.state.pager.endIndex)&&(this.state.isLoading===false)){
+      // console.log(this.state.pager);
+      this.queryBBSAPIs();
+
+    }
   }
 
   handlePagerChange(UpdatedPager){
-    this.setState(function() {
-      return {
+    console.log(this.state.pager);
+
+    this.setState((state,props) => ({
         pager: UpdatedPager
-      };
-    });
-    // this.queryBBSAPIs();
+      }),console.log(this.state.pager));
+
+  
   }
 
   render(){

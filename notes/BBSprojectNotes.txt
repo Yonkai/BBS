@@ -78,7 +78,7 @@ like the LIFO portion and finding positions/bumping info. Paginator
 component can be passed info as part of props instead of doing its own
 API calls.
 
-Test routes to mysql database just to make sure they work, then populate info.
+✅Test routes to mysql database just to make sure they work, then populate info.
 to the database from jsfaker for the initial getinitialprops in nextjs
 for that api restful call.
 
@@ -92,16 +92,18 @@ Set up trip codes and administrative features that allow for access to protected
 although you might be able to do that from the server, express passport authentication
 middleware might be useful.
 
-2. For backend now, using an ORM (Sequelize?) with MySQL and express middlewares, create connections to the express or node web server
+✅2. For backend now, using an ORM (Sequelize?) with MySQL and express middlewares, create connections to the express or node web server
 from the nextjs part of the application, and from the express web server to the MySQL DigitalOcean database server, and any other transverals
 as needed, conceptually in MVC style:
 
-NextJS-> View
-Express/Node-> Controller
-MySQL-> Model
+✅NextJS-> View
+✅Express/Node-> Controller
+✅MySQL-> Model
 
 Make sure to sanitize, normalize, and limit throughput. 
 There is intent for the database to be a buffer only holding a certain amount of space at once (images/text).
+
+BUG: Paginator keeps resetting its own state. Process: read react docs, make stackoverflow question, redo.
 
 Make physical flow diagrams to internalize these processes better, better yet, do that for the whole application. 
 
