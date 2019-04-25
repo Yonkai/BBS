@@ -8,9 +8,10 @@ var hidden_connection = require('../config/hidden-db.js');
 //Creaters
 router.post('/createthread', function(req, res, next) {
     console.log(req.body);
-    //TODO:Implement pooling prod.
+    //TODO:Implement pooling in prod!!!
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
-    
+    //Using '?' Automatically escapes values:
+    //https://www.npmjs.com/package/mysql#escaping-query-values
     hidden_connection.query('SELECT 888 + 32 AS solution',req.body.name, function (error, results, fields) {
       if (error) throw error;
       console.log('The solution is: ', results[0].solution);
