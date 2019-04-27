@@ -5,6 +5,12 @@ import React from 'react';
 import {withRouter} from 'next/router';
 import axios from 'axios';
 
+//Side note: Renders happen top-down, mounts happen down-top
+// http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+// http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+// http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+// ^ Obviously manual is better but this was really useful for debugging.
+
 class IndivdualBoardPage extends React.Component {
      constructor(props){
         super(props);
@@ -16,10 +22,32 @@ class IndivdualBoardPage extends React.Component {
           replys:[],
           boards:[],
           original:[],
-          pager:{},
+          pager:{
+            totalItems:null,
+            currentPage:null,
+            pageSize:null,
+            totalPages:null,
+            startPage:null,
+            endPage:null,
+            startIndex:0,
+            endIndex:9,
+            pages:null
+          },
           isLoading:false,
           error:null};
        }
+
+    //    return {
+    //     totalItems: totalItems,
+    //     currentPage: currentPage,
+    //     pageSize: pageSize,
+    //     totalPages: totalPages,
+    //     startPage: startPage,
+    //     endPage: endPage,
+    //     startIndex: startIndex,
+    //     endIndex: endIndex,
+    //     pages: pages
+    // };
     
     queryBBSAPIs(){
       this.setState({isLoading:true});
@@ -37,7 +65,6 @@ class IndivdualBoardPage extends React.Component {
         error,
         isLoading: false
       }));
-      
 
       axios.post('http://localhost:4000/api/readreplys')
       .then((response)=>this.setState({replys:response.data}))
@@ -54,29 +81,25 @@ class IndivdualBoardPage extends React.Component {
     }));
     }
 
+  handlePagerChange(UpdatedPager){
+    this.setState((state,props) => ({
+        pager: UpdatedPager
+      }),console.log(this.state.pager));
+  }
+
   componentDidMount() {
     this.queryBBSAPIs();
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if((prevState.pager.endIndex !== this.state.pager.endIndex)&&(this.state.isLoading===false)){
-      // console.log(this.state.pager);
+  componentDidUpdate(prevProps,prevState){
+    if(this.state.pager.startIndex !== prevProps.pager.startIndex){
       this.queryBBSAPIs();
-
     }
-  }
 
-  handlePagerChange(UpdatedPager){
-    console.log(this.state.pager);
-
-    this.setState((state,props) => ({
-        pager: UpdatedPager
-      }),console.log(this.state.pager));
-
-  
   }
 
   render(){
+    console.log(this.state.boards,this.state.threads);
         return(
           <>
             <Head>
@@ -88,11 +111,11 @@ class IndivdualBoardPage extends React.Component {
             </Head>
 
              <IndividualBoard
-            router={this.props.router} 
+            router={this.props.router}
             title={this.props.router.pathname} 
-            boards={this.state.boards} 
-            threads={this.state.threads} 
-            replys={this.state.replys} 
+            boards={this.state.boards}
+            threads={this.state.threads}
+            replys={this.state.replys}
             original={this.state.original} 
             onPagerChange={this.handlePagerChange} 
             requery={this.queryBBSAPIs}

@@ -22,6 +22,7 @@ class BoardContent extends React.Component {
     }
 
     render(){
+        console.log(this.props.threads);
 
         return(
             <>

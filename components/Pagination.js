@@ -2,6 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
  
+//Side note: Renders happen top-down, mounts happen down-top in component hierarchy
+//TODO: Convert this to stateless function as it is not needed to be a stateful component, from docs:
+//'If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.'
+
 const propTypes = {
     items: PropTypes.array.isRequired,
     onChangePage: PropTypes.func.isRequired,
@@ -22,6 +26,8 @@ class Pagination extends React.Component {
  
     componentDidMount() {
         // set page if items array isn't empty
+        console.log(this.props.items,this.props.items.length);
+        console.log(this.props.initialPage);
         if (this.props.items && this.props.items.length) {
             this.setPage(this.props.initialPage);
         }
@@ -29,8 +35,8 @@ class Pagination extends React.Component {
  
     componentDidUpdate(prevProps, prevState) {
         // reset page if items array has changed
-        if (this.props.items !== prevProps.items ) {
-            this.setPage(this.props.initialPage);
+        if (this.props.pager.currentIndex !== prevProps.pager.currentIndex ) {
+            this.setPage(this.props.pager.initialPage);
             // this.props.requery();
         }
     }
@@ -55,6 +61,7 @@ class Pagination extends React.Component {
         // this.props.onChangePage(pager);
  
         // call change page function in parent component
+        console.log(pager);
         this.props.onChangePage(pager);
     }
  
@@ -111,6 +118,7 @@ class Pagination extends React.Component {
     }
  
     render() {
+        console.log(this.props.pager);
         var pager = this.props.pager;
  
         if (!pager.pages || pager.pages.length <= 1) {
