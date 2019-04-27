@@ -13,12 +13,6 @@ class BoardContent extends React.Component {
         super(props);
         //Dont copy props into state, experienced some bugs with that while messing around, also react docs says not to do that.
         //Use component did update instead
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(pager){
-        //Sends page state ton individualboard component
-        this.props.onPagerChange(pager);
     }
 
     render(){
@@ -34,8 +28,8 @@ class BoardContent extends React.Component {
                     <NewThreadButton/>
                     <ScrollDown/>
                 </div>
-                <IndivdualBoardsThreadsContainer pager={this.props.pager} threads={this.props.threads} original={this.props.original}/>
-                {/* <Pagination/> */}
+                <IndivdualBoardsThreadsContainer currentPage={this.props.currentPage} startIndex={this.props.startIndex} endIndex={this.props.endIndex} threads={this.props.threads} original={this.props.original}/>
+                <Pagination currentPage={this.props.currentPage} startIndex={this.props.startIndex} endIndex={this.props.endIndex} onPagerChange={this.props.onPagerChange}/>
                 <Navigator boards = {this.props.boards}/>
                 <div>
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title}}}>
@@ -52,7 +46,7 @@ class BoardContent extends React.Component {
                 justify-self:start;
             }
             .${this.props.router.query.title}{
-                font-size:30px
+                font-size:3w0px
             }
             a{
                 margin-right:15px;

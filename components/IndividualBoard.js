@@ -30,7 +30,9 @@ const IndividualBoard = withRouter((props) => (
          router={props.router}
          onPagerChange={props.onPagerChange}
          requery={props.requery}
-         pager={props.pager}
+         currentPage={props.currentPage}
+         startIndex={props.startIndex}
+         endIndex={props.endIndex}
          />
       <Footer/>
     </div>

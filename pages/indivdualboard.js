@@ -14,7 +14,7 @@ import axios from 'axios';
 class IndivdualBoardPage extends React.Component {
      constructor(props){
         super(props);
-        this.handlePagerChange = this.handlePagerChange.bind(this);
+        this.handlePageChange = this.handlePageChange.bind(this);
         this.queryBBSAPIs = this.queryBBSAPIs.bind(this);
         this.state =
         { 
@@ -22,10 +22,9 @@ class IndivdualBoardPage extends React.Component {
           replys:[],
           boards:[],
           original:[],
-          pager:{
-            startIndex:0,
-            endIndex:9
-          },
+          currentPage:1,
+          startIndex:0,
+          endIndex:9,
           isLoading:false,
           error:null};
        }
@@ -74,10 +73,33 @@ class IndivdualBoardPage extends React.Component {
     }));
     }
 
-  handlePagerChange(UpdatedPager){
+  //TODO:Abstract pagination component && remove gross magic numbers && DRY code.
+  handlePageChange(UpdatedPage){
+    switch (UpdatedPage){
+    case 'NEXT':
     this.setState((state,props) => ({
-        pager: UpdatedPager
+      currentPage:state.currentPage !== 10 ?state.currentPage + 1:state.currentPage,
+      startIndex:state.startIndex+10,
+      endIndex:state.endIndex+10
+    }),this.queryBBSAPIs());
+
+    break;
+    case 'PREVIOUS':
+      this.setState((state,props) => ({
+        currentPage:state.currentPage !== 1 ?state.currentPage - 1:state.currentPage,
+        startIndex:state.currentPage !== 1 ?state.startIndex-10:state.startIndex,
+        endIndex:state.currentPage !== 1 ?state.endIndex-10:state.endIndex,
       }),this.queryBBSAPIs());
+    break;
+
+    default:
+      this.setState((state,props) => ({
+        currentPage:UpdatedPage,
+        startIndex:0+((UpdatedPage-1)*10),
+        endIndex:(UpdatedPage*10)-1,
+      }),this.queryBBSAPIs());
+  }
+
   }
 
   componentDidMount() {
@@ -100,11 +122,13 @@ class IndivdualBoardPage extends React.Component {
               router={this.props.router}
               title={this.props.router.pathname} 
               boards={this.state.boards}
-              pager={this.state.pager}
+              currentPage={this.state.currentPage}
+              startIndex={this.state.startIndex}
+              endIndex={this.state.endIndex}
               threads={this.state.threads}
               replys={this.state.replys}
               original={this.state.original} 
-              onPagerChange={this.handlePagerChange} 
+              onPagerChange={this.handlePageChange} 
               requery={this.queryBBSAPIs}
             />
 
