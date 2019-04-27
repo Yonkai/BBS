@@ -23,15 +23,8 @@ class IndivdualBoardPage extends React.Component {
           boards:[],
           original:[],
           pager:{
-            totalItems:null,
-            currentPage:null,
-            pageSize:null,
-            totalPages:null,
-            startPage:null,
-            endPage:null,
             startIndex:0,
-            endIndex:9,
-            pages:null
+            endIndex:9
           },
           isLoading:false,
           error:null};
@@ -84,18 +77,11 @@ class IndivdualBoardPage extends React.Component {
   handlePagerChange(UpdatedPager){
     this.setState((state,props) => ({
         pager: UpdatedPager
-      }),console.log(this.state.pager));
+      }),this.queryBBSAPIs());
   }
 
   componentDidMount() {
     this.queryBBSAPIs();
-  }
-
-  componentDidUpdate(prevProps,prevState){
-    if(this.state.pager.startIndex !== prevProps.pager.startIndex){
-      this.queryBBSAPIs();
-    }
-
   }
 
   render(){
@@ -111,15 +97,15 @@ class IndivdualBoardPage extends React.Component {
             </Head>
 
              <IndividualBoard
-            router={this.props.router}
-            title={this.props.router.pathname} 
-            boards={this.state.boards}
-            threads={this.state.threads}
-            replys={this.state.replys}
-            original={this.state.original} 
-            onPagerChange={this.handlePagerChange} 
-            requery={this.queryBBSAPIs}
-            pager={this.state.pager}
+              router={this.props.router}
+              title={this.props.router.pathname} 
+              boards={this.state.boards}
+              pager={this.state.pager}
+              threads={this.state.threads}
+              replys={this.state.replys}
+              original={this.state.original} 
+              onPagerChange={this.handlePagerChange} 
+              requery={this.queryBBSAPIs}
             />
 
             <style jsx global>{`

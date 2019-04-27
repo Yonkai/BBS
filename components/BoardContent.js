@@ -35,16 +35,7 @@ class BoardContent extends React.Component {
                     <ScrollDown/>
                 </div>
                 <IndivdualBoardsThreadsContainer pager={this.props.pager} threads={this.props.threads} original={this.props.original}/>
-                <Pagination
-                pager={this.props.pager}
-                initialPage={1}
-                pageSize={10}
-                items={this.props.threads}
-                // 6. Set a cookie to remember last used page, or push to history state on client?
-                //Add a callback function here that updates the state in the higher component from the new database synchronously, so the props
-                //can be rerendered before the call, and then set the state of pager in this component.
-                onChangePage={this.handleChange}
-                 />
+                {/* <Pagination/> */}
                 <Navigator boards = {this.props.boards}/>
                 <div>
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title}}}>
