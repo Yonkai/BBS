@@ -27,8 +27,9 @@ const exclusivethread = withRouter((props) => (
         <Header/>
         <NewThreadButton isThisPartOfAnExclusiveThread={true} />
         {/* Data needs to be loaded here again: */}
-        <ThreadPreviewRootComponent indivdualThreadData={props.threads} threadID={props.threadID}/>
-        {/* For exlcusive pages: */}
+        {/*Map out data here form database call*/}
+        <ThreadPreviewRootComponent original={props.original} indivdualThreadData={props.threads} threadID={props.threadID}/>
+        {/* For exlcusive threads only: */}
         <SubReplyRootComponent/>
         <Footer/>
 
@@ -59,6 +60,8 @@ exclusivethread.getInitialProps =  async() => {
   const thread_response = await axios.post('http://localhost:4000/api/readthreads');
   const reply_response = await axios.post('http://localhost:4000/api/readreplys');
   const board_response = await axios.post('http://localhost:4000/api/readboards');
+  const original_response = await axios.post('http://localhost:4000/api/readoriginalthreadreplys');
+  const exlclusive_thread_comments = null;
   console.log(
     thread_response.data, 
     thread_response.status,
@@ -68,7 +71,7 @@ exclusivethread.getInitialProps =  async() => {
     reply_response.status
     );
     //TODO:Error/.catch handler
-  return {threads:thread_response.data, replys:reply_response.data, boards:board_response.data};
+  return {original:original_response.data,threads:thread_response.data, replys:reply_response.data, boards:board_response.data};
 }
 
 export default exclusivethread;

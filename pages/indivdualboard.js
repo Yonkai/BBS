@@ -41,6 +41,7 @@ class IndivdualBoardPage extends React.Component {
     //     pages: pages
     // };
     
+    //TODO:modify routes so that boards are involved in getting all this data.
     queryBBSAPIs(){
       this.setState({isLoading:true});
       axios.post('http://localhost:4000/api/readoriginalthreadreplys')
