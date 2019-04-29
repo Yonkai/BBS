@@ -49,6 +49,7 @@ class NewThreadButton extends React.Component {
                 comments: this.state.comments
               })
           }
+          //This query should DELETE THE LAST THREAD IN THE DATABASE, and Bump all other threads down
           else{
             axios.post('http://localhost:4000/api/createthread', {
                 name: this.state.name,

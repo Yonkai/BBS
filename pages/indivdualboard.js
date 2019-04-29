@@ -79,9 +79,9 @@ class IndivdualBoardPage extends React.Component {
     switch (UpdatedPage){
     case 'NEXT':
     this.setState((state,props) => ({
-      currentPage:state.currentPage !== 10 ?state.currentPage + 1:state.currentPage,
-      startIndex:state.startIndex+10,
-      endIndex:state.endIndex+10
+      currentPage:state.currentPage !== 10?state.currentPage + 1:state.currentPage,
+      startIndex:state.currentPage !== 10?state.startIndex+10:state.startIndex,
+      endIndex:state.currentPage !== 10?state.endIndex+10:state.endIndex,
     }),this.queryBBSAPIs());
 
     break;
