@@ -29,10 +29,10 @@ class Pagination extends React.Component{
         return(
             <ul>
                 <li>
-                    <a onClick={() => this.updateCurrentPage(null,'FIRST')}>FIRST</a>
+                    <a onClick={() => this.updateCurrentPage(null,'FIRST')}>⏪</a>
                 </li>
                 <li>
-                    <a onClick={() => this.updateCurrentPage(null,'PREVIOUS')}>PREVIOUS</a>
+                    <a onClick={() => this.updateCurrentPage(null,'PREVIOUS')}>◀️</a>
                 </li>
                 <li>
                     <a onClick={() => this.updateCurrentPage(1)}>1</a>
@@ -65,10 +65,10 @@ class Pagination extends React.Component{
                     <a onClick={() => this.updateCurrentPage(10)}>10</a>
                 </li>
                 <li>
-                    <a onClick={() => this.updateCurrentPage(null,'NEXT')}>NEXT</a>
+                    <a onClick={() => this.updateCurrentPage(null,'NEXT')}>▶️</a>
                 </li>                
                 <li>
-                    <a onClick={() => this.updateCurrentPage(null,'LAST')}>LAST</a>
+                    <a onClick={() => this.updateCurrentPage(null,'LAST')}>⏩</a>
                 </li>
                 <style jsx>{`
                     li{
@@ -77,7 +77,8 @@ class Pagination extends React.Component{
                         background:rgb(248,251,245,1);
                     }
                     li:nth-child(${this.props.currentPage+2}){
-                        background-color:orange;
+                        background-color:skyblue;
+                        border:1px solid blue;
                     }
                     li a{
                         -webkit-touch-callout: none; /* iOS Safari */
