@@ -2,8 +2,7 @@ const Statistics = (props) => (
     <>  
     <div className="statistics">
         <h2>BBS Statistics Component</h2>
-        <div>Total Posts: Queried on page load GetIntialProps</div>
-        <div>Total Threads: Queried on page load GetIntialProps</div>
+        <div>Total Replys:{props.statistics[0].totalreplycount}</div>
         <div>Top Threads: Queried on page load GetIntialProps</div>
     </div>
         {/* Content: Total Posts, Users (Use getInitialProps?) */}
@@ -20,4 +19,4 @@ const Statistics = (props) => (
     </>
 )
 
-export default Statistics
+export default Statistics;

@@ -5,7 +5,7 @@ var hidden_connection = require('../config/hidden-db.js');
 //4. Validation here and database logic here, parse logic out to functions and import them similar to the MDN example.
 //Authorization/access control/Authentication later on prod. Also load any needed metadata information into database here.
 
-//Creaters
+//Creaters------------------------------------------------------------------------------------------------------------------
 router.post('/createthread', function(req, res, next) {
     console.log(req.body);
     //TODO:Implement pooling in prod!!!
@@ -33,8 +33,7 @@ router.post('/createreply', function(req, res, next) {
     res.json(req.body);
 });
 
-
-//Readers
+//Readers------------------------------------------------------------------------------------------------------------------
 router.post('/readboards', function(req, res, next) {
     console.log(req.body);
     
@@ -80,7 +79,18 @@ router.post('/readreplys', function(req, res, next) {
   });
 });
 
-//Updaters
+router.post('/readtotalreplys', function(req, res, next) {
+  console.log(req.body);
+  
+  //Select replys total count
+  hidden_connection.query('SELECT COUNT(*) AS "totalreplycount" FROM replys', function (error, results, fields) {
+    if (error) throw error;
+    res.json(results);
+  });
+});
+
+
+//Updaters------------------------------------------------------------------------------------------------------------------
 router.post('/updatereply', function(req, res, next) {
     console.log(req.body);
 
@@ -92,7 +102,7 @@ router.post('/updatereply', function(req, res, next) {
     res.json(req.body);
 });
 
-//Deleters
+//Deleters------------------------------------------------------------------------------------------------------------------
 router.post('/deletethread', function(req, res, next) {
     console.log(req.body);
 

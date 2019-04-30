@@ -14,13 +14,13 @@ import Statistics from '../components/Statistics.js';
 import About from '../components/About.js';
 
 
-const PostLink = (props) => (
-  <li>
-    <Link href={`/post?title=${props.title}`}>
-      <a>{props.title}</a>
-    </Link>
-  </li>
-)
+// const PostLink = (props) => (
+//   <li>
+//     <Link href={`/post?title=${props.title}`}>
+//       <a>{props.title}</a>
+//     </Link>
+//   </li>
+// )
 
 const Index = (props) => (
    
@@ -46,7 +46,7 @@ const Index = (props) => (
         </div>
       </div>
       <About/>
-      <Statistics/>
+      <Statistics statistics={props.statistics}/>
       <Footer/>
     </div>
 
@@ -98,17 +98,18 @@ const Index = (props) => (
 
 //Looking into logging client vs server on for prod.
 Index.getInitialProps =  async() => {
-  const response = await axios.post('http://localhost:4000/api/readboards');
-  console.log(
-    response.data, 
-    response.status,
-    response.statusText,
-    response.headers,
-    // response.config,
-    // response.request
-    );
+  const boards_response = await axios.post('http://localhost:4000/api/readboards');
+  const readtotalreplys_response = await axios.post('http://localhost:4000/api/readtotalreplys');
+  // console.log(
+  //   response.data, 
+  //   response.status,
+  //   response.statusText,
+  //   response.headers,
+  //   // response.config,
+  //   // response.request
+  //   );
     //TODO: add error handler
-  return {boards:response.data};
+  return {boards:boards_response.data,statistics:readtotalreplys_response.data};
 }
 
 export default Index;
