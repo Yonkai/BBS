@@ -34,36 +34,11 @@ class Pagination extends React.Component{
                 <li>
                     <a onClick={() => this.updateCurrentPage(null,'PREVIOUS')}>◀️</a>
                 </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(1)}>1</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(2)}>2</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(3)}>3</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(4)}>4</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(5)}>5</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(6)}>6</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(7)}>7</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(8)}>8</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(9)}>9</a>
-                </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(10)}>10</a>
-                </li>
+                {Array.from({length: 10}, (v, k) => k+1).map((arr)=>
+                    <li key={arr}>
+                            <a onClick={() => this.updateCurrentPage(arr)}>{arr}</a>
+                    </li>
+                )}
                 <li>
                     <a onClick={() => this.updateCurrentPage(null,'NEXT')}>▶️</a>
                 </li>                
