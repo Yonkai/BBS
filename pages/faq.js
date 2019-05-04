@@ -12,7 +12,7 @@ export default () => (
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
       </meta>
     </Head>
-    <h3>What is website?</h3>
+    <h3>What is this website?</h3>
     <p>BBS is an internet forum.</p>
     <h3>Question?</h3>
     <p>Answer.</p>
