@@ -42,32 +42,47 @@ replys: FK->threads PK, reply_id, reply_no?, reply_in_thread_pos,
 reply_original_bool, reply_username, reply_comment_text,reply_image,reply_time
 
 metadata:visitor_count, popular_threads
-//DD:
-CREATE TABLE threads (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    reply_count INT UNSIGNED,
-    subject VARCHAR(30),
-    board_position TINYINT UNSIGNED,
-    board_owner TINYINT UNSIGNED NOT NULL REFERENCES boards(id),
-    PRIMARY KEY (id)
-);
+//Data defition language with normalization:
+CREATE TABLE IF NOT EXISTS `BBS`.`boards` (
+  `boards_id` INT NOT NULL AUTO_INCREMENT,
+  `boards_name` VARCHAR(20) NULL,
+  PRIMARY KEY (`boards_id`))
+ENGINE = InnoDB
 
-CREATE TABLE replys (
-    id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    reply_in_thread_pos SMALLINT NOT NULL,
-    reply_original BOOLEAN DEFAULT 0,
-    reply_username VARCHAR(12) DEFAULT 'anon',
-    reply_comment VARCHAR(1000) NOT NULL,
-    reply_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    thread_owner INT UNSIGNED NOT NULL REFERENCES threads(id),
-    PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS `BBS`.`threads` (
+  `threads_id` INT NOT NULL AUTO_INCREMENT,
+  `threads_comment` VARCHAR(1000) NULL,
+  `threads_subject` VARCHAR(15) NULL,
+  `threads_username` VARCHAR(15) NULL,
+  `threads_modified` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `threads_created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `boards_boards_id` INT NOT NULL,
+  PRIMARY KEY (`threads_id`, `boards_boards_id`),
+  INDEX `name` (`threads_subject` ASC),
+  INDEX `fk_threads_boards_idx` (`boards_boards_id` ASC),
+  CONSTRAINT `fk_threads_boards`
+    FOREIGN KEY (`boards_boards_id`)
+    REFERENCES `BBS`.`boards` (`boards_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
 
-
-CREATE TABLE metadata (
-    id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS `BBS`.`replys` (
+  `replys_id` INT NOT NULL,
+  `replys_username` VARCHAR(15) NULL,
+  `replys_comment` VARCHAR(1000) NOT NULL,
+  `replys_created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `replys_modified` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `threads_threads_id` INT NOT NULL,
+  `threads_boards_boards_id` INT NOT NULL,
+  PRIMARY KEY (`replys_id`, `threads_threads_id`, `threads_boards_boards_id`),
+  INDEX `fk_replys_threads1_idx` (`threads_threads_id` ASC, `threads_boards_boards_id` ASC),
+  CONSTRAINT `fk_replys_threads1`
+    FOREIGN KEY (`threads_threads_id` , `threads_boards_boards_id`)
+    REFERENCES `BBS`.`threads` (`threads_id` , `boards_boards_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
 
 Add validator for submit for like in mdn example, push to database,
 do all fields server side that can be made server side in express so it
