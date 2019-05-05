@@ -40,7 +40,7 @@ const Index = (props) => (
         <div className="board-links-container">
           {
             props.boards.map((boards) =>
-            <BoardLink title={boards.board_name} key={boards.id}/>
+            <BoardLink title={boards.boards_name} key={boards.boards_id}/>
             )
           }
         </div>
