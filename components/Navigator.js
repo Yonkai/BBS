@@ -16,9 +16,9 @@ const Navigator = (props) => (
               //https://stackoverflow.com/questions/50845894/reactjs-typeerror-cannot-read-property-map-of-undefined
 
             props.boards && props.boards.map((boards) =>
-              <li key={boards.id}>
-                <Link href={`/indivdualboard?title=${boards.board_name}`}>
-                  <a>{boards.board_name}</a>   
+              <li key={boards.boards_id}>
+                <Link href={`/indivdualboard?title=${boards.boards_name}`}>
+                  <a>{boards.boards_name}</a>   
                 </Link> 
               </li>
             )

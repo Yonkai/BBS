@@ -11,11 +11,11 @@ router.post('/database', function(req, res, next) {
     //Seeding threads
     for(i=0;i<seed.threadCount;i++){
         //Send seeding data into database:
-        hidden_connection.query('INSERT INTO threads (reply_count,subject,board_position,board_owner) VALUES (?,?,?,?)',
-        [seed.seedThreads[i].reply_count,
-        seed.seedThreads[i].subject,
-        seed.seedThreads[i].board_position,
-        seed.seedThreads[i].board_owner],
+        hidden_connection.query('INSERT INTO threads (threads_comment,threads_subject,threads_username,boards_boards_id) VALUES (?,?,?,?)',
+        [seed.seedThreads[i].threads_comment,
+        seed.seedThreads[i].threads_subject,
+        seed.seedThreads[i].threads_username,
+        seed.seedThreads[i].boards_boards_id],
         function (error, results, fields) {
         if (error) throw error;
         });
@@ -23,12 +23,11 @@ router.post('/database', function(req, res, next) {
     //Seeding Replys, TODO: needs some normalization design fixes
     for(i=0;i<seed.replyCount;i++){
         //Send seeding data into database:
-        hidden_connection.query('INSERT INTO replys (reply_in_thread_pos,reply_original,reply_username,reply_comment,thread_owner) VALUES (?,?,?,?,?)',
-        [seed.seedReplys[i].reply_in_thread_pos,
-        seed.seedReplys[i].reply_original,
-        seed.seedReplys[i].reply_username,
-        seed.seedReplys[i].reply_comment,
-        seed.seedReplys[i].thread_owner],
+        hidden_connection.query('INSERT INTO replys (replys_username,replys_comment,threads_threads_id,threads_boards_boards_id) VALUES (?,?,?,?)',
+        [seed.seedReplys[i].replys_username,
+        seed.seedReplys[i].replys_comment,
+        seed.seedReplys[i].threads_threads_id,
+        seed.seedReplys[i].threads_boards_boards_id],
         function (error, results, fields) {
         if (error) throw error;
         });

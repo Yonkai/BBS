@@ -17,14 +17,26 @@ var faker = require('faker');
 //To generate data for databases:
 const seedGen = function seedGenerator(){
     //threadCount max is 100 on pages, with a 10 threads/10 pages setup on paginator component
-    var seedData = {seedReplys:{},seedThreads:{},replyCount:0,threadCount:100};
+    //5-5, new schema: threads_comment,threads_subject,threads_username,boards_boards_id
+    var seedData = {
+    seedReplys:{},
+    seedThreads:{},
+    replyCount:0,
+    threadCount:100
+};
     
     //Generate initial threads:
     for(i=0;i<seedData.threadCount;i++){
         // let reply = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
         // let thread = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
         //seedData.seedReplys[i] = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
-        seedData.seedThreads[i] = {reply_count: faker.random.number(12) + 1, subject: faker.random.word(20), board_position:i, board_owner:1};
+        seedData.seedThreads[i] = {
+            threads_comment:faker.lorem.sentences(5),
+            threads_username:faker.name.firstName(10),
+            seedonly_reply_count: faker.random.number(10) + 1, 
+            threads_subject: faker.random.word(10), 
+            boards_boards_id:1
+        };
     }
     //console.log(seedData);
 
@@ -33,11 +45,17 @@ const seedGen = function seedGenerator(){
     
     //iterates through each thread object (i<reply_count) number of times, and and assigns reply object that thread object as an owner based on its key, and
     //sets a bool to 1 if its the first 'reply'.
+    //5-5, new schema:replys_username,replys_comment,threads_threads_id,threads_boards_boards_id
     for (var key in seedData.seedThreads) {
-        for(i=0;i<seedData.seedThreads[key].reply_count;i++){
-            seedData.seedReplys[replyKey++] = {reply_in_thread_pos: i, reply_original: i===0?1:0, reply_username:faker.name.firstName(10),reply_comment:faker.lorem.sentences(5),thread_owner:key};
+        for(i=0;i<seedData.seedThreads[key].seedonly_reply_count;i++){
+            seedData.seedReplys[replyKey++] = {
+                replys_username:faker.name.firstName(10),
+                replys_comment:faker.lorem.sentences(5),
+                threads_threads_id:key,
+                threads_boards_boards_id:1,
+            };
         }
-        seedData.replyCount += seedData.seedThreads[key].reply_count;
+        seedData.replyCount += seedData.seedThreads[key].seedonly_reply_count;
         console.log(seedData.replyCount);
       }
       console.log(seedData.replyCount);
