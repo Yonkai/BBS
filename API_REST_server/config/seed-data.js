@@ -26,7 +26,7 @@ const seedGen = function seedGenerator(){
 };
     
     //Generate initial threads:
-    for(i=0;i<seedData.threadCount;i++){
+    for(i=1;i<seedData.threadCount;i++){
         // let reply = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
         // let thread = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
         //seedData.seedReplys[i] = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
@@ -34,7 +34,7 @@ const seedGen = function seedGenerator(){
             threads_comment:faker.lorem.sentences(5),
             threads_username:faker.name.firstName(10),
             seedonly_reply_count: faker.random.number(10) + 1, 
-            threads_subject: faker.random.word(10), 
+            threads_subject: faker.hacker.noun(), 
             boards_boards_id:1
         };
     }

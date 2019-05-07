@@ -9,7 +9,7 @@ router.post('/database', function(req, res, next) {
     console.log(seed);
 
     //Seeding threads
-    for(i=0;i<seed.threadCount;i++){
+    for(i=1;i<seed.threadCount;i++){
         //Send seeding data into database:
         hidden_connection.query('INSERT INTO threads (threads_comment,threads_subject,threads_username,boards_boards_id) VALUES (?,?,?,?)',
         [seed.seedThreads[i].threads_comment,
