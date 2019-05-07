@@ -28,7 +28,7 @@ class BoardContent extends React.Component {
                     <NewThreadButton/>
                     <ScrollDown/>
                 </div>
-                <IndivdualBoardsThreadsContainer currentPage={this.props.currentPage} startIndex={this.props.startIndex} endIndex={this.props.endIndex} threads={this.props.threads} original={this.props.original}/>
+                <IndivdualBoardsThreadsContainer replyCount={this.props.replyCount} currentPage={this.props.currentPage} startIndex={this.props.startIndex} endIndex={this.props.endIndex} threads={this.props.threads} replys={this.props.replys}/>
                 <Pagination currentPage={this.props.currentPage} startIndex={this.props.startIndex} endIndex={this.props.endIndex} onPagerChange={this.props.onPagerChange}/>
                 <Navigator boards = {this.props.boards}/>
                 <div>

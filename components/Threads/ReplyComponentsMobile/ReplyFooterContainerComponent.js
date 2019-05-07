@@ -6,7 +6,7 @@ const ReplyFooterContainerComponent = (props) => (
     <>
       <div>
           <ExpandToExclusiveThreadPage threadID={props.threadID}/>
-          <ThreadReplyCount replyCount={props.replyCount} />
+          <ThreadReplyCount replyCount={props.replyCount} threadID={props.threadID}/>
       </div>
         <style jsx>{`
           p {

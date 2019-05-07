@@ -26,13 +26,13 @@ const IndividualBoard = withRouter((props) => (
          boards={props.boards}
          threads={props.threads}
          replys={props.replys}
-         original={props.original}
          router={props.router}
          onPagerChange={props.onPagerChange}
          requery={props.requery}
          currentPage={props.currentPage}
          startIndex={props.startIndex}
          endIndex={props.endIndex}
+         replyCount={props.replyCount}
          />
       <Footer/>
     </div>

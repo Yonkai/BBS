@@ -20,7 +20,7 @@ const IndivdualBoardsThreadsContainer = (props) => (
               //     <a>{boards.board_name}</a>   
               //   </Link>
               // </li>
-              <ThreadPreviewRootComponent key={props.startIndex+index} indivdualThreadData={threads} original={props.original[props.startIndex+index]}/>
+              <ThreadPreviewRootComponent key={props.startIndex+index} indivdualThreadData={threads} replyCount={props.replyCount}/>
             )
         }
 {/* 

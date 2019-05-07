@@ -21,7 +21,7 @@ class IndivdualBoardPage extends React.Component {
           threads:[],
           replys:[],
           boards:[],
-          original:[],
+          replyCount:[],
           currentPage:1,
           startIndex:0,
           endIndex:9,
@@ -44,8 +44,8 @@ class IndivdualBoardPage extends React.Component {
     //TODO:modify routes so that boards are involved in getting all this data.
     queryBBSAPIs(){
       this.setState({isLoading:true});
-      axios.post('http://localhost:4000/api/readoriginalthreadreplys')
-      .then((response)=>this.setState({original:response.data}))
+      axios.post('http://localhost:4000/api/readthreadsreplycount')
+      .then((response)=>this.setState({replyCount:response.data}))
       .catch(error => this.setState({
         error,
         isLoading: false
@@ -128,9 +128,9 @@ class IndivdualBoardPage extends React.Component {
               endIndex={this.state.endIndex}
               threads={this.state.threads}
               replys={this.state.replys}
-              original={this.state.original} 
               onPagerChange={this.handlePageChange} 
               requery={this.queryBBSAPIs}
+              replyCount={this.state.replyCount}
             />
 
             <style jsx global>{`
