@@ -52,7 +52,7 @@ class IndivdualBoardPage extends React.Component {
       }));
       
       // Only get inifinite loops from this one????
-      axios.post('http://localhost:4000/api/readthreads')
+      axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
       .then((response)=>this.setState({threads:response.data}))
       .catch(error => this.setState({
         error,

@@ -46,13 +46,14 @@ router.post('/readboards', function(req, res, next) {
     
 });
 
-router.post('/readthreads', function(req, res, next) {
+router.post('/readthreads/:boardsid', function(req, res, next) {
   console.log(req.body);
   
   //SELECT all columns from threads table from MySQL database:
   hidden_connection.query('SELECT * FROM threads', function (error, results, fields) {
     if (error) throw error;
     console.log('The threads are: ', results);
+    console.log('boardsid is ',req.params);
     res.json(results);
   });
 });
