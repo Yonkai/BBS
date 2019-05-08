@@ -28,8 +28,8 @@ const exclusivethread = withRouter((props) => (
         <NewThreadButton isThisPartOfAnExclusiveThread={true} />
         {/* Data needs to be loaded here again: */}
         {/*Map out data here form database call*/}
-        <ThreadPreviewRootComponent original={props.original} indivdualThreadData={props.threads} threadID={props.threadID}/>
-        {/* For exlcusive threads only: */}
+        <ThreadPreviewRootComponent indivdualThreadData={props.threads}/>
+        {/* For exlcusive threads only, map props of replys for the exlcusive page*/}
         <SubReplyRootComponent/>
         <Footer/>
 
@@ -57,21 +57,25 @@ const exclusivethread = withRouter((props) => (
 //Can only use getInitialProps on NextJS pages files
 //Need absolute path unless using a baseurl in axios
 exclusivethread.getInitialProps =  async() => {
-  const thread_response = await axios.post('http://localhost:4000/api/readthreads');
-  const reply_response = await axios.post('http://localhost:4000/api/readreplys');
+  // const thread_response = await axios.post('http://localhost:4000/api/readthreads');
+  // const reply_response = await axios.post('http://localhost:4000/api/readreplys');
   const board_response = await axios.post('http://localhost:4000/api/readboards');
-  const original_response = await axios.post('http://localhost:4000/api/readoriginalthreadreplys');
-  const exlclusive_thread_comments = null;
+  const exclusive_thread = null;
+  const exlclusive_thread_replys = null;
   console.log(
-    thread_response.data, 
-    thread_response.status,
-    // thread_response.statusText,
-    // thread_response.headers,
-    reply_response.data,
-    reply_response.status
+    // thread_response.data, 
+    // thread_response.status,
+    // // thread_response.statusText,
+    // // thread_response.headers,
+    // reply_response.data,
+    // reply_response.status
     );
     //TODO:Error/.catch handler
-  return {original:original_response.data,threads:thread_response.data, replys:reply_response.data, boards:board_response.data};
+  return {
+    threads:thread_response.data,
+    replys:reply_response.data,
+    boards:board_response.data
+  };
 }
 
 export default exclusivethread;

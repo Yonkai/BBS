@@ -23,22 +23,28 @@ const seedGen = function seedGenerator(){
     seedThreads:{},
     replyCount:0,
     threadCount:100,
-    boardCount:16
+    boardCount:15
 };
-    
+
+var totalThreads = seedData.threadCount*seedData.boardCount;
+seedData.totalThreads=totalThreads;
+
+    //Make it so this part of the seed loops theadCount*boardCount times in a double for loop:
     //Generate initial threads:
+for(a=1;a<=seedData.boardCount;a++){
     for(i=1;i<seedData.threadCount;i++){
         // let reply = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
         // let thread = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
         //seedData.seedReplys[i] = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
-        seedData.seedThreads[i] = {
+        seedData.seedThreads[i+((a-1)*99)] = {
             threads_comment:faker.lorem.sentences(5),
             threads_username:faker.name.firstName(10),
             seedonly_reply_count: faker.random.number(10) + 1, 
             threads_subject: faker.hacker.noun(), 
-            boards_boards_id:4
+            boards_boards_id:a
         };
     }
+}
     //console.log(seedData);
 
     //Generate replys to those initial threads that were just generated:
@@ -53,15 +59,16 @@ const seedGen = function seedGenerator(){
                 replys_username:faker.name.firstName(10),
                 replys_comment:faker.lorem.sentences(5),
                 threads_threads_id:key,
-                threads_boards_boards_id:4,
+                threads_boards_boards_id:seedData.seedThreads[key].boards_boards_id,
             };
         }
         seedData.replyCount += seedData.seedThreads[key].seedonly_reply_count;
-        console.log(seedData.replyCount);
+        // console.log(seedData.replyCount);
       }
-      console.log(seedData.replyCount);
-      console.log(seedData);
+      console.log(seedData.seedReplys);
+    //   console.log(seedData);
 
+      //Add assertion testing here:
 
 //     for(i=0;i<replyCount;i++){
 //         //let reply = {reply_in_thread_pos: 1, reply_original: 1, reply_username: 'frank',reply_comment:'hello world',thread_owner:1};
@@ -70,7 +77,9 @@ const seedGen = function seedGenerator(){
 //             //seedData.seedThreads[i] = {reply_count: 22, subject: 'Hello', board_position:2, board_owner:1};
 //         }
 //    }
-      return seedData;
+    //   return seedData;
 
 }
-module.exports =  seedGen;
+// module.exports =  seedGen;
+
+seedGen();
