@@ -22,7 +22,8 @@ const seedGen = function seedGenerator(){
     seedReplys:{},
     seedThreads:{},
     replyCount:0,
-    threadCount:100
+    threadCount:100,
+    boardCount:16
 };
     
     //Generate initial threads:
@@ -35,7 +36,7 @@ const seedGen = function seedGenerator(){
             threads_username:faker.name.firstName(10),
             seedonly_reply_count: faker.random.number(10) + 1, 
             threads_subject: faker.hacker.noun(), 
-            boards_boards_id:1
+            boards_boards_id:4
         };
     }
     //console.log(seedData);
@@ -52,7 +53,7 @@ const seedGen = function seedGenerator(){
                 replys_username:faker.name.firstName(10),
                 replys_comment:faker.lorem.sentences(5),
                 threads_threads_id:key,
-                threads_boards_boards_id:1,
+                threads_boards_boards_id:4,
             };
         }
         seedData.replyCount += seedData.seedThreads[key].seedonly_reply_count;
