@@ -7,12 +7,12 @@ const ReplyRootComponenet = (props) => (
     <>
       <div>
         <ReplyInfoContainerComponent 
-        replyUsername={props.indivdualThreadData.threads_username} 
-        replySubject={props.indivdualThreadData.threads_subject} 
-        threadTime={props.indivdualThreadData.threads_created} 
-        threadID={props.indivdualThreadData.threads_id} />
-        <ReplyContent replyComment={props.indivdualThreadData.threads_comment}/>  
-        <ReplyFooterContainerComponent threadID={props.indivdualThreadData.threads_id} replyCount={props.replyCount}/>
+        replyUsername={props.indivdualThreadData.threads_username || props.indivdualThreadData[0].threads_username} 
+        replySubject={props.indivdualThreadData.threads_subject || props.indivdualThreadData[0].threads_subject} 
+        threadTime={props.indivdualThreadData.threads_created || props.indivdualThreadData[0].threads_created} 
+        threadID={props.indivdualThreadData.threads_id || props.indivdualThreadData[0].threads_id} />
+        <ReplyContent replyComment={props.indivdualThreadData.threads_comment || props.indivdualThreadData[0].threads_comment}/>  
+        <ReplyFooterContainerComponent threadID={props.indivdualThreadData.threads_id ||  props.indivdualThreadData[0].threads_id} replyCount={props.replyCount || props.replyCount[0]}/>
       </div>
         <style jsx>{`
           p{
