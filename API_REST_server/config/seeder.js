@@ -3,13 +3,15 @@ var router = express.Router();
 var hidden_connection = require('./hidden-db.js');
 var seedGen = require('./seed-data');
 
+//https://dev.mysql.com/doc/refman/5.6/en/create-table-foreign-keys.html
+
 router.post('/database', function(req, res, next) {
     console.log(req.body);
     var seed = seedGen();
-    console.log(seed);
+    console.log(seed.seedThreads['1'],seed.seedThreads['1500'],seed.seedReplys['0'],seed.seedReplys['1000'],seed.totalThreads);
 
     //Seeding threads
-    for(i=1;i<seed.threadCount;i++){
+    for(i=1;i<=seed.totalThreads;i++){
         //Send seeding data into database:
         hidden_connection.query('INSERT INTO threads (threads_comment,threads_subject,threads_username,boards_boards_id) VALUES (?,?,?,?)',
         [seed.seedThreads[i].threads_comment,
@@ -32,6 +34,7 @@ router.post('/database', function(req, res, next) {
         if (error) throw error;
         });
     }
+
 
     hidden_connection.end();
     //res.json(req.body);
