@@ -62,6 +62,28 @@ router.post('/readthreads/:boardsid', function(req, res, next) {
   });
 });
 
+router.post('/readexclusivereplys/:threadsthreadsid', function(req, res, next) {
+  console.log(req.body);
+
+  hidden_connection.query(`SELECT * FROM replys WHERE threads_threads_id=?`,req.params.threadsthreadsid, function (error, results, fields) {
+    if (error) throw error;
+    console.log('The exclusive replys are: ', results);
+    console.log('threadsthreadsid is ',req.params.threadsthreadsid);
+    res.json(results);
+  });
+});
+
+router.post('/readexclusivethread/:threadsid', function(req, res, next) {
+  console.log(req.body);
+
+  hidden_connection.query(`SELECT * FROM threads WHERE threads_id=?`,req.params.threadsid, function (error, results, fields) {
+    if (error) throw error;
+    console.log('The exlcusive thread is: ', results);
+    console.log('threadsid is: ',req.params.boardsid);
+    res.json(results);
+  });
+});
+
 router.post('/readthreadsreplycount', function(req, res, next) {
   console.log(req.body);
   

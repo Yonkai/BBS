@@ -31,4 +31,4 @@ const SubReplyRootComponent = (props) => (
     </>
 )
 
-export default SubReplyRootComponent
+export default SubReplyRootComponent;
