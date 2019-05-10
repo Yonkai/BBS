@@ -21,7 +21,7 @@ const exclusivethread = withRouter((props) => (
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
-      <Navigator/>
+      <Navigator boards={props.boards}/>
 
         <h3>Placeholder exclusive thread page. thread id:{props.router.query.threadID}</h3>
         <Header/>

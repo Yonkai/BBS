@@ -51,7 +51,6 @@ class IndivdualBoardPage extends React.Component {
         isLoading: false
       }));
       
-      // Only get inifinite loops from this one????
       axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
       .then((response)=>this.setState({threads:response.data}))
       .catch(error => this.setState({
@@ -105,6 +104,14 @@ class IndivdualBoardPage extends React.Component {
 
   componentDidMount() {
     this.queryBBSAPIs();
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    // Compare props to avoid redudant rerenders
+    if (this.props.router.query.title !== prevProps.router.query.title) {
+      this.queryBBSAPIs();
+    }
   }
 
   render(){

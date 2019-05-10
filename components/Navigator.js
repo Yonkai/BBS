@@ -17,7 +17,7 @@ const Navigator = (props) => (
 
             props.boards && props.boards.map((boards) =>
               <li key={boards.boards_id}>
-                <Link href={`/indivdualboard?title=${boards.boards_name}`}>
+                <Link  href={{ pathname: '/indivdualboard', query: { boards_id:boards.boards_id, title: boards.boards_name,page:1}}}>
                   <a>{boards.boards_name}</a>   
                 </Link> 
               </li>

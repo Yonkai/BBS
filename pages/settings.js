@@ -15,6 +15,7 @@ export default () => (
     </Head>
     <h3>Settings:</h3>
     <p>placeholder</p>
+    <p>(Use cookies to store settings)</p>
 
     <style jsx global>{`
       html {
