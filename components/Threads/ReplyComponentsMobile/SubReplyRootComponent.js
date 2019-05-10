@@ -10,7 +10,10 @@ const SubReplyRootComponent = (props) => (
               <div>
                 <ReplyInfoContainerComponent 
                 replyUsername={replys.replys_username} 
-                replySubject={props.replySubject} />
+                replySubject={props.replySubject}
+                threadTime={replys.replys_created} 
+                // This is super confusing... change it later
+                threadID={replys.replys_id}/>
                 <ReplyContent replyComment={replys.replys_comment}/>
               </div>
 
