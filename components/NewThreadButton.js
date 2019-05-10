@@ -73,13 +73,17 @@ class NewThreadButton extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name">Name:</label>
                 <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" id="name" maxlength="12"/>
-                <label htmlFor="subject">Subject:</label>
-                <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" maxlength="12"/>
+                {
+                    this.props.isThisPartOfAnExclusiveThread?<span>{/*nothing*/}</span>:
+                    <div><label htmlFor="subject">Subject:</label>
+                    <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" maxlength="12"/>
+                    </div>
+                }
                 <label htmlFor="comments">Comments:</label>
                 <textarea onChange={this.handleChange('comments')} maxlength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
                 {/* <input type="text" name="image" placeholder="Image?"/>
                     <input type="text" name="captcha" placeholder="captcha"/> */}
-                <button>Send data</button>
+                <button>Send!</button>
             </form>
             {/* This might disable using enter? bad ux if so(the onClick): */}
             <button className="check" onClick={this.openNewThreadForm}>Close Form</button>
