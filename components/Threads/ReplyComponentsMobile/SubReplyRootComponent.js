@@ -6,11 +6,16 @@ import ReplyContent from './ReplyContent.js';
 
 const SubReplyRootComponent = (props) => (
     <>
-      <div>
-        <ReplyInfoContainerComponent />
-        <ReplyContent/>
-        {/* <ReplyFooterContainerComponent exclusiveThreadSlug={props.exclusiveThreadSlug}/> */}
-      </div>
+        {props.individualReplyData && props.individualReplyData.map((replys, index) =>
+              <div>
+                <ReplyInfoContainerComponent 
+                replyUsername={replys.replys_username} 
+                replySubject={props.replySubject} />
+                <ReplyContent replyComment={replys.replys_comment}/>
+              </div>
+
+            )
+          }
         <style jsx>{`
           p {
             font-family: "Roboto";
@@ -32,3 +37,7 @@ const SubReplyRootComponent = (props) => (
 )
 
 export default SubReplyRootComponent;
+
+SubReplyRootComponent.defaultProps = {
+  individualReplyData:[],
+}

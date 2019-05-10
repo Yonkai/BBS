@@ -30,7 +30,7 @@ const exclusivethread = withRouter((props) => (
         {/*Map out data here form database call*/}
         <ThreadPreviewRootComponent indivdualThreadData={props.exclusiveThread} replyCount={props.replyCount}/>
         {/* For exlcusive threads only, map props of replys for the exlcusive page*/}
-        <SubReplyRootComponent/>
+        <SubReplyRootComponent individualReplyData={props.exclusiveThreadReplys} replySubject={props.exclusiveThread[0].threads_subject}/>
         <Footer/>
 
       <style jsx global>{`

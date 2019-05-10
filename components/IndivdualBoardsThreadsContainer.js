@@ -64,5 +64,4 @@ export default IndivdualBoardsThreadsContainer;
 
 IndivdualBoardsThreadsContainer.defaultProps = {
   threads:[],
-  original:[]
 }

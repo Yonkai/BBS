@@ -1,0 +1,2 @@
+WIP. Look into automated solutions like https://github.com/standard/standard and 
+others. Also look into automated documentation solutions/continous integration.
