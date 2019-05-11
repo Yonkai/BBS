@@ -49,7 +49,7 @@ class NewThreadButton extends React.Component {
                 comments: this.state.comments
               })
           }
-          //This query should DELETE THE LAST THREAD IN THE DATABASE, and Bump all other threads down
+
           else{
             axios.post('http://localhost:4000/api/createthread', {
                 name: this.state.name,
@@ -74,7 +74,7 @@ class NewThreadButton extends React.Component {
                 <label htmlFor="name">Name:</label>
                 <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" id="name" maxlength="12"/>
                 {
-                    this.props.isThisPartOfAnExclusiveThread?<span>{/*nothing*/}</span>:
+                    this.props.isThisPartOfAnExclusiveThread?<span>{/*nothing. not rendered because of ternary operator.*/}</span>:
                     <div><label htmlFor="subject">Subject:</label>
                     <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" maxlength="12"/>
                     </div>
