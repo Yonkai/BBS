@@ -5,7 +5,12 @@ import axios from 'axios';
 class NewThreadButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {openStatus: false, name:' ', subject:' ', comments:' '};
+        this.state = {
+            openStatus: false, 
+            name:'anon',
+            subject:'', 
+            comments:''
+        };
         this.openNewThreadForm = this.openNewThreadForm.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,8 +50,9 @@ class NewThreadButton extends React.Component {
         if(this.props.isThisPartOfAnExclusiveThread){
             axios.post('http://localhost:4000/api/createreply', {
                 name: this.state.name,
-                subject: this.state.subject,
-                comments: this.state.comments
+                comments: this.state.comments,
+                threadsthreadsid:'aaa',
+                threadsboardsboardsid:'bbb'
               })
           }
 

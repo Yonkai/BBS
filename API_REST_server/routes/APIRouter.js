@@ -24,11 +24,13 @@ router.post('/createthread', function(req, res, next) {
 router.post('/createreply', function(req, res, next) {
     console.log(req.body);
     //TODO:Implement pooling prod.
+    //TODO (IMPORTANT): Reinstate FK constraints to prevent invalid data injection.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
     
-    hidden_connection.query('SELECT 2000 + 1111 AS solution',req.body.name, function (error, results, fields) {
+    hidden_connection.query(`INSERT INTO replys (replys_username,replys_comment,threads_threads_id,threads_boards_boards_id
+    VALUES (?,?,?,?)`,[req.body.name,req.body.comments,], function (error, results, fields) {
       if (error) throw error;
-      console.log('The solution is: ', results[0].solution);
+
     });
 
     res.json(req.body);

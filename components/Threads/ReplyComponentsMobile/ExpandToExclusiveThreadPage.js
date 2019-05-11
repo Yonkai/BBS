@@ -12,7 +12,7 @@ class ExpandToExclusiveThreadPage extends React.Component {
       return (
         <>
           <div>
-            <Link href={{ pathname: 'exclusivethread', query: { threadID: this.props.threadID } }} >
+            <Link href={{ pathname: 'exclusivethread', query: { threadID: this.props.threadID, boardID: this.props.router.query.boards_id } }} >
                 <a className="boardLink">Expand Thread</a>
             </Link>
           </div>
