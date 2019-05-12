@@ -51,8 +51,8 @@ class NewThreadButton extends React.Component {
             axios.post('http://localhost:4000/api/createreply', {
                 name: this.state.name,
                 comments: this.state.comments,
-                threadsthreadsid:'aaa',
-                threadsboardsboardsid:'bbb'
+                threadsthreadsid:this.props.threadID,
+                threadsboardsboardsid:this.props.boardID
               })
           }
 
