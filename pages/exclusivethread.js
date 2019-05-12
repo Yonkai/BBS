@@ -28,7 +28,7 @@ const exclusivethread = withRouter((props) => (
         <NewThreadButton isThisPartOfAnExclusiveThread={true} threadsID={props.router.query} boardsID={props.router}/>
         {/* Data needs to be loaded here again: */}
         {/*Map out data here form database call*/}
-        <ThreadPreviewRootComponent indivdualThreadData={props.exclusiveThread} replyCount={props.replyCount}/>
+        <ThreadPreviewRootComponent indivdualThreadData={props.exclusiveThread} replyCount={props.replyCount} router={props.router}/>
         {/* For exlcusive threads only, map props of replys for the exlcusive page*/}
         <SubReplyRootComponent individualReplyData={props.exclusiveThreadReplys} replySubject={props.exclusiveThread[0].threads_subject}/>
         <Footer/>

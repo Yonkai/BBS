@@ -1,5 +1,6 @@
 var faker = require('faker');
 import Link from 'next/link';
+import Router from 'next/router';
 
 class ExpandToExclusiveThreadPage extends React.Component {
   constructor(props) {
@@ -12,9 +13,17 @@ class ExpandToExclusiveThreadPage extends React.Component {
       return (
         <>
           <div>
-            <Link href={{ pathname: 'exclusivethread', query: { threadID: this.props.threadID, boardID: this.props.router.query.boards_id } }} >
-                <a className="boardLink">Expand Thread</a>
-            </Link>
+            {
+              <div>
+               {
+                this.props.router.query.boards_id?
+                <Link href={{ pathname: 'exclusivethread', query: { threadID: this.props.threadID, boardID: this.props.router.query.boards_id } }} >
+                    <a className="boardLink">Expand Thread</a>
+                </Link>:
+                  <a onClick={() => Router.back()}>Go Back</a>
+               }
+             </div>
+            }
           </div>
             <style jsx>{`
               p {
@@ -22,9 +31,13 @@ class ExpandToExclusiveThreadPage extends React.Component {
                 margin:0;
     
               }
-              div{
+              div div{
                 border:5px GreenYellow solid;
               
+              }
+              div div a{
+                color:blue;
+                text-decoration:underline;
               }
             `}</style>
         </>

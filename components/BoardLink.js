@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const BoardLink = (props) => (
    <div className="module">
-        <Link href={{ pathname: '/indivdualboard', query: { boards_id:props.boards_id, title: props.title, page:1 } }} >
+        <Link href={{ pathname: '/indivdualboard', query: { boards_id:props.boards_id, title: props.title} }} >
             <a className="boardLink">{props.title}</a>
         </Link>
  

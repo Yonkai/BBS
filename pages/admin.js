@@ -13,7 +13,7 @@ export default () => (
       </meta>
     </Head>
     <h3>Admin</h3>
-    <h4>Needs authroization, access controls, authenication. passportjs?</h4>
+    <h4>Needs authroization, access controls, authenication. passportjs? https://auth0.com/?</h4>
 
 
     <style jsx global>{`
