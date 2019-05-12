@@ -26,12 +26,13 @@ router.post('/createreply', function(req, res, next) {
     //TODO:Implement pooling prod.
     //TODO (IMPORTANT): Reinstate FK constraints to prevent invalid data injection.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
+    //TODO: rerender/reconcile react when this router is hit so the comment appears immediately.
     
-    // hidden_connection.query(`INSERT INTO replys (replys_username,replys_comment,threads_threads_id,threads_boards_boards_id
-    // VALUES (?,?,?,?)`,[req.body.name,req.body.comments], function (error, results, fields) {
-    //   if (error) throw error;
+    hidden_connection.query(`INSERT INTO replys (replys_username,replys_comment,threads_threads_id,threads_boards_boards_id)
+    VALUES (?,?,?,?)`,[req.body.name,req.body.comments,req.body.threadsthreadsid,req.body.threadsboardsboardsid], function (error, results, fields) {
+      if (error) throw error;
 
-    // });
+    });
 
     res.json(req.body);
 });
