@@ -25,7 +25,7 @@ class BoardContent extends React.Component {
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title, page:this.props.router.query.page}}}>
                         <a>Refresh</a>
                     </Link>
-                    <NewThreadButton/>
+                    <NewThreadButton boardID={this.props.router.query.boards_id}/>
                     <ScrollDown/>
                 </div>
                 <IndivdualBoardsThreadsContainer 

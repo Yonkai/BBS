@@ -53,15 +53,16 @@ class NewThreadButton extends React.Component {
                 comments: this.state.comments,
                 threadsthreadsid:this.props.threadID,
                 threadsboardsboardsid:this.props.boardID
-              })
+              });
           }
 
           else{
             axios.post('http://localhost:4000/api/createthread', {
                 name: this.state.name,
                 subject: this.state.subject,
-                comments: this.state.comments
-              })
+                comments: this.state.comments,
+                boardsboardsid:this.props.boardID
+              });
             }
           }
     
@@ -78,11 +79,11 @@ class NewThreadButton extends React.Component {
         <>
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name">Name:</label>
-                <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" id="name" maxlength="12"/>
+                <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" id="name" maxLength="12"/>
                 {
                     this.props.isThisPartOfAnExclusiveThread?<span>{/*nothing. not rendered because of ternary operator.*/}</span>:
                     <div><label htmlFor="subject">Subject:</label>
-                    <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" maxlength="12"/>
+                    <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
                     </div>
                 }
                 <label htmlFor="comments">Comments:</label>
