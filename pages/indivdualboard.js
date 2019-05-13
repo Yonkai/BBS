@@ -23,6 +23,7 @@ class IndivdualBoardPage extends React.Component {
           boards:[],
           replyCount:[],
           currentPage:1,
+          // startIndex and endIndex are used as delimiters for seperating the database calls on threads
           startIndex:0,
           endIndex:9,
           isLoading:false,

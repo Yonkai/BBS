@@ -11,6 +11,7 @@ const ReplyTextContent = (props) => (
         <style jsx>{`
           p {
             font-family: "Roboto";
+            word-break: break-all;
             margin:0;
 
           }
@@ -18,6 +19,7 @@ const ReplyTextContent = (props) => (
             border:5px darkorange solid;
             margin:2px;          
           }
+          
           }
         `}</style>
     </>
