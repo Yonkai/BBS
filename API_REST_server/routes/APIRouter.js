@@ -57,8 +57,8 @@ router.post('/readthreads/:boardsid', function(req, res, next) {
   //TEST TEST TEST, this is a SQL injection choke point. Never trust user input. MySQL driver docs seems to show to escape
   //but double check that.
 
-  //SELECT all columns from threads table from MySQL database:
-  hidden_connection.query(`SELECT * FROM threads WHERE boards_boards_id=?`,req.params.boardsid, function (error, results, fields) {
+  //Technically inaccurate for threads posting at the same second, but it seems like a minor issue.
+  hidden_connection.query(`SELECT * FROM threads WHERE boards_boards_id=? ORDER BY threads_modified DESC`,req.params.boardsid, function (error, results, fields) {
     if (error) throw error;
     console.log('The threads are: ', results);
     console.log('boardsid is ',req.params.boardsid);

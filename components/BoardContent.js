@@ -25,7 +25,7 @@ class BoardContent extends React.Component {
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title, page:this.props.router.query.page}}}>
                         <a>Refresh</a>
                     </Link>
-                    <NewThreadButton boardID={this.props.router.query.boards_id}/>
+                    <NewThreadButton boardID={this.props.router.query.boards_id} requery={this.props.requery}/>
                     <ScrollDown/>
                 </div>
                 <IndivdualBoardsThreadsContainer 
@@ -37,7 +37,12 @@ class BoardContent extends React.Component {
                     replys={this.props.replys}
                     router={this.props.router}
                 />
-                <Pagination currentPage={this.props.currentPage} startIndex={this.props.startIndex} endIndex={this.props.endIndex} onPagerChange={this.props.onPagerChange}/>
+                <Pagination 
+                currentPage={this.props.currentPage} 
+                startIndex={this.props.startIndex} 
+                endIndex={this.props.endIndex} 
+                onPagerChange={this.props.onPagerChange}
+                />
                 <Navigator boards = {this.props.boards}/>
                 <div>
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title}}}>

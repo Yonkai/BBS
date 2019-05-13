@@ -57,7 +57,7 @@ const exclusivethread = withRouter((props) => (
 //Can only use getInitialProps on NextJS pages files
 //Need absolute path unless using a baseurl in axios
 exclusivethread.getInitialProps =  async(context) => {
-  console.log('context object?',context);
+  console.log('context object: ',context);
   // const thread_response = await axios.post('http://localhost:4000/api/readthreads');
   // const reply_response = await axios.post('http://localhost:4000/api/readreplys');
   const board_response = await axios.post('http://localhost:4000/api/readboards');
