@@ -25,7 +25,6 @@ const IndividualBoard = withRouter((props) => (
          boardTitle={props.router.query.title} 
          boards={props.boards}
          threads={props.threads}
-         replys={props.replys}
          router={props.router}
          onPagerChange={props.onPagerChange}
          requery={props.requery}

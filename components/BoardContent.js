@@ -34,7 +34,6 @@ class BoardContent extends React.Component {
                     startIndex={this.props.startIndex} 
                     endIndex={this.props.endIndex} 
                     threads={this.props.threads} 
-                    replys={this.props.replys}
                     router={this.props.router}
                 />
                 <Pagination 

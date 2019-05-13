@@ -19,7 +19,6 @@ class IndivdualBoardPage extends React.Component {
         this.state =
         { 
           threads:[],
-          replys:[],
           boards:[],
           replyCount:[],
           currentPage:1,
@@ -54,13 +53,6 @@ class IndivdualBoardPage extends React.Component {
       
       axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
       .then((response)=>this.setState({threads:response.data}))
-      .catch(error => this.setState({
-        error,
-        isLoading: false
-      }));
-
-      axios.post('http://localhost:4000/api/readreplys')
-      .then((response)=>this.setState({replys:response.data}))
       .catch(error => this.setState({
         error,
         isLoading: false
@@ -135,7 +127,6 @@ class IndivdualBoardPage extends React.Component {
               startIndex={this.state.startIndex}
               endIndex={this.state.endIndex}
               threads={this.state.threads}
-              replys={this.state.replys}
               onPagerChange={this.handlePageChange} 
               requery={this.queryBBSAPIs}
               replyCount={this.state.replyCount}
