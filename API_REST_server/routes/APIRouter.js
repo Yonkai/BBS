@@ -30,7 +30,8 @@ router.post('/createreply', function(req, res, next) {
     //TODO: rerender/reconcile react when this router is hit so the comment appears immediately.
     
     hidden_connection.query(`INSERT INTO replys (replys_username,replys_comment,threads_threads_id,threads_boards_boards_id)
-    VALUES (?,?,?,?)`,[req.body.name,req.body.comments,req.body.threadsthreadsid,req.body.threadsboardsboardsid], function (error, results, fields) {
+    VALUES (?,?,?,?);UPDATE threads SET threads_modified=CURRENT_TIMESTAMP WHERE threads_id=?;`,
+    [req.body.name,req.body.comments,req.body.threadsthreadsid,req.body.threadsboardsboardsid,req.body.threadsthreadsid], function (error, results, fields) {
       if (error) throw error;
 
     });
