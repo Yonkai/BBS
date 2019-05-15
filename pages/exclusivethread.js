@@ -20,7 +20,8 @@ class ExclusiveThreadPage extends React.Component{
         //for a more salient experience
         optimisticComment:[],
         optimisiticUsername:'',
-        optimisiticTimestamp:0
+        optimisiticTimestamp:0,
+        optimisiticFlag:false
       }
   }
 
@@ -31,16 +32,21 @@ class ExclusiveThreadPage extends React.Component{
     this.setState({
       optimisticComment:optimisticComment,
       optimisiticUsername:optimisticUsername,
-      optimisiticTimestamp:444
+      optimisiticTimestamp:0,
+      optimisiticFlag:true
     })
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevState){
     //fires after setState calls in handleOptimisticReplys per official docs
     console.log('hello world');
   }
 
   render(){
+    let optimisiticSub = <span>PLACEHOLDER</span>;
+    if(this.state.optimisiticFlag){
+      
+    }
     return(
       <>
         <Head>
@@ -72,6 +78,7 @@ class ExclusiveThreadPage extends React.Component{
           individualReplyData={this.props.exclusiveThreadReplys} 
           replySubject={this.props.exclusiveThread[0].threads_subject}
           />
+          {optimisiticSub}
           <Footer/>
 
         <style jsx global>{`

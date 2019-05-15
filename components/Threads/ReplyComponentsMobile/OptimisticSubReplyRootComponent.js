@@ -1,20 +1,22 @@
 //Design from photoshop doc:
-//SubReplyRootComponent is similar to ReplyRootComponent but with no footer,
-//This preserveres compositional nature.
+//OptimisticSubReplyRootComponent is similar to ReplyRootComponent but with no Footer,
+//and similar to SubReplyRootComponent. This preserveres compositional nature.
+//Optimistic UX shows up before the database has completed its queries, making it "optimistic"
 import ReplyInfoContainerComponent from './ReplyInfoContainerComponent.js';
 import ReplyContent from './ReplyContent.js';
 
-const SubReplyRootComponent = (props) => (
+const OptimisticSubReplyRootComponent = (props) => (
     <>
         {props.individualReplyData && props.individualReplyData.map((replys, index) =>
               <div>
                 <ReplyInfoContainerComponent 
-                replyUsername={replys.replys_username} 
-                replySubject={props.replySubject}
-                threadTime={replys.replys_created} 
-                // This is super confusing... change it later
-                threadID={replys.replys_id}/>
-                <ReplyContent replyComment={replys.replys_comment}/>
+                // replyUsername={replys.replys_username} 
+                // replySubject={props.replySubject}
+                // threadTime={replys.replys_created} 
+                // // This is super confusing... change it later
+                // threadID={replys.replys_id}/>
+                // <ReplyContent replyComment={replys.replys_comment}
+                />
               </div>
 
             )
@@ -39,8 +41,8 @@ const SubReplyRootComponent = (props) => (
     </>
 )
 
-export default SubReplyRootComponent;
+export default OptimisticSubReplyRootComponent;
 
-SubReplyRootComponent.defaultProps = {
+OptimisticSubReplyRootComponent.defaultProps = {
   individualReplyData:[],
 }
