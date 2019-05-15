@@ -57,6 +57,12 @@ class NewThreadButton extends React.Component {
               });
               //TODO:implement optimisic UI and socket.io queries for smoother UX.
               //https://uxplanet.org/optimistic-1000-34d9eefe4c05
+              if(this.props.handleOptimisticReplys){
+                this.props.handleOptimisticReplys(
+                    this.state.name,
+                    this.state.comments
+                );
+              }
           }
 
           else{
@@ -90,7 +96,7 @@ class NewThreadButton extends React.Component {
                     </div>
                 }
                 <label htmlFor="comments">Comments:</label>
-                <textarea onChange={this.handleChange('comments')} maxlength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
+                <textarea onChange={this.handleChange('comments')} maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
                 {/* <input type="text" name="image" placeholder="Image?"/>
                     <input type="text" name="captcha" placeholder="captcha"/> */}
                 <button>Send!</button>

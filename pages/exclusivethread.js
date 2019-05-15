@@ -17,16 +17,27 @@ class ExclusiveThreadPage extends React.Component{
 
       this.state = {
         //Optimistic UX displays reply before it is actually inserted into the database 
-        //for a more salient experience.
+        //for a more salient experience
         optimisticComment:[],
         optimisiticUsername:'',
         optimisiticTimestamp:0
       }
   }
 
-  handleOptimisticReplys(){
-    //Sets the optimistic UX state from NewThreadButton component.
+  handleOptimisticReplys(optimisticUsername,optimisticComment){
+    //Sets the optimistic UX state from NewThreadButton component
+    console.log(optimisticUsername,optimisticComment);
     console.log('Hello world');
+    this.setState({
+      optimisticComment:optimisticComment,
+      optimisiticUsername:optimisticUsername,
+      optimisiticTimestamp:444
+    })
+  }
+
+  componentDidUpdate(){
+    //fires after setState calls in handleOptimisticReplys per official docs
+    console.log('hello world');
   }
 
   render(){
@@ -47,6 +58,7 @@ class ExclusiveThreadPage extends React.Component{
           isThisPartOfAnExclusiveThread={true} 
           threadID={this.props.router.query.threadID} 
           boardID={this.props.router.query.boardID}
+          handleOptimisticReplys={this.handleOptimisticReplys}
           />
           {/* Data needs to be loaded here again: */}
           {/*Map out data here form database call*/}
@@ -82,6 +94,32 @@ class ExclusiveThreadPage extends React.Component{
   }
 }
 
+ExclusiveThreadPage.getInitialProps =  async(context) => {
+  console.log('context object:',context);
+  // const thread_response = await axios.post('http://localhost:4000/api/readthreads');
+  // const reply_response = await axios.post('http://localhost:4000/api/readreplys');
+  const board_response = await axios.post('http://localhost:4000/api/readboards');
+  const exclusive_thread = await axios.post(`http://localhost:4000/api/readexclusivethread/${context.query.threadID}`);
+  const exclusive_thread_replys = await axios.post(`http://localhost:4000/api/readexclusivereplys/${context.query.threadID}`);
+  const threads_reply_count = await axios.post('http://localhost:4000/api/readthreadsreplycount');
+  console.log(
+    // thread_response.data, 
+    // thread_response.status,
+    // // thread_response.statusText,
+    // // thread_response.headers,
+    // reply_response.data,
+    // reply_response.status
+    );
+    //TODO:Error/.catch handler
+  return {
+    exclusiveThreadReplys:exclusive_thread_replys.data,
+    exclusiveThread:exclusive_thread.data,
+    boards:board_response.data,
+    replyCount:threads_reply_count.data
+  };
+}
+
+export default withRouter(ExclusiveThreadPage);
 // const exclusivethread = withRouter((props) => (
 //     // React Fragment
 //     <>
@@ -127,29 +165,3 @@ class ExclusiveThreadPage extends React.Component{
 // //See axios npm docs for response schema.
 // //Can only use getInitialProps on NextJS pages files
 // //Need absolute path unless using a baseurl in axios
-ExclusiveThreadPage.getInitialProps =  async(context) => {
-  console.log('context object:',context);
-  // const thread_response = await axios.post('http://localhost:4000/api/readthreads');
-  // const reply_response = await axios.post('http://localhost:4000/api/readreplys');
-  const board_response = await axios.post('http://localhost:4000/api/readboards');
-  const exclusive_thread = await axios.post(`http://localhost:4000/api/readexclusivethread/${context.query.threadID}`);
-  const exclusive_thread_replys = await axios.post(`http://localhost:4000/api/readexclusivereplys/${context.query.threadID}`);
-  const threads_reply_count = await axios.post('http://localhost:4000/api/readthreadsreplycount');
-  console.log(
-    // thread_response.data, 
-    // thread_response.status,
-    // // thread_response.statusText,
-    // // thread_response.headers,
-    // reply_response.data,
-    // reply_response.status
-    );
-    //TODO:Error/.catch handler
-  return {
-    exclusiveThreadReplys:exclusive_thread_replys.data,
-    exclusiveThread:exclusive_thread.data,
-    boards:board_response.data,
-    replyCount:threads_reply_count.data
-  };
-}
-
-export default withRouter(ExclusiveThreadPage);
