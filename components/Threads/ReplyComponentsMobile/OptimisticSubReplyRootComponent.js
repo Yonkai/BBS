@@ -7,20 +7,15 @@ import ReplyContent from './ReplyContent.js';
 
 const OptimisticSubReplyRootComponent = (props) => (
     <>
-        {props.individualReplyData && props.individualReplyData.map((replys, index) =>
               <div>
-                <ReplyInfoContainerComponent 
-                // replyUsername={replys.replys_username} 
-                // replySubject={props.replySubject}
-                // threadTime={replys.replys_created} 
-                // // This is super confusing... change it later
-                // threadID={replys.replys_id}/>
-                // <ReplyContent replyComment={replys.replys_comment}
-                />
+                <ReplyInfoContainerComponent
+                replyUsername={props.replyUsername}
+                replySubject={props.replySubject}
+                threadTime={props.threadTime}
+                // This is super confusing... change it later
+                threadID={props.threadID}/>
+                <ReplyContent replyComment={props.replyComment}/>
               </div>
-
-            )
-          }
         <style jsx>{`
           p {
             font-family: "Roboto";

@@ -7,6 +7,7 @@ import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import NewThreadButton from '../components/NewThreadButton.js';
 import SubReplyRootComponent from '../components/Threads/ReplyComponentsMobile/SubReplyRootComponent.js';
+import OptimisticSubReplyRootComponent from '../components/Threads/ReplyComponentsMobile/OptimisticSubReplyRootComponent.js';
 import axios from 'axios';
 import {withRouter} from 'next/router';
 
@@ -32,20 +33,29 @@ class ExclusiveThreadPage extends React.Component{
     this.setState({
       optimisticComment:optimisticComment,
       optimisiticUsername:optimisticUsername,
-      optimisiticTimestamp:0,
       optimisiticFlag:true
-    })
+    });
   }
 
-  componentDidUpdate(prevState){
+  componentDidUpdate(prevProps,prevState){
     //fires after setState calls in handleOptimisticReplys per official docs
+    //Makes the next state from the previous one, after the rendering phase,
+    //so that multiple replys can be rendered from built-up state info for the
+    //particular exclusivethread
     console.log('hello world');
+    console.log(this.state.optimisiticFlag,prevState.optimisiticFlag);
   }
 
   render(){
-    let optimisiticSub = <span>PLACEHOLDER</span>;
+    var optimisiticSub = <span></span>;
     if(this.state.optimisiticFlag){
-      
+      optimisiticSub=<OptimisticSubReplyRootComponent
+        replyUsername={this.state.optimisiticUsername}
+        replyComment={this.state.optimisticComment}
+        replySubject={this.props.exclusiveThread[0].threads_subject}
+        threadTime={'Just now!'}
+        threadID={9999999}
+      />
     }
     return(
       <>

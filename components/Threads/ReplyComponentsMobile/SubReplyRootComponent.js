@@ -7,7 +7,7 @@ import ReplyContent from './ReplyContent.js';
 const SubReplyRootComponent = (props) => (
     <>
         {props.individualReplyData && props.individualReplyData.map((replys, index) =>
-              <div>
+              <div key={index}>
                 <ReplyInfoContainerComponent 
                 replyUsername={replys.replys_username} 
                 replySubject={props.replySubject}
