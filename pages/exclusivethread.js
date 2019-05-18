@@ -20,7 +20,7 @@ class ExclusiveThreadPage extends React.Component{
         //Optimistic UX displays reply before it is actually inserted into the database 
         //for a more salient experience
         optimisticComment:[],
-        optimisiticUsername:'',
+        optimisiticUsername:[],
         optimisiticTimestamp:0,
         optimisiticFlag:false
       }
@@ -29,10 +29,18 @@ class ExclusiveThreadPage extends React.Component{
   handleOptimisticReplys(optimisticUsername,optimisticComment){
     //Sets the optimistic UX state from NewThreadButton component
     console.log(optimisticUsername,optimisticComment);
+    //Do this to avoid mutating state
+    var newOptimisticCommentsArray = this.state.optimisticComment.slice();
+    newOptimisticCommentsArray.push(optimisticComment);
+
+    //And again.
+    var newOptimisticUsernamesArray = this.state.optimisiticUsername.slice();
+    newOptimisticUsernamesArray.push(optimisticUsername);
+
     console.log('Hello world');
     this.setState((prevState) => ({
-      optimisticComment:prevState.optimisticComment.push(optimisticComment),
-      optimisiticUsername:optimisticUsername,
+      optimisticComment:newOptimisticCommentsArray,
+      optimisiticUsername:newOptimisticUsernamesArray,
       optimisiticFlag:true,
     }));
   }
@@ -46,20 +54,6 @@ class ExclusiveThreadPage extends React.Component{
   }
 
   render(){
-    var optimisiticSub;
-    if(this.state.optimisiticFlag){
-      {this.state.optimisticComment.map((comments,index) =>{
-       optimisiticSub+=
-       <OptimisticSubReplyRootComponent
-        replyUsername={this.state.optimisiticUsername}
-        replyComment={comments}
-        replySubject={this.props.exclusiveThread[0].threads_subject}
-        threadTime={'Just now!'}
-        threadID={9999999}
-      />}
-      )
-     }
-   }
     return(
       <>
         <Head>
@@ -91,7 +85,16 @@ class ExclusiveThreadPage extends React.Component{
           individualReplyData={this.props.exclusiveThreadReplys} 
           replySubject={this.props.exclusiveThread[0].threads_subject}
           />
-          {optimisiticSub}
+          {this.state.optimisiticFlag?
+          this.state.optimisticComment.map((comments,index) =>
+            <OptimisticSubReplyRootComponent
+             replyUsername={this.state.optimisiticUsername[index]}
+             replyComment={comments}
+             replySubject={this.props.exclusiveThread[0].threads_subject}
+             threadTime={'Just now!'}
+             threadID={1337}
+           />):<span></span>
+           }
           <Footer/>
 
         <style jsx global>{`
