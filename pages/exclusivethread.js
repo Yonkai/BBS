@@ -30,33 +30,36 @@ class ExclusiveThreadPage extends React.Component{
     //Sets the optimistic UX state from NewThreadButton component
     console.log(optimisticUsername,optimisticComment);
     console.log('Hello world');
-    this.setState({
-      optimisticComment:optimisticComment,
+    this.setState((prevState) => ({
+      optimisticComment:prevState.optimisticComment.push(optimisticComment),
       optimisiticUsername:optimisticUsername,
-      optimisiticFlag:true
-    });
+      optimisiticFlag:true,
+    }));
   }
 
   componentDidUpdate(prevProps,prevState){
     //fires after setState calls in handleOptimisticReplys per official docs
-    //Makes the next state from the previous one, after the rendering phase,
-    //so that multiple replys can be rendered from built-up state info for the
-    //particular exclusivethread
+    if(this.state.optimisiticUsername !== prevState.optimisiticUsername){
     console.log('hello world');
-    console.log(this.state.optimisiticFlag,prevState.optimisiticFlag);
+
+    }
   }
 
   render(){
-    var optimisiticSub = <span></span>;
+    var optimisiticSub;
     if(this.state.optimisiticFlag){
-      optimisiticSub=<OptimisticSubReplyRootComponent
+      {this.state.optimisticComment.map((comments,index) =>{
+       optimisiticSub+=
+       <OptimisticSubReplyRootComponent
         replyUsername={this.state.optimisiticUsername}
-        replyComment={this.state.optimisticComment}
+        replyComment={comments}
         replySubject={this.props.exclusiveThread[0].threads_subject}
         threadTime={'Just now!'}
         threadID={9999999}
-      />
-    }
+      />}
+      )
+     }
+   }
     return(
       <>
         <Head>
