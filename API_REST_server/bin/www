@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('restful-bbs-api-server:server');
 var http = require('http');
-var io = require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -25,7 +24,7 @@ var server = http.createServer(app);
 /**
  * Connect Socket.IO
  */
-io(server);
+var io = require('socket.io')(server);
 
 /**
  * Init. Socket.IO on/emit cycles
