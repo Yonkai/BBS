@@ -5,7 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var APIRouter = require('./routes/APIRouter');
-var SeedRouter =require('./config/seeder')
+var SeedRouter = require('./config/seeder');
 
 var app = express();
 
