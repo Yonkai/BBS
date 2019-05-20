@@ -91,7 +91,7 @@ class ExclusiveThreadPage extends React.Component{
              replyUsername={this.state.optimisiticUsername[index]}
              replyComment={comments}
              replySubject={this.props.exclusiveThread[0].threads_subject}
-             threadTime={'Just now!'}
+             threadTime={new Date()}
              threadID={1337}
            />):<span></span>
            }
