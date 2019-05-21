@@ -152,10 +152,14 @@ ExclusiveThreadPage.getInitialProps =  async(context) => {
 console.log('context object:',context);
   // const thread_response = await axios.post('http://localhost:4000/api/readthreads');
   // const reply_response = await axios.post('http://localhost:4000/api/readreplys');
-  const board_response = await axios.post('http://localhost:4000/api/readboards');
-  const exclusive_thread = await axios.post(`http://localhost:4000/api/readexclusivethread/${context.query.threadID}`);
-  const exclusive_thread_replys = await axios.post(`http://localhost:4000/api/readexclusivereplys/${context.query.threadID}`);
-  const threads_reply_count = await axios.post(`http://localhost:4000/api/readthreadsreplycount/${context.query.threadID}`);
+  const board_response = await axios.post('http://localhost:4000/api/readboards')
+  .catch(function (error) {console.log(error);});
+  const exclusive_thread = await axios.post(`http://localhost:4000/api/readexclusivethread/${context.query.threadID}`)
+  .catch(function (error) {console.log(error);});
+  const exclusive_thread_replys = await axios.post(`http://localhost:4000/api/readexclusivereplys/${context.query.threadID}`)
+  .catch(function (error) {console.log(error);});
+  const threads_reply_count = await axios.post(`http://localhost:4000/api/readthreadsreplycount/${context.query.threadID}`)
+  .catch(function (error) {console.log(error);});
   console.log(
     // thread_response.data, 
     // thread_response.status,
