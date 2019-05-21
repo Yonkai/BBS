@@ -7,11 +7,10 @@ export default () => (
   // Controlled through browser cookies/other client side storage.
   <>
     <Head>
-      <title>BBS title</title>
+      <title>{'BBS Settings'}</title>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-      <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
-      </meta>
+      <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"/>
     </Head>
     <h3>Settings:</h3>
     <p>placeholder</p>

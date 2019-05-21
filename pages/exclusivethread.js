@@ -82,8 +82,8 @@ class ExclusiveThreadPage extends React.Component{
     return(
       <>
         <Head>
-          <title>{this.props.router.query.pathname}</title>
-          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"></meta>
+          <title>{this.props.router.query.title}</title>
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"/>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         </Head>
