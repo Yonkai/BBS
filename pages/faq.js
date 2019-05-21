@@ -21,7 +21,6 @@ export default () => (
     <h3>Question?</h3>
     <p>Answer.</p>
 
-
     <style jsx global>{`
       html {
         height:100vh;

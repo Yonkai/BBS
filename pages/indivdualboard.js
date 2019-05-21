@@ -41,7 +41,6 @@ class IndivdualBoardPage extends React.Component {
     //     pages: pages
     // };
     
-    //TODO:modify routes so that boards are involved in getting all this data.
     queryBBSAPIs(){
       this.setState({isLoading:true});
       axios.post('http://localhost:4000/api/readthreadsreplycount')
@@ -121,13 +120,13 @@ class IndivdualBoardPage extends React.Component {
 
              <IndividualBoard
               router={this.props.router}
-              title={this.props.router.pathname} 
+              title={this.props.router.pathname}
               boards={this.state.boards}
               currentPage={this.state.currentPage}
               startIndex={this.state.startIndex}
               endIndex={this.state.endIndex}
               threads={this.state.threads}
-              onPagerChange={this.handlePageChange} 
+              onPagerChange={this.handlePageChange}
               requery={this.queryBBSAPIs}
               replyCount={this.state.replyCount}
             />

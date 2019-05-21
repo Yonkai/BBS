@@ -15,25 +15,28 @@ class ExclusiveThreadPage extends React.Component{
   constructor(props){
     super(props);
       this.handleOptimisticReplys = this.handleOptimisticReplys.bind(this);
+      this.longPollDatabaseReplys = this.longPollDatabaseReplys.bind(this);
 
       this.state = {
         //Optimistic UX displays reply before it is actually inserted into the database 
         //for a more salient experience
         optimisticComment:[],
         optimisiticUsername:[],
+        polledExclusiveReplys:[],
         optimisiticTimestamp:0,
-        optimisiticFlag:false
+        optimisiticFlag:false,
+        isLoading:false
       }
   }
 
   handleOptimisticReplys(optimisticUsername,optimisticComment){
     //Sets the optimistic UX state from NewThreadButton component
     console.log(optimisticUsername,optimisticComment);
-    //Do this to avoid mutating state
+    //Do this to avoid mutating state:
     var newOptimisticCommentsArray = this.state.optimisticComment.slice();
     newOptimisticCommentsArray.push(optimisticComment);
 
-    //And again.
+    //Again, do this to avoid mutating state:
     var newOptimisticUsernamesArray = this.state.optimisiticUsername.slice();
     newOptimisticUsernamesArray.push(optimisticUsername);
 
@@ -45,6 +48,16 @@ class ExclusiveThreadPage extends React.Component{
     }));
   }
 
+  longPollDatabaseReplys(){
+    console.log('polled database');
+    axios.post(`http://localhost:4000/api/readexclusivereplys/${this.props.router.query.threadID}`)
+    .then((response)=>this.setState({polledExclusiveReplys:response.data, isLoading: false,optimisiticFlag:false}))
+    .catch(error => this.setState({
+      error,
+      isLoading:false
+    }));
+  }
+
   componentDidUpdate(prevProps,prevState){
     //fires after setState calls in handleOptimisticReplys per official docs
     if(this.state.optimisiticUsername !== prevState.optimisiticUsername){
@@ -53,13 +66,20 @@ class ExclusiveThreadPage extends React.Component{
     }
   }
 
+  componentDidMount(){
+    setInterval(this.longPollDatabaseReplys, 30000);
+  }
+
+  componentWillUnmount(){
+
+  }
+
   render(){
     return(
       <>
         <Head>
           <title>{this.props.router.query.pathname}</title>
-          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
-          </meta>
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"></meta>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         </Head>
@@ -81,10 +101,17 @@ class ExclusiveThreadPage extends React.Component{
           router={this.props.router}
           />
           {/* For exlcusive threads only, map props of replys for the exlcusive page*/}
+          {this.state.polledExclusiveReplys.length>this.props.exclusiveThreadReplys.length?
+          <SubReplyRootComponent 
+          individualReplyData={this.state.polledExclusiveReplys} 
+          replySubject={this.props.exclusiveThread[0].threads_subject}
+          />:
           <SubReplyRootComponent 
           individualReplyData={this.props.exclusiveThreadReplys} 
           replySubject={this.props.exclusiveThread[0].threads_subject}
           />
+
+          }
           {this.state.optimisiticFlag?
           this.state.optimisticComment.map((comments,index) =>
             <OptimisticSubReplyRootComponent
