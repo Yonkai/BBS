@@ -67,10 +67,14 @@ class ExclusiveThreadPage extends React.Component{
   }
 
   componentDidMount(){
-    setInterval(this.longPollDatabaseReplys, 30000);
+    var intervalId = setInterval(this.longPollDatabaseReplys, 30000);
+    // store intervalId in the state so it can be accessed later:
+    this.setState({intervalId: intervalId});
   }
 
   componentWillUnmount(){
+    // use intervalId from the state to clear the interval
+   clearInterval(this.state.intervalId);
 
   }
 
