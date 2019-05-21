@@ -84,12 +84,23 @@ router.post('/readexclusivethread/:threadsid', function(req, res, next) {
   hidden_connection.query(`SELECT * FROM threads WHERE threads_id=?`,req.params.threadsid, function (error, results, fields) {
     if (error) throw error;
     console.log('The exlcusive thread is: ', results);
-    console.log('threadsid is: ',req.params.boardsid);
     res.json(results);
   });
 });
 
-router.post('/readthreadsreplycount', function(req, res, next) {
+router.post('/readthreadsreplycount/:threadsthreadsid', function(req, res, next) {
+  console.log(req.body);
+  
+  hidden_connection.query(`SELECT threads.threads_id,COUNT(replys.threads_threads_id) AS number_of_replys
+  FROM threads LEFT JOIN replys ON (threads.threads_id = replys.threads_threads_id)
+  WHERE threads.threads_id=?`,req.params.threadsthreadsid, function (error, results, fields) {
+    if (error) throw error;
+    console.log('Reply count is: ', results);
+    res.json(results);
+  });
+});
+
+router.post('/readallthreadsreplycount', function(req, res, next) {
   console.log(req.body);
   
   hidden_connection.query(`SELECT threads.threads_id,COUNT(replys.threads_threads_id) AS number_of_replys         
