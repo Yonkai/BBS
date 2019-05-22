@@ -1,0 +1,12 @@
+https://www.owasp.org/index.php/OWASP_Testing_Guide_v4_Table_of_Contents
+https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf
+
+TODO: Sanitizing+Validate data, described here: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms
+
+Validation checks that entered values are appropriate for each field 
+(are in the right range, format, etc.) and that values have been supplied for all required fields.
+
+Sanitization removes/replaces characters in the data that might potentially be used to send malicious content to the server.
+
+The production environment is the environment provided by the server 
+computer where you will run your website for external consumption. The environment includes:
