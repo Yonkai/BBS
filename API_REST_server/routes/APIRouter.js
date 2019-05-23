@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var hidden_connection = require('../config/hidden-db.js');
+const { checkSchema,validationResult } = require('express-validator/check');
 //https://www.red-gate.com/simple-talk/sql/database-administration/ten-common-database-design-mistakes/
 //4. Validation here and database logic here, parse logic out to functions and import them similar to the MDN example.
 //Authorization/access control/Authentication later on prod. Also load any needed metadata information into database here.
@@ -22,12 +23,31 @@ router.post('/createthread', function(req, res, next) {
     res.json(req.body);
 });
 
-router.post('/createreply', function(req, res, next) {
+router.post('/createreply',checkSchema({
+  threadsboardsboardsid: {
+    // The location of the field, can be one or more of body, cookies, headers, params or query.
+    in: ['body'],
+    errorMessage: 'Invalid value',
+    // Validators
+    custom:{
+      //Validates between two boards
+      options:(threadsboardsboardsid) => {
+        if(0 < threadsboardsboardsid && threadsboardsboardsid < 19){
+        return true;
+      }},
+      errorMessage:'Bad range'    
+    }
+  },
+  }), function(req, res, next) {
     console.log(req.body);
+    // Finds the validation errors in this request and wraps them in an object with handy functions
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log('Errors found');
+      return res.status(422).json({ errors: errors.array() });
+    }
     //TODO:Implement pooling prod.
-    //TODO (IMPORTANT): Reinstate FK constraints to prevent invalid data injection.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
-    //TODO: rerender/reconcile react when this router is hit so the comment appears immediately.
     
     hidden_connection.query(`INSERT INTO replys (replys_username,replys_comment,threads_threads_id,threads_boards_boards_id)
     VALUES (?,?,?,?);UPDATE threads SET threads_modified=CURRENT_TIMESTAMP WHERE threads_id=?;`,
