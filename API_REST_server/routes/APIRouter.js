@@ -23,7 +23,18 @@ router.post('/createthread', function(req, res, next) {
     res.json(req.body);
 });
 
-router.post('/createreply',checkSchema({
+router.post('/createreply',function(req, res, next){
+  function setBody(threadCount){
+    req.body.threadCount = threadCount;
+    next();
+  }
+  //Validates to see if the query is within range between the valid threads
+  hidden_connection.query('SELECT COUNT(threads_id) AS threads_count FROM threads', function (error, results, fields) {
+    if (error) throw error;
+    setBody(results[0].threads_count);
+  });
+ 
+},checkSchema({
   //Validators
   threadsboardsboardsid: {
     // The location of the field, can be one or more of body, cookies, headers, params or query.
@@ -40,38 +51,21 @@ router.post('/createreply',checkSchema({
   },
   threadsthreadsid:{
     in:['body'],
-    errorMessage:'Invalid value',
     custom:{
-      options:(threadsthreadsid) => {
-        var queryValidationResults;
-        //The query is async, so having a call back makes it run in order.
-        function setQueryValidationResults(results){
-          queryValidationResults = results;
-        }
-        
-        //Validates to see if the query is within range between the valid threads
-        hidden_connection.query('SELECT COUNT(threads_id) AS threads_count FROM threads', function (error, results, fields) {
-          if (error) throw error;
-          else{
-            setQueryValidationResults(results[0].threads_count);
-          }
-        });
-        
-        if(0 < threadsthreadsid && threadsthreadsid <= queryValidationResults){
-           return true;
-        }
-      },
+      options:(threadsthreadsid, { req, location, path }) => {
+        if(0 < threadsthreadsid && threadsthreadsid < req.body.threadCount){
+          return true;
+      }},
       errorMessage:'That thread does not exist in the database!'
       }
-    //Sanitizers
     }
   }), function(req, res, next) {
-    console.log(req.body);
+    console.log('createreply request body:',req.body);
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
     console.log('errors.array',errors.array());
     if (!errors.isEmpty()) {
-      return res.status(422).send('Invalid value, range bad.');
+      return res.status(422).send('Invalid value');
     }
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
