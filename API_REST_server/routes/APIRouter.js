@@ -24,39 +24,64 @@ router.post('/createthread', function(req, res, next) {
 });
 
 router.post('/createreply',checkSchema({
+  //Validators
   threadsboardsboardsid: {
     // The location of the field, can be one or more of body, cookies, headers, params or query.
     in: ['body'],
-    errorMessage: 'Invalid value',
-    // Validators
+    // Custom validator:
     custom:{
-      //Validates between two boards
+      //Validates between if the query is with range for valid boards, between 1 and 18.
       options:(threadsboardsboardsid) => {
         if(0 < threadsboardsboardsid && threadsboardsboardsid < 19){
         return true;
       }},
-      errorMessage:'Bad range'    
+      errorMessage:'That board does not exist in the database!'
     }
   },
+  threadsthreadsid:{
+    in:['body'],
+    errorMessage:'Invalid value',
+    custom:{
+      options:(threadsthreadsid) => {
+        var queryValidationResults;
+        //The query is async, so having a call back makes it run in order.
+        function setQueryValidationResults(results){
+          queryValidationResults = results;
+        }
+        
+        //Validates to see if the query is within range between the valid threads
+        hidden_connection.query('SELECT COUNT(threads_id) AS threads_count FROM threads', function (error, results, fields) {
+          if (error) throw error;
+          else{
+            setQueryValidationResults(results[0].threads_count);
+          }
+        });
+        
+        if(0 < threadsthreadsid && threadsthreadsid <= queryValidationResults){
+           return true;
+        }
+      },
+      errorMessage:'That thread does not exist in the database!'
+      }
+    //Sanitizers
+    }
   }), function(req, res, next) {
     console.log(req.body);
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
+    console.log('errors.array',errors.array());
     if (!errors.isEmpty()) {
-      console.log('Errors found');
-      return res.status(422).json({ errors: errors.array() });
+      return res.status(422).send('Invalid value, range bad.');
     }
     //TODO:Implement pooling prod.
     //https://stackoverflow.com/questions/14087924/cannot-enqueue-handshake-after-invoking-quit
-    
     hidden_connection.query(`INSERT INTO replys (replys_username,replys_comment,threads_threads_id,threads_boards_boards_id)
     VALUES (?,?,?,?);UPDATE threads SET threads_modified=CURRENT_TIMESTAMP WHERE threads_id=?;`,
     [req.body.name,req.body.comments,req.body.threadsthreadsid,req.body.threadsboardsboardsid,req.body.threadsthreadsid], function (error, results, fields) {
       if (error) throw error;
-
+      console.log('inserted reply');
     });
 
-    res.json(req.body);
 });
 
 //Readers------------------------------------------------------------------------------------------------------------------
