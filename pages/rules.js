@@ -13,9 +13,8 @@ export default () => (
       </meta>
     </Head>
     <h3>Rules:</h3>
-    <p>Rule 1: Placeholder</p>
-    <p>Rule 2: Placeholder</p>
-    <p>Rule 3: Placeholder</p>
+    <p>Rule 1: Don't be rude.</p>
+    <p>Rule 2: Don't do anything illegal.</p>
 
     <style jsx global>{`
       html {

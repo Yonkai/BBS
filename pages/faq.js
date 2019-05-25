@@ -13,13 +13,8 @@ export default () => (
       </meta>
     </Head>
     <h3>What is this website?</h3>
-    <p>BBS is an internet forum.</p>
-    <h3>Question?</h3>
-    <p>Answer.</p>
-    <h3>Question?</h3>
-    <p>Answer.</p>
-    <h3>Question?</h3>
-    <p>Answer.</p>
+    <p>An internet forum.</p>
+
 
     <style jsx global>{`
       html {

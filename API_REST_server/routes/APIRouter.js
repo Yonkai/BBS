@@ -8,7 +8,32 @@ const { checkSchema,validationResult } = require('express-validator/check');
 //NEVER TRUST USER INPUT.
 
 //Creaters------------------------------------------------------------------------------------------------------------------
-router.post('/createthread', function(req, res, next) {
+router.post('/createthread',
+checkSchema({
+  //Validators
+  boardsboardsid: {
+    // The location of the field, can be one or more of body, cookies, headers, params or query.
+    in: ['body'],
+    // Custom validator:
+    custom:{
+      //Validates between if the query is with range for valid boards, between 1 and 18.
+      options:(boardsboardsid) => {
+        //Refers to the number of boards, do 'SELECT * FROM boards;' on BBS MySQL database for the magic number to make
+        //sense 
+        if(0 < boardsboardsid && boardsboardsid < 17){
+        return true;
+      }},
+      errorMessage:'That board does not exist in the database!'
+    }
+  }}),
+  function(req, res, next) {
+    console.log('createthread request body:',req.body);
+    // Finds the validation errors in this request and wraps them in an object with handy functions
+    const errors = validationResult(req);
+    console.log('errors.array',errors.array());
+    if (!errors.isEmpty()) {
+      return res.status(422).send('Invalid value');
+    }
     console.log(req.body);
     //TODO:Implement pooling in prod!!!
     //make sure to reinstate fk restraints in prod.
@@ -43,7 +68,7 @@ router.post('/createreply',function(req, res, next){
     custom:{
       //Validates between if the query is with range for valid boards, between 1 and 18.
       options:(threadsboardsboardsid) => {
-        if(0 < threadsboardsboardsid && threadsboardsboardsid < 19){
+        if(0 < threadsboardsboardsid && threadsboardsboardsid < 17){
         return true;
       }},
       errorMessage:'That board does not exist in the database!'

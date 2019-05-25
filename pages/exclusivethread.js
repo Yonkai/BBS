@@ -123,7 +123,7 @@ class ExclusiveThreadPage extends React.Component{
              replyComment={comments}
              replySubject={this.props.exclusiveThread[0].threads_subject}
              threadTime={new Date()}
-             threadID={1337}
+             threadID={123456}
            />):<span></span>
            }
           <Footer/>
