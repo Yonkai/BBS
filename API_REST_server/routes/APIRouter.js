@@ -29,6 +29,7 @@ checkSchema({
   function(req, res, next) {
     console.log('createthread request body:',req.body);
     // Finds the validation errors in this request and wraps them in an object with handy functions
+    // Note: Need to start DRY at 2 RYs, will be better long-term
     const errors = validationResult(req);
     console.log('errors.array',errors.array());
     if (!errors.isEmpty()) {
@@ -54,9 +55,10 @@ router.post('/createreply',function(req, res, next){
     next();
   }
   //Validates to see if the query is within range between the valid threads
-  hidden_connection.query('SELECT COUNT(threads_id) AS threads_count FROM threads', function (error, results, fields) {
+  hidden_connection.query('SELECT threads_id FROM threads AS threads_count ORDER BY threads_id DESC LIMIT 1', function (error, results, fields) {
     if (error) throw error;
-    setBody(results[0].threads_count);
+    console.log('asda',results);
+    setBody(results[0].threads_id);
   });
  
 },checkSchema({
@@ -78,7 +80,7 @@ router.post('/createreply',function(req, res, next){
     in:['body'],
     custom:{
       options:(threadsthreadsid, { req, location, path }) => {
-        if(0 < threadsthreadsid && threadsthreadsid < req.body.threadCount){
+        if(0 < threadsthreadsid && threadsthreadsid <= req.body.threadCount){
           return true;
       }},
       errorMessage:'That thread does not exist in the database!'
