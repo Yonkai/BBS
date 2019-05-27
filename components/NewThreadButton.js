@@ -88,11 +88,11 @@ class NewThreadButton extends React.Component {
         <>
             <form onSubmit={this.handleSubmit} className="pure-form pure-form-stacked">
                 <label htmlFor="name">Name:</label>
-                <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" id="name" maxLength="12"/>
+                <input onChange={this.handleChange('name')} required value={this.state.name} type="text" name="name" id="name" maxLength="12"/>
                 {
                     this.props.isThisPartOfAnExclusiveThread?<span>{/*nothing. not rendered because of ternary operator.*/}</span>:
                     <div><label htmlFor="subject">Subject:</label>
-                    <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
+                    <input onChange={this.handleChange('subject')} required value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
                     </div>
                 }
                     <label htmlFor="comments">Comments:</label>

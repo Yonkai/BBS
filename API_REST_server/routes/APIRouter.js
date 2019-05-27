@@ -25,7 +25,31 @@ checkSchema({
       }},
       errorMessage:'That board does not exist in the database!'
     }
-  }}),
+  },
+  comments:{
+    in: ['body'],
+    isLength:{
+      errorMessage: 'Comments must not be empty',
+      options:{ min: 1, max:500 }
+    },
+
+  },
+  subject:{
+    in: ['body'],
+    isLength:{
+      errorMessage: 'Subject must not be empty',
+      options:{ min: 1, max:12 }
+    },
+  },
+  name:{
+    in: ['body'],
+    isLength:{
+      errorMessage: 'Name must not be empty',
+      options:{ min: 1, max:12}
+    },
+
+  }
+}),
   function(req, res, next) {
     console.log('createthread request body:',req.body);
     //Finds the validation errors in this request and wraps them in an object with handy functions
