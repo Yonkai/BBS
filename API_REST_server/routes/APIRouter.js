@@ -12,24 +12,24 @@ router.post('/createthread',
 checkSchema({
   //Validators
   boardsboardsid: {
-    // The location of the field, can be one or more of body, cookies, headers, params or query.
+    //The location of the field, can be one or more of body, cookies, headers, params or query.
     in: ['body'],
-    // Custom validator:
+    //Custom validator:
     custom:{
       //Validates between if the query is with range for valid boards, between 1 and 18.
       options:(boardsboardsid) => {
         //Refers to the number of boards, do 'SELECT * FROM boards;' on BBS MySQL database for the magic number to make
         //sense 
         if(0 < boardsboardsid && boardsboardsid < 17){
-        return true;
+          return true;
       }},
       errorMessage:'That board does not exist in the database!'
     }
   }}),
   function(req, res, next) {
     console.log('createthread request body:',req.body);
-    // Finds the validation errors in this request and wraps them in an object with handy functions
-    // Note: Need to start DRY at 2 RYs, will be better long-term
+    //Finds the validation errors in this request and wraps them in an object with handy functions
+    //Note: Need to start DRY at 2 RYs, will be better long-term
     const errors = validationResult(req);
     console.log('errors.array',errors.array());
     if (!errors.isEmpty()) {
@@ -50,8 +50,24 @@ checkSchema({
 });
 
 //TODO: Add validator rule that sees if the combination of threadsid and boardsid are valid.
-//ie if board X owns thread Y
-router.post('/createreply',function(req, res, next){
+//ie if board X owns thread Y, or that the thread coming through the query has a foreign key reference to
+//the board.
+router.post('/createreply',function(req,res,next){
+  // boardsID to validate against For a reply To The supposed thread that the user wants to submit too
+  function setBody(boardsIDtoValidateAgainstFromUser){
+    console.log(boardsIDtoValidateAgainstFromUser);
+    req.body.boardsIDtoValidateAgainstFromUser = (boardsIDtoValidateAgainstFromUser.toString());
+    console.log('Updated body: ',req.body.boardsIDtoValidateAgainstFromUser);
+    next();
+  }
+  //Validates to see if the query is within range between the valid threads
+  hidden_connection.query(`SELECT boards_boards_id AS board_id_validation_check FROM threads WHERE threads_id = ?`,req.body.threadsthreadsid,function (error, results, fields) {
+    if (error) throw error;
+    console.log('ChEcK...',(results[0].board_id_validation_check));
+    setBody(results[0].board_id_validation_check);
+  });
+},
+function(req, res, next){
   function setBody(threadCount){
     req.body.threadCount = threadCount;
     next();
@@ -66,13 +82,13 @@ router.post('/createreply',function(req, res, next){
 },checkSchema({
   //Validators
   threadsboardsboardsid: {
-    // The location of the field, can be one or more of body, cookies, headers, params or query.
+    //The location of the field, can be one or more of body, cookies, headers, params or query.
     in: ['body'],
-    // Custom validator:
+    //Custom validator:
     custom:{
       //Validates between if the query is with range for valid boards, between 1 and 18.
-      options:(threadsboardsboardsid) => {
-        if(0 < threadsboardsboardsid && threadsboardsboardsid < 17){
+      options:(threadsboardsboardsid, {req, location, path}) => {
+        if((0 < threadsboardsboardsid && threadsboardsboardsid < 17) && (req.body.boardsIDtoValidateAgainstFromUser===threadsboardsboardsid)){
         return true;
       }},
       errorMessage:'That board does not exist in the database!'
@@ -90,7 +106,7 @@ router.post('/createreply',function(req, res, next){
     }
   }), function(req, res, next) {
     console.log('createreply request body:',req.body);
-    // Finds the validation errors in this request and wraps them in an object with handy functions
+    //Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
     console.log('errors.array',errors.array());
     if (!errors.isEmpty()) {
