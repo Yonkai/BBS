@@ -15,9 +15,10 @@ const ThreadPreviewRootComponent = (props) => (
             font-family: "Roboto";
           }
           div{
-            border:5px blue dashed;
+            // border:5px blue dashed;
             margin:5px;
-            padding:5px;
+            // padding:5px;
+            background:#fff;
             display:grid;
             justify-self:start;
           

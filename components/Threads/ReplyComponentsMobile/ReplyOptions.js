@@ -9,7 +9,8 @@ const ReplyOptions = (props) => (
             margin:0;
           }
           div{
-            border:5px olive solid;
+            border:5px #fff solid;
+            background: #eef;
           }
           }
         `}</style>

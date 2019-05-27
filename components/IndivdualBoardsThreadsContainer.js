@@ -6,8 +6,8 @@ const IndivdualBoardsThreadsContainer = (props) => (
       <div>
       {/* Obviously this will be automated (probably in a mapping function)when the backend is implemented, it would be needed to
       have a "threads per page" functionality, for example.*/}
-        <h2>Board's Thread's Container</h2>
-        <p>Stickied Board Description Thread</p>
+        {/* <h2>Board's Thread's Container</h2> */}
+        {/* <p>Stickied Board Description Thread</p> */}
         {/* Data is queried from backend on page load or refresh. */}
         {/* Automate this with mapping. */}
         {
@@ -42,7 +42,7 @@ const IndivdualBoardsThreadsContainer = (props) => (
             font-family: "Roboto";
           }
           div{
-            border:5px black solid;
+            // border:5px black solid;
             display:grid;
             justify-self:start;
           }

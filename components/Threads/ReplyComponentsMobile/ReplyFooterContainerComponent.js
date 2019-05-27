@@ -14,10 +14,10 @@ const ReplyFooterContainerComponent = (props) => (
             margin:0;
           }
           div{
-            border:5px red dashed;
+            border:5px #fff solid;
+            background: #eef;
             display:grid;
             grid-template-columns:1fr 1fr;
-          
           }
           @media all and (max-width: 520px) {
             div{

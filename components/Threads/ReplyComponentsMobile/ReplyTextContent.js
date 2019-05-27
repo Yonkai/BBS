@@ -16,8 +16,8 @@ const ReplyTextContent = (props) => (
 
           }
           div{
-            border:5px darkorange solid;
-            margin:2px;          
+            border:0px #fff solid;
+            background: #eef;
           }
           
           }

@@ -14,10 +14,10 @@ const ReplyContent = (props) => (
             margin:0;
           }
           div{
-            border:5px cyan dashed;
             display:grid;
             justify-self:start;
-          
+            border:5px #fff solid;
+            background: #eef;
           }
           @media all and (max-width: 520px) {
             div{

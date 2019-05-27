@@ -12,7 +12,8 @@ const ReplyDateMade = (props) => (
             margin:0;
           }
           div{
-            border:5px salmon solid;
+            border:5px #fff solid;
+            background: #eef;
           }
         `}</style>
     </>
