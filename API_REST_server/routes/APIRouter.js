@@ -49,6 +49,8 @@ checkSchema({
     res.json(req.body);
 });
 
+//TODO: Add validator rule that sees if the combination of threadsid and boardsid are valid.
+//ie if board X owns thread Y
 router.post('/createreply',function(req, res, next){
   function setBody(threadCount){
     req.body.threadCount = threadCount;

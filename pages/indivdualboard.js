@@ -114,8 +114,10 @@ class IndivdualBoardPage extends React.Component {
               <title>{this.props.router.query.title}</title>
               <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
               </meta>
-              <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
               <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+              <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
+      integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" 
+      crossorigin="anonymous"></link>
             </Head>
 
              <IndividualBoard

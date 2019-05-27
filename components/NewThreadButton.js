@@ -80,13 +80,13 @@ class NewThreadButton extends React.Component {
         if(!this.state.openStatus){
             form=
             <>
-                <button className="check" onClick={this.openNewThreadForm}>{this.props.isThisPartOfAnExclusiveThread?'New Reply':'New Thread'}</button>
+                <button className="pure-button" onClick={this.openNewThreadForm}>{this.props.isThisPartOfAnExclusiveThread?'New Reply':'New Thread'}</button>
                 <style jsx>{`button { margin-right:15px;} `}</style>
             </>
         }else{
         form=
         <>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="pure-form pure-form-stacked">
                 <label htmlFor="name">Name:</label>
                 <input onChange={this.handleChange('name')} value={this.state.name} type="text" name="name" id="name" maxLength="12"/>
                 {
@@ -95,14 +95,14 @@ class NewThreadButton extends React.Component {
                     <input onChange={this.handleChange('subject')}  value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
                     </div>
                 }
-                <label htmlFor="comments">Comments:</label>
-                <textarea onChange={this.handleChange('comments')} maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
-                {/* <input type="text" name="image" placeholder="Image?"/>
-                    <input type="text" name="captcha" placeholder="captcha"/> */}
-                <button>Send!</button>
+                    <label htmlFor="comments">Comments:</label>
+                    <textarea onChange={this.handleChange('comments')} maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
+                    {/* <input type="text" name="image" placeholder="Image?"/>
+                        <input type="text" name="captcha" placeholder="captcha"/> */}
+                <button className="button-xlarge pure-button">Send!</button>
             </form>
             {/* This might disable using enter? bad ux if so(the onClick): */}
-            <button className="check" onClick={this.openNewThreadForm}>Close Form</button>
+            <button className="pure-button" onClick={this.openNewThreadForm}>Close Form</button>
             <style jsx>{`button { margin-right:15px;} input{display:block;} textarea{display:block;}`}</style>
         </>
         }
