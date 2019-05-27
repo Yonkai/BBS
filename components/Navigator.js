@@ -4,6 +4,8 @@ import React from 'react';
 //I keep loading the same props into this from the database but with NextJS you're only suppose to load from pages,
 //have to find or look for a work around..
 //props.boardNames
+//Sourced from: https://css-tricks.com/solved-with-css-dropdown-menus/
+//TODO: Add another navigator for the bottom to have horizontally placed anchors instead of vertical
 
 const Navigator = (props) => (
     <div>
