@@ -1,19 +1,20 @@
 const Statistics = (props) => (
     <>  
     <div className="statistics">
-        <h2>BBS Statistics Component</h2>
+        <h2>Stats</h2>
         <div>Total Replys:{props.statistics[0].totalreplycount}</div>
         <div>Top Threads: Queried on page load GetIntialProps</div>
     </div>
         {/* Content: Total Posts, Users (Use getInitialProps?) */}
         <style jsx>{`
-          h1 {
-            font-family: "Roboto";
+          h2 {
+            margin-left:5px;
           }
           .statistics{
-            border:5px solid black;
+            border:5px solid #99f;
             display:grid;
             grid-template-columns:minmax(320px,1200px);
+            background:#eef;
           }
         `}</style>
     </>

@@ -58,7 +58,7 @@ class BoardContent extends React.Component {
                 justify-self:start;
             }
             .${this.props.router.query.title}{
-                font-size:3w0px
+                font-size:30px
             }
             a{
                 margin-right:15px;

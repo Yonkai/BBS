@@ -9,13 +9,14 @@ const BoardLink = (props) => (
       <style jsx>{`
         .module {
           background-color: DimGrey;
-          padding: 20px;
-          color: #fff;
-          border: 1px solid #fff;
+          padding: 10px;
+          background:#eef;
+          color:#004;
+          border: 3px solid #fff;
         }
         
         a{
-          font-size:24px;
+          font-size:22px;
         }
       `}</style>
   </div>

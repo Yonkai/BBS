@@ -3,7 +3,6 @@ import Link from 'next/link';
 const Footer = () => (
     <>
         <div className="mainFooterContainer">
-          <h2>BBS Footer Component</h2>
               {/* Content: */}
               <div className="linkGroup"> 
                 <Link href="/">    
@@ -18,8 +17,8 @@ const Footer = () => (
                 <Link href="/rules">
                   <a>Rules</a>
                 </Link>
+              <span>© 2019</span> 
               </div>
-              <p>© 2019</p>
             </div>
 
           <style jsx>{`
@@ -32,9 +31,11 @@ const Footer = () => (
             .linkGroup{
               display:grid;
               grid-template-columns:1fr 1fr 1fr 1fr;
+              margin-top:20px;
             }
             .mainFooterContainer{
-              border:5px solid black;
+              border:5px solid #99f;
+              background:#eef;
               display:grid;
               grid-template-columns:minmax(320px,1200px);
             }
