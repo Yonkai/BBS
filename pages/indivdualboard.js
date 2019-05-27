@@ -136,7 +136,8 @@ class IndivdualBoardPage extends React.Component {
             <style jsx global>{`
             html {
               box-sizing:border-box;
-              margin:0; 
+              margin:0;
+              font-size:18px;
             }
 
             body{
