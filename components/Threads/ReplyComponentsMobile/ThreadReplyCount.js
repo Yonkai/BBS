@@ -9,16 +9,19 @@ const ThreadReplyCount = (props) => (
     <>
       <div>
           {props.replyCount.length===1?
-          <p>Replies:{ props.replyCount[0]['number_of_replys']}</p>:
-          <span>{props.replyCount[getKeyByValue(props.replyCount,props.threadID)]['number_of_replys']}</span>}
+          <p>Replies: { props.replyCount[0]['number_of_replys']}</p>:
+          <p>Replies: {props.replyCount[getKeyByValue(props.replyCount,props.threadID)]['number_of_replys']}</p>}
       </div>
         <style jsx>{`
           p {
             font-family: "Roboto";
+            float: right;
             margin:0;
+            margin-right:10px;
           }
           div{
-            border:5px MediumOrchid solid;
+            border-left:10px #fff solid;
+            background: #eef;
           }
         `}</style>
     </>

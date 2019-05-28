@@ -4,6 +4,9 @@ import React from 'react';
 //I keep loading the same props into this from the database but with NextJS you're only suppose to load from pages,
 //have to find or look for a work around..
 //props.boardNames
+//Sourced from: https://css-tricks.com/solved-with-css-dropdown-menus/
+//TODO: Add another navigator for the bottom to have horizontally placed anchors instead of vertical
+
 const Navigator = (props) => (
     <div>
     <div id="navigationMenu">
@@ -18,7 +21,7 @@ const Navigator = (props) => (
             props.boards && props.boards.map((boards) =>
               <li key={boards.boards_id}>
                 <Link  href={{ pathname: '/indivdualboard', query: { boards_id:boards.boards_id, title: boards.boards_name,page:1}}}>
-                  <a>{boards.boards_name}</a>   
+                  <a>{boards.boards_name.padEnd(12,' ')}</a>   
                 </Link> 
               </li>
             )
@@ -37,7 +40,7 @@ const Navigator = (props) => (
           
           nav {
               font-family: monospace;
-              font-size:14px;
+              font-size:18px;
           }
 
           ul {
@@ -48,7 +51,7 @@ const Navigator = (props) => (
 
           li {
             color: #fff;
-            background: darkorange;
+            background:#99f;
             display: block;
             // float: left;
             // padding: .5rem;
@@ -58,7 +61,8 @@ const Navigator = (props) => (
             
           li a {
             color: #fff;
-            text-decoration:none; 
+            text-decoration:none;
+            white-space: pre;
           }
 
           li:hover,

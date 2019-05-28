@@ -87,23 +87,24 @@ class NewThreadButton extends React.Component {
         form=
         <>
             <form onSubmit={this.handleSubmit} className="pure-form pure-form-stacked">
-                <label htmlFor="name">Name:</label>
                 <input onChange={this.handleChange('name')} required value={this.state.name} type="text" name="name" id="name" maxLength="12"/>
                 {
                     this.props.isThisPartOfAnExclusiveThread?<span>{/*nothing. not rendered because of ternary operator.*/}</span>:
-                    <div><label htmlFor="subject">Subject:</label>
-                    <input onChange={this.handleChange('subject')} required value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
+                    <div>
+                    <input onChange={this.handleChange('subject')} placeholder='Subject' required value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
                     </div>
                 }
-                    <label htmlFor="comments">Comments:</label>
-                    <textarea onChange={this.handleChange('comments')} maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
+                    <textarea onChange={this.handleChange('comments')} placeholder='comments' maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
                     {/* <input type="text" name="image" placeholder="Image?"/>
                         <input type="text" name="captcha" placeholder="captcha"/> */}
                 <button className="button-xlarge pure-button">Send!</button>
             </form>
             {/* This might disable using enter? bad ux if so(the onClick): */}
-            <button className="pure-button" onClick={this.openNewThreadForm}>Close Form</button>
-            <style jsx>{`button { margin-right:15px;} input{display:block;} textarea{display:block;}`}</style>
+            <button className="pure-button close-form-button" onClick={this.openNewThreadForm}>Close Form</button>
+            <style jsx>{`
+            button { 
+                margin-right:15px;
+            }`}</style>
         </>
         }
 

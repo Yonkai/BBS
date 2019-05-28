@@ -44,6 +44,7 @@ const IndividualBoard = withRouter((props) => (
           display:grid;
           justify-items:center;
           grid-template-columns:1fr;
+          background:#cce;  /* fallback for old browsers */
         }
 
         .navigationMenuContainer{

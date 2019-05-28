@@ -12,11 +12,9 @@ const Header = () => (
           </Link>
         </div>
         <style jsx>{`
-          h1 {
-            font-family: "Roboto";
-          }
           img{
-            border:5px solid black;
+            background:#eef;
+            border:5px solid #99f;
           }
         `}</style>
     </>

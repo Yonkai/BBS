@@ -10,7 +10,7 @@ const ReplyInfoContainerComponent = (props) => (
         {/* grey-white-grey patterning for visibility/UI/UX maybe? */}
         <ReplyOptions/>
         <ReplyUsername 
-          replyUsername={props.replyUsername} 
+          replyUsername={props.replyUsername || ''} 
           replySubject={props.replySubject || ''}
         />
         <ReplyDateMade threadTime={props.threadTime}/>
@@ -22,7 +22,7 @@ const ReplyInfoContainerComponent = (props) => (
             margin:0;
           }
           div{
-            border:5px red dashed;
+            background: #fff;
             display:grid;
             grid-template-columns:1fr 8fr 4fr 4fr;
           

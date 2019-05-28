@@ -12,7 +12,8 @@ const ReplyIDComponent = (props) => (
             font-size:16px;
           }
           div{
-            border:5px yellow solid;          
+            border:5px #fff solid;
+            background: #eef;
           }
 
         `}</style>

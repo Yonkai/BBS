@@ -21,13 +21,20 @@ class BoardContent extends React.Component {
         return(
             <>
                 <p className={this.props.router.query.title}>{`Welcome to ${this.props.router.query.title}`}</p>
-                <div className="linkgrouprefreshbottomnewthread">
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title, page:this.props.router.query.page}}}>
                         <a>Refresh</a>
                     </Link>
+                <div className="linkgrouprefreshbottomnewthread">
                     <NewThreadButton boardID={this.props.router.query.boards_id} requery={this.props.requery}/>
-                    <ScrollDown/>
+
                 </div>
+                    <ScrollDown/>
+                <Pagination 
+                currentPage={this.props.currentPage} 
+                startIndex={this.props.startIndex} 
+                endIndex={this.props.endIndex} 
+                onPagerChange={this.props.onPagerChange}
+                />
                 <IndivdualBoardsThreadsContainer 
                     replyCount={this.props.replyCount} 
                     currentPage={this.props.currentPage} 
@@ -58,7 +65,8 @@ class BoardContent extends React.Component {
                 justify-self:start;
             }
             .${this.props.router.query.title}{
-                font-size:3w0px
+                font-size:28px;
+                font-weight:700;
             }
             a{
                 margin-right:15px;

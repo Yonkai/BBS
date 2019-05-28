@@ -13,12 +13,13 @@ const ReplyUsername = (props) => (
 
           }
           div{
-            border:5px maroon solid;
-          
+            border:5px #fff solid;
+            background: #eef;
           }
 
         `}</style>
     </>
 )
+
 
 export default ReplyUsername

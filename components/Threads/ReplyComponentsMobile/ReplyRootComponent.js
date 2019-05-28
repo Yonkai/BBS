@@ -1,7 +1,8 @@
 // From photoshop doc
 import ReplyInfoContainerComponent from './ReplyInfoContainerComponent.js';
 import ReplyContent from './ReplyContent.js';
-import ReplyFooterContainerComponent from './ReplyFooterContainerComponent.js';  
+import ReplyFooterContainerComponent from './ReplyFooterContainerComponent.js';
+import PropTypes from 'prop-types';
 
 const ReplyRootComponenet = (props) => (
     <>
@@ -26,7 +27,8 @@ const ReplyRootComponenet = (props) => (
             margin:0;
           }
           div{
-            border:5px black solid;
+            // border:5px black solid;
+            border:5px solid #99f;
             display:grid;
             justify-self:start;
           }
@@ -39,6 +41,11 @@ const ReplyRootComponenet = (props) => (
         `}</style>
     </>
 )
+
+// Specifies the default values for props:
+ReplyRootComponenet.defaultProps = {
+  indivdualThreadData:{threads_username:'s'}
+};
 
 export default ReplyRootComponenet;
 

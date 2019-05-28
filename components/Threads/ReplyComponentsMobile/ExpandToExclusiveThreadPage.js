@@ -32,8 +32,8 @@ class ExpandToExclusiveThreadPage extends React.Component {
     
               }
               div div{
-                border:5px GreenYellow solid;
-              
+                border:0px #fff solid;
+                background: #eef;
               }
               div div a{
                 color:blue;

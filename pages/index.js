@@ -28,7 +28,6 @@ const Index = (props) => (
   <>
     <Head>
       <title>{'Index'}</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
       integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" 
@@ -39,7 +38,7 @@ const Index = (props) => (
     <div className="grid-container-index">
       <Header/>
       <div className="grid-boardlinks-container-item">
-      <h1 className="board-title">Our Boards</h1>
+      <h1 className="board-title">Boards</h1>
         <div className="board-links-container">
           {
             props.boards.map((boards) =>
@@ -65,7 +64,7 @@ const Index = (props) => (
       body{
         margin:0;
         min-height:100vh;
-        background: DimGrey;  /* fallback for old browsers */
+        background:#cce;  /* fallback for old browsers */
         // background: -webkit-linear-gradient(to bottom, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
         // background: linear-gradient(to bottom, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         // background-size: cover;
@@ -78,8 +77,9 @@ const Index = (props) => (
       }
 
       .grid-boardlinks-container-item{
-        border:5px solid black;
+        border:5px solid #99f;
         display:grid;
+        background:#fff;
         grid-template-columns:minmax(320px,1200px);
         // justify-items: center;
       }
