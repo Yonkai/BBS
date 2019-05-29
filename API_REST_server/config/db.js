@@ -2,9 +2,13 @@
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host     : '127.0.0.1',
+    port     : 3306,
     user     : 'root',
     password : '',
-    database : 'chat'
+    database : 'bbs',
+    charset  : 'utf8mb4',
+    multipleStatements: true
+
 });
 
 connection.connect(function(err) {
