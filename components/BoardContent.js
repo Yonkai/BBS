@@ -1,5 +1,5 @@
 import { withRouter } from 'next/router';
-import Navigator from './Navigator.js';
+import NavigatorPageBottom from './NavigatorPageBottom';
 import Link from 'next/link';
 import ScrollTop from './ScrollTop';
 import ScrollDown from './ScrollDown.js';
@@ -49,7 +49,7 @@ class BoardContent extends React.Component {
                 endIndex={this.props.endIndex} 
                 onPagerChange={this.props.onPagerChange}
                 />
-                <Navigator boards = {this.props.boards}/>
+                <NavigatorPageBottom boards = {this.props.boards}/>
                 <div>
                     <Link href={{ pathname: '/indivdualboard', query:{title:this.props.router.query.title}}}>
                         <a>Refresh</a>
