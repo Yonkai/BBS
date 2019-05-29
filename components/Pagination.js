@@ -64,6 +64,12 @@ class Pagination extends React.Component{
                                 user-select: none; /* Non-prefixed version, currently
                                                     supported by Chrome and Opera */
                     }
+
+                    li:hover,
+                    li:focus-within {
+                        background:skyblue;
+                        cursor: pointer;
+                    }
             `}</style>
             </ul>
 

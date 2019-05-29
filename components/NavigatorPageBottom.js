@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+//Based on navigator component...
 
 //I keep loading the same props into this from the database but with NextJS you're only suppose to load from pages,
 //have to find or look for a work around..
