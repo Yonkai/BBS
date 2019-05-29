@@ -25,16 +25,19 @@ const SubReplyRootComponent = (props) => (
             margin:0;
           }
           div{
-            border:5px black solid;
+            border:5px solid #99f;
+            margin-top:5px;
+            margin-bottom:5px;
             display:grid;
             justify-self:start;
+            background:#fff;
           }
           @media all and (max-width: 520px) {
             div{
               display:grid;
-              grid-template-columns:minmax(320px,1200px)
+              grid-template-columns:minmax(320px,1200px);
             }
-          }
+        }
         `}</style>
     </>
 )
