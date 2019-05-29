@@ -18,13 +18,16 @@ const OptimisticSubReplyRootComponent = (props) => (
               </div>
         <style jsx>{`
           p {
-            font-family: "Roboto";
             margin:0;
+            
           }
           div{
-            border:5px black solid;
+            border:5px solid pink;
+            margin-top:5px;
+            margin-bottom:5px;
             display:grid;
             justify-self:start;
+            background:#fff;
           }
           @media all and (max-width: 520px) {
             div{

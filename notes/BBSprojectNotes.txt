@@ -41,49 +41,6 @@ threads: FK->Boards PK,thread_reply_count,thread_subject,thread_board_position,t
 replys: FK->threads PK, reply_id, reply_no?, reply_in_thread_pos,
 reply_original_bool, reply_username, reply_comment_text,reply_image,reply_time
 
-metadata:visitor_count, popular_threads
-//Data defition language with normalization:
-CREATE TABLE IF NOT EXISTS `BBS`.`boards` (
-  `boards_id` INT NOT NULL AUTO_INCREMENT,
-  `boards_name` VARCHAR(20) NULL,
-  PRIMARY KEY (`boards_id`))
-ENGINE = InnoDB
-
-CREATE TABLE IF NOT EXISTS `BBS`.`threads` (
-  `threads_id` INT NOT NULL AUTO_INCREMENT,
-  `threads_comment` VARCHAR(1000) NULL,
-  `threads_subject` VARCHAR(15) NULL,
-  `threads_username` VARCHAR(15) NULL,
-  `threads_modified` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `threads_created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `boards_boards_id` INT NOT NULL,
-  PRIMARY KEY (`threads_id`, `boards_boards_id`),
-  INDEX `name` (`threads_subject` ASC),
-  INDEX `fk_threads_boards_idx` (`boards_boards_id` ASC),
-  CONSTRAINT `fk_threads_boards`
-    FOREIGN KEY (`boards_boards_id`)
-    REFERENCES `BBS`.`boards` (`boards_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-
-CREATE TABLE IF NOT EXISTS `BBS`.`replys` (
-  `replys_id` INT NOT NULL,
-  `replys_username` VARCHAR(15) NULL,
-  `replys_comment` VARCHAR(1000) NOT NULL,
-  `replys_created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `replys_modified` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `threads_threads_id` INT NOT NULL,
-  `threads_boards_boards_id` INT NOT NULL,
-  PRIMARY KEY (`replys_id`, `threads_threads_id`, `threads_boards_boards_id`),
-  INDEX `fk_replys_threads1_idx` (`threads_threads_id` ASC, `threads_boards_boards_id` ASC),
-  CONSTRAINT `fk_replys_threads1`
-    FOREIGN KEY (`threads_threads_id` , `threads_boards_boards_id`)
-    REFERENCES `BBS`.`threads` (`threads_id` , `boards_boards_id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-
 Add validator for submit for like in mdn example, push to database,
 do all fields server side that can be made server side in express so it
 can be 'shielded' by nginx.
@@ -148,9 +105,6 @@ Css-Grid
 
 Note on rd:Do mobile first, then scale up.
 
-Factors of 1200: 
-1,2,3,4,5,6,8,10,
-12,15,16,20,24,25,
-30,40,48,50,60,75,
-80,100,120,150,200,
-240,300,400,600,1200,
+TODOs...
+TODO: Add cookie to remember last username entered.
+TODO: Add object (Env. var?) for express to use for configuration settings.

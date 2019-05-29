@@ -49,13 +49,22 @@ class ExclusiveThreadPage extends React.Component{
   }
 
   longPollDatabaseReplys(){
-    console.log('polled database');
+    console.log('polled database...');
+    //reset state of optimisitic renderer state so that when a user submits a reply, it verifies, and then submits another reply
+    //the optimisitic reply doesn't get rendered alongside the the non optmisitic reply
     axios.post(`http://localhost:4000/api/readexclusivereplys/${this.props.router.query.threadID}`)
-    .then((response)=>this.setState({polledExclusiveReplys:response.data, isLoading: false,optimisiticFlag:false}))
+    .then((response)=>this.setState({
+      polledExclusiveReplys:response.data, 
+      isLoading: false,
+      optimisiticFlag:false,
+      optimisticComment:[],
+      optimisiticUsername:[]
+    }))
     .catch(error => this.setState({
       error,
       isLoading:false
     }));
+
   }
 
   componentDidUpdate(prevProps,prevState){
@@ -82,7 +91,7 @@ class ExclusiveThreadPage extends React.Component{
     return(
       <>
         <Head>
-          <title>{this.props.router.query.title} {this.props.router.query.threadID}</title>
+          <title>{this.props.router.query.title} {this.props.exclusiveThread[0].threads_subject} {this.props.router.query.threadID}</title>
           <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"/>
           <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
       integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" 
@@ -92,7 +101,7 @@ class ExclusiveThreadPage extends React.Component{
           
         </Head>
         <Navigator boards={this.props.boards}/>
-          <h2>{this.props.router.query.title} {this.props.router.query.threadID}</h2>
+          <h2>{this.props.router.query.title} {this.props.exclusiveThread[0].threads_subject} {this.props.router.query.threadID} </h2>
           <div className='header'>
             <Header/>
           </div>

@@ -21,7 +21,6 @@ const SubReplyRootComponent = (props) => (
           }
         <style jsx>{`
           p {
-            font-family: "Roboto";
             margin:0;
           }
           div{

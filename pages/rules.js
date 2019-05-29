@@ -18,6 +18,7 @@ export default () => (
       <h2>Rules</h2>
       <p>Rule 1: Don't be rude.</p>
       <p>Rule 2: Don't do anything illegal.</p>
+      <p>Rule 3: No breaking rules arbitrarily made up on the spot because I don't know really what I want to do with this website lol.</p>
     </div>
 
     <style jsx global>{`
