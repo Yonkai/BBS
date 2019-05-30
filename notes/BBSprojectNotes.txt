@@ -107,4 +107,4 @@ Note on rd:Do mobile first, then scale up.
 
 TODOs...
 TODO: Add cookie to remember last username entered.
-TODO: Add object (Env. var?) for express to use for configuration settings.
+TODO: Learn DRY CSS actually using the DOM properly, instead of find all and replace.

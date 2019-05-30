@@ -23,6 +23,7 @@ const OptimisticSubReplyRootComponent = (props) => (
           }
           div{
             border:5px solid pink;
+            border-radius:5px;
             margin-top:5px;
             margin-bottom:5px;
             display:grid;

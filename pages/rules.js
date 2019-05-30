@@ -41,6 +41,7 @@ export default () => (
       .rules{
         background: #eef;
         border:5px solid #99f;
+        border-radius:5px;
       }
       
     `}</style>

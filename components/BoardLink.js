@@ -13,6 +13,8 @@ const BoardLink = (props) => (
           background:#eef;
           color:#004;
           border: 3px solid #fff;
+          border-radius:5px;
+
         }
         
         a{

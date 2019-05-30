@@ -38,6 +38,7 @@ export default () => (
       .faq{
         background: #eef;
         border:5px solid #99f;
+        border-radius:5px;
       }
       p{
         margin-left:10px;

@@ -35,6 +35,7 @@ const Footer = () => (
             }
             .mainFooterContainer{
               border:5px solid #99f;
+              border-radius:5px;
               background:#eef;
               display:grid;
               grid-template-columns:minmax(320px,1200px);

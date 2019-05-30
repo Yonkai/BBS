@@ -29,6 +29,7 @@ const ReplyRootComponenet = (props) => (
           div{
             // border:5px black solid;
             border:5px solid #99f;
+            border-radius:5px;
             display:grid;
             justify-self:start;
           }

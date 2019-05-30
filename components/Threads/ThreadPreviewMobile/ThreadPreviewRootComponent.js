@@ -20,6 +20,7 @@ const ThreadPreviewRootComponent = (props) => (
             // padding:5px;
             background:#fff;
             display:grid;
+            border-radius:5px;
             justify-self:start;
           
           }
