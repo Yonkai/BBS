@@ -62,6 +62,7 @@ class NewThreadButton extends React.Component {
                     this.state.name,
                     this.state.comments
                 );
+
               }
           }
 

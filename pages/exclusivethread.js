@@ -72,8 +72,9 @@ class ExclusiveThreadPage extends React.Component{
 
   componentDidUpdate(prevProps,prevState){
     //fires after setState calls in handleOptimisticReplys per official docs
-    if(this.state.optimisiticUsername !== prevState.optimisiticUsername){
-    console.log('hello world');
+    if(this.state.optimisticComment.length !== prevState.optimisticComment.length){
+        //Scroll to page bottom, better solution would be to scroll to the actual component (TODO I guess.) 
+        window.scrollTo(0,document.body.scrollHeight);
     }
   }
 
