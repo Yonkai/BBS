@@ -167,7 +167,7 @@ router.post('/readthreads/:boardsid', function(req, res, next) {
   //but double check that.
 
   //Technically inaccurate for threads posting at the same second, but it seems like a minor issue.
-  hidden_connection.query(`SELECT * FROM threads WHERE boards_boards_id=? ORDER BY threads_modified DESC`,req.params.boardsid, function (error, results, fields) {
+  hidden_connection.query(`SELECT * FROM threads WHERE boards_boards_id=? ORDER BY threads_modified DESC LIMIT 100`,req.params.boardsid, function (error, results, fields) {
     if (error) throw error;
     console.log('The threads are: ', results);
     console.log('boardsid is ',req.params.boardsid);
