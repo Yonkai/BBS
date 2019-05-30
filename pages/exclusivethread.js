@@ -11,6 +11,9 @@ import OptimisticSubReplyRootComponent from '../components/Threads/ReplyComponen
 import axios from 'axios';
 import {withRouter} from 'next/router';
 
+//config object
+import config from '../config/config.js';
+
 class ExclusiveThreadPage extends React.Component{
   constructor(props){
     super(props);
@@ -71,12 +74,11 @@ class ExclusiveThreadPage extends React.Component{
     //fires after setState calls in handleOptimisticReplys per official docs
     if(this.state.optimisiticUsername !== prevState.optimisiticUsername){
     console.log('hello world');
-
     }
   }
 
   componentDidMount(){
-    var intervalId = setInterval(this.longPollDatabaseReplys, 30000);
+    var intervalId = setInterval(this.longPollDatabaseReplys, config.repollInterval);
     // store intervalId in the state so it can be accessed later:
     this.setState({intervalId: intervalId});
   }
