@@ -35,9 +35,14 @@ class ExpandToExclusiveThreadPage extends React.Component {
                 border:0px #fff solid;
                 background: #eef;
               }
+              div div:hover{
+                background: rgb(255, 225, 240);
+    
+              }
               div div a{
                 color:blue;
                 text-decoration:underline;
+                cursor:pointer;
               }
             `}</style>
         </>
