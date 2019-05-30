@@ -1,19 +1,33 @@
-var faker = require('faker');
+import ReactTooltip from 'react-tooltip';
+
+//React Tooltip docs, (awesome btw):
+//https://www.npmjs.com/package/react-tooltip
+//https://react-tooltip.netlify.com/
 
 const ReplyIDComponent = (props) => (
     <>
       <div>
-          <p> No.{props.threadID}</p>
+          <a data-tip data-for='replyID'> No.{props.threadID}</a>
+          <ReactTooltip id='replyID' type='info'>
+            <span>reply</span>
+          </ReactTooltip>
       </div>
         <style jsx>{`
-          p {
-            font-family: "Roboto";
+          a {
             margin:0;
-            font-size:16px;
+            font-size:18px;
+            text-decoration:none;
+          }
+          a:hover{
+            cursor:pointer;
+            background-color:rgb(255,225,240);
           }
           div{
             border:5px #fff solid;
             background: #eef;
+          }
+          span{
+            font-size:12px;
           }
 
         `}</style>

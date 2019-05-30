@@ -72,7 +72,9 @@ class ExclusiveThreadPage extends React.Component{
 
   componentDidUpdate(prevProps,prevState){
     //fires after setState calls in handleOptimisticReplys per official docs
-    if(this.state.optimisticComment.length !== prevState.optimisticComment.length){
+    //Checks if the optimisiticComment has been removed from state
+    //If it has, don't scroll down on update, if there is a new optimisitic commen, scroll down.
+    if(this.state.optimisticComment.length > prevState.optimisticComment.length){
         //Scroll to page bottom, better solution would be to scroll to the actual component (TODO I guess.) 
         window.scrollTo(0,document.body.scrollHeight);
     }
@@ -80,12 +82,14 @@ class ExclusiveThreadPage extends React.Component{
 
   componentDidMount(){
     var intervalId = setInterval(this.longPollDatabaseReplys, config.repollInterval);
-    // store intervalId in the state so it can be accessed later:
+    // store intervalId in the state so it can be accessed later for unmounting
+    // in componentWillUnmount lifecycle
     this.setState({intervalId: intervalId});
   }
 
   componentWillUnmount(){
-    // use intervalId from the state to clear the interval
+    // Clear intervalId from ComponentDidMount lifecycle method that initialized a
+    // longpoll connection to the database
    clearInterval(this.state.intervalId);
 
   }
@@ -137,6 +141,7 @@ class ExclusiveThreadPage extends React.Component{
             {this.state.optimisiticFlag?
             this.state.optimisticComment.map((comments,index) =>
               <OptimisticSubReplyRootComponent
+                key={index}
                 replyUsername={this.state.optimisiticUsername[index]}
                 replyComment={comments}
                 replySubject={this.props.exclusiveThread[0].threads_subject}
