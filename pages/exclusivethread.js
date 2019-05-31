@@ -103,9 +103,6 @@ class ExclusiveThreadPage extends React.Component{
           <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
       integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" 
       crossorigin="anonymous"></link>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-          
         </Head>
         <Navigator boards={this.props.boards}/>
           <h2>{this.props.router.query.title} {this.props.exclusiveThread[0].threads_subject} {this.props.router.query.threadID} </h2>
