@@ -1,17 +1,20 @@
 import ReactTooltip from 'react-tooltip';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import DraggableReplyForm from '../../DraggableReplyForm.js';
 //React Tooltip docs, (awesome btw):
 //https://www.npmjs.com/package/react-tooltip
 //https://react-tooltip.netlify.com/
 
 const ReplyIDComponent = (props) => (
-    <>
-      <div>
-          <a data-tip data-for='replyID'> No.{props.threadID}</a>
-          <ReactTooltip id='replyID' type='info'>
-            <span>reply</span>
-          </ReactTooltip>
-      </div>
+    <>      
+          <div>
+            <a data-tip data-for='replyID'> No.{props.threadID}</a>
+            <ReactTooltip id='replyID' type='info'>
+              <span>reply</span>
+            </ReactTooltip>
+          </div>
+            <DraggableReplyForm/>
         <style jsx>{`
           a {
             margin:0;
@@ -34,4 +37,4 @@ const ReplyIDComponent = (props) => (
     </>
 )
 
-export default ReplyIDComponent
+export default ReplyIDComponent;
