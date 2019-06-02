@@ -12,7 +12,7 @@ class ReplyIDComponent extends Component {
     this.state = { 
       draggableReplyFormVisibility:false,
       name:'anon',
-      comments:''
+      comments:'@'+this.props.threadID+'@'
     }
     this.handleChange = this.handleChange.bind(this);
     this.changeDraggableFormVisibility = this.changeDraggableFormVisibility.bind(this);
@@ -46,6 +46,7 @@ class ReplyIDComponent extends Component {
         handleChange={this.handleChange}
         comments={this.state.comments}
         name={this.state.name}
+        repliedToID={this.props.threadID}
 
         />
       </div>
