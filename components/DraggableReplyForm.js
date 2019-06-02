@@ -4,37 +4,60 @@ import Draggable from 'react-draggable';
 class DraggableReplyForm extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            visiblity: false,
-            name:'anon',
-            subject:'',
-            comments:''
-         }
+
     };
     render() { 
         return (
+    <>
          <div>
-            <Draggable
+            {/* <Draggable
                 axis="both"
                 bounds="body"
                 handle=".draggable-form-container-handle"
-                defaultPosition={{x: 0, y: 0}}
                 position={null}
                 grid={[25, 25]}
                 scale={1}
-            >
-                <div className='draggable-form-container-handle'>
-                    Form Here
-                </div>
-            </Draggable>
+            >  */}
+            <div>
+                { 
+                    this.props.draggableReplyFormVisibility?
+                    <div className="centered-form draggable-form-container-handle">
+                     <div>
+                        <form className="pure-form pure-form-stacked">
+                            <input placeholder="name" onChange={this.props.handleChange("name")} 
+                             required value={this.props.name} 
+                             type="text" name="name" id="name" maxLength="12"/>
+
+                            <textarea type='text' 
+                            onChange={this.props.handleChange("comments")} required
+                             maxLength="300" value={this.props.comments}
+                            name="comments" id="comments" placeholder="comments"
+                            rows="3" cols="20"/>
+
+                        </form> 
+                        <button>Send!</button>
+                        <button className='closeForm' onClick={this.props.changeDraggableFormVisibility}>X</button>
+                    </div>
+                </div>:null
+                }
+            </div> 
+            {/* </Draggable> */}
+        </div>
       <style jsx>{`
-        .draggable-form-container-handle{
-            width:200px;
-            height:200px;
-            background:red;
+        .centered-form{
+            // position:absolute;
+            background:#ccf;
+            border:5px solid #99f;
+            padding:10px;
+        }
+        textarea{
+            resize:none;
+        }
+        button{
+            display:inline;
         }
       `}</style>
-        </div>
+    </>
         );
     }
 }

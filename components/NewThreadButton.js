@@ -24,7 +24,7 @@ class NewThreadButton extends React.Component {
           }));
     }
 
-    handleChange = (name) => {
+    handleChange(name) {
         return (event) => {
             // This syntax is just another way to set the key of an object without 
             // knowing ahead of time what you want it to be called.
@@ -105,7 +105,13 @@ class NewThreadButton extends React.Component {
             <style jsx>{`
             button { 
                 margin-right:15px;
-            }`}</style>
+            
+            }
+            textarea{
+                resize:none;
+                overflow:scroll;
+            }
+            `}</style>
         </>
         }
 
