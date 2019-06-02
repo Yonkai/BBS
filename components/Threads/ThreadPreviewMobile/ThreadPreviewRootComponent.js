@@ -8,6 +8,7 @@ const ThreadPreviewRootComponent = (props) => (
         indivdualThreadData = {props.indivdualThreadData} 
         replyCount={props.replyCount} 
         router={props.router}
+        isThisPartOfAnExclusiveThread={props.isThisPartOfAnExclusiveThread || false}
         />
       </div>
         <style jsx>{`

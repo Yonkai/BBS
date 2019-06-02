@@ -37,18 +37,20 @@ class ReplyIDComponent extends Component {
     <>
       <div>
         <a onClick={this.changeDraggableFormVisibility} data-tip data-for='replyID'> No.{this.props.threadID}</a>
-        <ReactTooltip id='replyID' type='info'>
-          <span>reply</span>
-        </ReactTooltip>
-        <DraggableReplyForm 
-        draggableReplyFormVisibility={this.state.draggableReplyFormVisibility}
-        changeDraggableFormVisibility={this.changeDraggableFormVisibility}
-        handleChange={this.handleChange}
-        comments={this.state.comments}
-        name={this.state.name}
-        repliedToID={this.props.threadID}
-
-        />
+        {this.props.isThisPartOfAnExclusiveThread?
+        <>
+          <ReactTooltip id='replyID' type='info'>
+            <span>reply</span>
+          </ReactTooltip>
+          <DraggableReplyForm 
+          draggableReplyFormVisibility={this.state.draggableReplyFormVisibility}
+          changeDraggableFormVisibility={this.changeDraggableFormVisibility}
+          handleChange={this.handleChange}
+          comments={this.state.comments}
+          name={this.state.name}
+          repliedToID={this.props.threadID}/>
+        </>
+        :null}
       </div>
         <style jsx>{`
         a {

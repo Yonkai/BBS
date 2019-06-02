@@ -55,8 +55,7 @@ class NewThreadButton extends React.Component {
                 threadsthreadsid:this.props.threadID,
                 threadsboardsboardsid:this.props.boardID
               });
-              //TODO:implement optimisic UI and socket.io queries for smoother UX.
-              //https://uxplanet.org/optimistic-1000-34d9eefe4c05
+
               if(this.props.handleOptimisticReplys){
                 this.props.handleOptimisticReplys(
                     this.state.name,

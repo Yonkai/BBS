@@ -4,8 +4,8 @@ import Draggable from 'react-draggable';
 class DraggableReplyForm extends Component {
     constructor(props) {
         super(props);
-
     };
+
     render() { 
         return (
     <>
@@ -24,7 +24,7 @@ class DraggableReplyForm extends Component {
                     <div className="centered-form draggable-form-container-handle">
                     <button className='closeForm' onClick={this.props.changeDraggableFormVisibility}>X</button>
                      <div>  
-                        <form className="pure-form pure-form-stacked">
+                        <form  onSubmit={this.handleSubmit} className="pure-form pure-form-stacked">
                             <input placeholder="name" onChange={this.props.handleChange("name")} 
                              required value={this.props.name} 
                              type="text" name="name" id="name" maxLength="12"/>

@@ -13,7 +13,9 @@ const SubReplyRootComponent = (props) => (
                 replySubject={props.replySubject}
                 threadTime={replys.replys_created} 
                 // This is super confusing... change it later
-                threadID={replys.replys_id}/>
+                threadID={replys.replys_id}
+                isThisPartOfAnExclusiveThread={props.isThisPartOfAnExclusiveThread || false}
+                />
                 <ReplyContent replyComment={replys.replys_comment}/>
               </div>
 

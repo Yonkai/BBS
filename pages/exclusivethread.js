@@ -122,16 +122,19 @@ class ExclusiveThreadPage extends React.Component{
             indivdualThreadData={this.props.exclusiveThread} 
             replyCount={this.props.replyCount} 
             router={this.props.router}
+            isThisPartOfAnExclusiveThread={true}
             />
             {/* For exlcusive threads only, map props of replys for the exlcusive page*/}
             {this.state.polledExclusiveReplys.length>this.props.exclusiveThreadReplys.length?
             <SubReplyRootComponent 
             individualReplyData={this.state.polledExclusiveReplys} 
             replySubject={this.props.exclusiveThread[0].threads_subject}
+            isThisPartOfAnExclusiveThread={true}
             />:
             <SubReplyRootComponent 
             individualReplyData={this.props.exclusiveThreadReplys} 
             replySubject={this.props.exclusiveThread[0].threads_subject}
+            isThisPartOfAnExclusiveThread={true} 
             />
 
             }

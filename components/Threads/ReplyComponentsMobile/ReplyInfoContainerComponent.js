@@ -14,7 +14,7 @@ const ReplyInfoContainerComponent = (props) => (
           replySubject={props.replySubject || ''}
         />
         <ReplyDateMade threadTime={props.threadTime}/>
-        <ReplyIDComponent threadID={props.threadID}/>
+        <ReplyIDComponent threadID={props.threadID} isThisPartOfAnExclusiveThread={props.isThisPartOfAnExclusiveThread || false}/>
       </div>
         <style jsx>{`
           p {

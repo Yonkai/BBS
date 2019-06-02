@@ -12,7 +12,8 @@ const ReplyRootComponenet = (props) => (
           replyUsername={props.indivdualThreadData.threads_username || props.indivdualThreadData[0].threads_username} 
           replySubject={props.indivdualThreadData.threads_subject || props.indivdualThreadData[0].threads_subject} 
           threadTime={props.indivdualThreadData.threads_created || props.indivdualThreadData[0].threads_created} 
-          threadID={props.indivdualThreadData.threads_id || props.indivdualThreadData[0].threads_id} 
+          threadID={props.indivdualThreadData.threads_id || props.indivdualThreadData[0].threads_id}
+          isThisPartOfAnExclusiveThread={props.isThisPartOfAnExclusiveThread || false} 
         />
         <ReplyContent replyComment={props.indivdualThreadData.threads_comment || props.indivdualThreadData[0].threads_comment}/>  
         <ReplyFooterContainerComponent 
