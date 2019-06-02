@@ -1,5 +1,4 @@
 import ReplyRootComponent from '../ReplyComponentsMobile/ReplyRootComponent.js';
-import SubReplyRootComponent from '../ReplyComponentsMobile/SubReplyRootComponent.js';
 
 const ThreadPreviewRootComponent = (props) => (
     <>

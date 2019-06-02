@@ -51,7 +51,7 @@ class ReplyIDComponent extends Component {
           repliedToID={this.props.threadID}
           boardID={this.props.boardID}
           isThisPartOfAnExclusiveThread={this.props.isThisPartOfAnExclusiveThread}
-          handleOptimisticReplys={this.handleOptimisticReplys}
+          handleOptimisticReplys={this.props.handleOptimisticReplys}
           />
         </>
         :null}
