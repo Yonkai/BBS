@@ -66,7 +66,8 @@ class DraggableReplyForm extends Component {
         </div>
       <style jsx>{`
         .centered-form{
-            // position:absolute;
+            position:absolute;
+            left:30%;
             background:#ccf;
             border:5px solid #99f;
             padding:10px;
