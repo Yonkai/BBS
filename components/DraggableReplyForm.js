@@ -22,21 +22,20 @@ class DraggableReplyForm extends Component {
                 { 
                     this.props.draggableReplyFormVisibility?
                     <div className="centered-form draggable-form-container-handle">
-                     <div>
+                    <button className='closeForm' onClick={this.props.changeDraggableFormVisibility}>X</button>
+                     <div>  
                         <form className="pure-form pure-form-stacked">
                             <input placeholder="name" onChange={this.props.handleChange("name")} 
                              required value={this.props.name} 
                              type="text" name="name" id="name" maxLength="12"/>
-
-                            <textarea type='text' 
+                            <textarea autoFocus type='text' 
                             onChange={this.props.handleChange("comments")} required
                              maxLength="300" value={this.props.comments}
                             name="comments" id="comments" placeholder="comments"
-                            rows="3" cols="20"/>
+                            rows="3" cols="22"/>
 
                         </form> 
                         <button>Send!</button>
-                        <button className='closeForm' onClick={this.props.changeDraggableFormVisibility}>X</button>
                     </div>
                 </div>:null
                 }
@@ -55,6 +54,9 @@ class DraggableReplyForm extends Component {
         }
         button{
             display:inline;
+        }
+        .closeForm{
+            float:right;
         }
       `}</style>
     </>
