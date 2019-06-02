@@ -93,7 +93,7 @@ class NewThreadButton extends React.Component {
                     <input onChange={this.handleChange('subject')} placeholder='Subject' required value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
                     </div>
                 }
-                    <textarea onChange={this.handleChange('comments')} placeholder='comments' maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
+                    <textarea autoFocus onChange={this.handleChange('comments')} placeholder='comments' maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
                     {/* <input type="text" name="image" placeholder="Image?"/>
                         <input type="text" name="captcha" placeholder="captcha"/> */}
                 <button className="button-xlarge pure-button">Send!</button>
@@ -108,6 +108,9 @@ class NewThreadButton extends React.Component {
             textarea{
                 resize:none;
                 overflow:scroll;
+            }
+            form{
+                //style form.
             }
             `}</style>
         </>
