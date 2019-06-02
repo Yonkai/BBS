@@ -8,12 +8,14 @@ const ReplyRootComponenet = (props) => (
     <>
     {/* || operator helps handle, here, two different data return types from axios and getInitialProps of the same data. */}
       <div>
-        <ReplyInfoContainerComponent 
+        <ReplyInfoContainerComponent
+          boardID={props.router.query.boardID}  
           replyUsername={props.indivdualThreadData.threads_username || props.indivdualThreadData[0].threads_username} 
           replySubject={props.indivdualThreadData.threads_subject || props.indivdualThreadData[0].threads_subject} 
           threadTime={props.indivdualThreadData.threads_created || props.indivdualThreadData[0].threads_created} 
           threadID={props.indivdualThreadData.threads_id || props.indivdualThreadData[0].threads_id}
           isThisPartOfAnExclusiveThread={props.isThisPartOfAnExclusiveThread || false} 
+          handleOptimisticReplys={props.handleOptimisticReplys}
         />
         <ReplyContent replyComment={props.indivdualThreadData.threads_comment || props.indivdualThreadData[0].threads_comment}/>  
         <ReplyFooterContainerComponent 

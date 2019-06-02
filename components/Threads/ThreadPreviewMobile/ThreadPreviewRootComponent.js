@@ -5,7 +5,8 @@ const ThreadPreviewRootComponent = (props) => (
     <>
       <div>
         <ReplyRootComponent 
-        indivdualThreadData = {props.indivdualThreadData} 
+        indivdualThreadData = {props.indivdualThreadData}
+        handleOptimisticReplys={props.handleOptimisticReplys}
         replyCount={props.replyCount} 
         router={props.router}
         isThisPartOfAnExclusiveThread={props.isThisPartOfAnExclusiveThread || false}

@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable';
+import {withRouter} from 'next/router';
+import axios from 'axios';
 
 class DraggableReplyForm extends Component {
     constructor(props) {
         super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
+
+    handleSubmit(event) {
+        event.preventDefault();
+        if(this.props.isThisPartOfAnExclusiveThread){
+            axios.post('http://localhost:4000/api/createreply', {
+                name: this.props.name,
+                comments: this.props.comments,
+                threadsthreadsid:this.props.router.query.threadID,
+                threadsboardsboardsid:this.props.router.query.boardID
+              });
+
+              if(this.props.handleOptimisticReplys){
+                this.props.handleOptimisticReplys(
+                    this.props.name,
+                    this.props.comments
+                );
+
+              }
+          }
+          }
 
     render() { 
         return (
@@ -33,9 +56,8 @@ class DraggableReplyForm extends Component {
                              maxLength="300" value={this.props.comments}
                             name="comments" id="comments" placeholder="comments"
                             rows="3" cols="22"/>
-
-                        </form> 
                         <button>Send!</button>
+                        </form> 
                     </div>
                 </div>:null
                 }
@@ -64,4 +86,4 @@ class DraggableReplyForm extends Component {
     }
 }
  
-export default DraggableReplyForm;
+export default withRouter(DraggableReplyForm);

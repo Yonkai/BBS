@@ -1,7 +1,6 @@
-// Use 'Formik' library?
+// Use 'Formik' library? Maybe when I have a ton of forms.
 import React from 'react';
 import axios from 'axios';
-import { runInThisContext } from 'vm';
 
 class NewThreadButton extends React.Component {
     constructor(props) {

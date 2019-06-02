@@ -48,7 +48,11 @@ class ReplyIDComponent extends Component {
           handleChange={this.handleChange}
           comments={this.state.comments}
           name={this.state.name}
-          repliedToID={this.props.threadID}/>
+          repliedToID={this.props.threadID}
+          boardID={this.props.boardID}
+          isThisPartOfAnExclusiveThread={this.props.isThisPartOfAnExclusiveThread}
+          handleOptimisticReplys={this.handleOptimisticReplys}
+          />
         </>
         :null}
       </div>
