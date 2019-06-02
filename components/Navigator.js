@@ -97,7 +97,7 @@ const Navigator = (props) => (
           @media all and (max-width: 2200px) {
             div{
               display:grid;
-              grid-template-columns:minmax(320px,1200px);
+              grid-template-columns:minmax(320px,2200px);
             }
     
           }
