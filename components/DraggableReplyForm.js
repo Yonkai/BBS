@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Draggable from 'react-draggable';
+import Draggable, {DraggableCore} from 'react-draggable'; // Both at the same time
+
 import {withRouter} from 'next/router';
 import axios from 'axios';
 
@@ -33,11 +34,13 @@ class DraggableReplyForm extends Component {
         return (
     <>
          <div>
+             {/* //Context API to deal with double render prop? */}
             {/* <Draggable
                 axis="both"
                 bounds="body"
                 handle=".draggable-form-container-handle"
                 position={null}
+                positionOffset= {{x: '10%' , y: '0%'}}
                 grid={[25, 25]}
                 scale={1}
             >  */}

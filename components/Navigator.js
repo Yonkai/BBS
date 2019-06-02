@@ -94,7 +94,7 @@ const Navigator = (props) => (
             clear: both;
             width: 100%;
           }
-          @media all and (max-width: 520px) {
+          @media all and (max-width: 2200px) {
             div{
               display:grid;
               grid-template-columns:minmax(320px,1200px);
