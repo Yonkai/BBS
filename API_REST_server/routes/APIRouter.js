@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var hidden_connection = require('../config/hidden-db.js');
 const { checkSchema,validationResult } = require('express-validator/check');
+var _ = require('lodash');
 //https://www.red-gate.com/simple-talk/sql/database-administration/ten-common-database-design-mistakes/
 //4. Validation here and database logic here, parse logic out to functions and import them similar to the MDN example.
 //Authorization/access control/Authentication later on prod. Also load any needed metadata information into database here.

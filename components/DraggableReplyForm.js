@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Draggable, {DraggableCore} from 'react-draggable'; // Both at the same time
-
+import throttle from 'lodash/throttle';
 import {withRouter} from 'next/router';
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ class DraggableReplyForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
+    
     handleSubmit(event) {
         event.preventDefault();
         if(this.props.isThisPartOfAnExclusiveThread){
@@ -25,7 +26,6 @@ class DraggableReplyForm extends Component {
                     this.props.name,
                     this.props.comments
                 );
-
               }
           }
           }
