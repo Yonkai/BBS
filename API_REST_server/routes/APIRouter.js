@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var hidden_connection = require('../config/hidden-db.js');
+var config_object=require('../config/configObj.js');
 const { checkSchema,validationResult } = require('express-validator/check');
 var _ = require('lodash');
 //https://www.red-gate.com/simple-talk/sql/database-administration/ten-common-database-design-mistakes/
@@ -21,7 +22,7 @@ checkSchema({
       options:(boardsboardsid) => {
         //Refers to the number of boards, do 'SELECT * FROM boards;' on BBS MySQL database for the magic number to make
         //sense 
-        if(0 < boardsboardsid && boardsboardsid < 17){
+        if(0 < boardsboardsid && boardsboardsid < (configObj.howManyBoardsAreThere+1)){
           return true;
       }},
       errorMessage:'That board does not exist in the database!'
