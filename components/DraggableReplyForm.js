@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Draggable, {DraggableCore} from 'react-draggable'; // Both at the same time
-import throttle from 'lodash/throttle';
 import {withRouter} from 'next/router';
 import axios from 'axios';
 
@@ -30,31 +29,30 @@ class DraggableReplyForm extends Component {
           }
           }
 
-    render() { 
+    render() {
         return (
     <>
          <div>
-             {/* //Context API to deal with double render prop? */}
-            {/* <Draggable
+            <Draggable
                 axis="both"
                 bounds="body"
                 handle=".draggable-form-container-handle"
                 position={null}
-                positionOffset= {{x: '10%' , y: '0%'}}
+                positionOffset= {{x: '-200%' , y: '0%'}}
                 grid={[25, 25]}
                 scale={1}
-            >  */}
+            > 
             <div>
-                { 
+                {
                     this.props.draggableReplyFormVisibility?
                     <div className="centered-form draggable-form-container-handle">
                     <button className='closeForm' onClick={this.props.changeDraggableFormVisibility}>X</button>
                      <div>  
                         <form  onSubmit={this.handleSubmit} className="pure-form pure-form-stacked">
-                            <input placeholder="name" onChange={this.props.handleChange("name")} 
+                            <input onMouseDown={(e) => {e.stopPropagation()}} placeholder="name" onChange={this.props.handleChange("name")} 
                              required value={this.props.name} 
                              type="text" name="name" id="name" maxLength="12"/>
-                            <textarea autoFocus type='text' 
+                            <textarea onMouseDown={(e) => {e.stopPropagation()}} autoFocus type='text' 
                             onChange={this.props.handleChange("comments")} required
                              maxLength="300" value={this.props.comments}
                             name="comments" id="comments" placeholder="comments"
@@ -65,7 +63,7 @@ class DraggableReplyForm extends Component {
                 </div>:null
                 }
             </div> 
-            {/* </Draggable> */}
+            </Draggable>
         </div>
       <style jsx>{`
         .centered-form{
