@@ -19,7 +19,8 @@ const ReplyRootComponenet = (props) => (
         />
         <ReplyContent replyComment={props.indivdualThreadData.threads_comment || props.indivdualThreadData[0].threads_comment}/>  
         <ReplyFooterContainerComponent 
-          router={props.router} 
+          router={props.router}
+          currentPage={props.currentPage}
           threadID={props.indivdualThreadData.threads_id ||  props.indivdualThreadData[0].threads_id} 
           replyCount={props.replyCount || props.replyCount[0]}
         />

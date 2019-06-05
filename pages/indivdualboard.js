@@ -16,18 +16,39 @@ class IndivdualBoardPage extends React.Component {
         super(props);
         this.handlePageChange = this.handlePageChange.bind(this);
         this.queryBBSAPIs = this.queryBBSAPIs.bind(this);
+        this.calcEndIndex = this.calcEndIndex.bind(this);
+        this.calcStartIndex = this.calcStartIndex.bind(this);
+
         this.state =
         { 
           threads:[],
           boards:[],
           replyCount:[],
-          currentPage:1,
+          //This is only for initial population, which, acording to the internet (praise be), is not an antipattern:
+          //https://stackoverflow.com/questions/40063468/react-component-initialize-state-from-props
+          //Also, lesson learned, keep navigation consistent, ran into issue with conflicting
+          //state vs.querystring based routing.
+          currentPage:parseFloat(this.props.router.query.initialPage),
           // startIndex and endIndex are used as delimiters for seperating the database calls on threads
-          startIndex:0,
-          endIndex:9,
+          startIndex:this.calcStartIndex(this.props.router.query.initialPage),
+          endIndex:this.calcEndIndex(this.props.router.query.initialPage),
           isLoading:false,
-          error:null};
+          error:null
+        };
        }
+       
+       calcStartIndex(startIndex){
+        var parsedIndex = parseFloat(startIndex);
+        var index = (((parsedIndex-1)*10));
+        return index;
+       }
+
+       calcEndIndex(endIndex){
+        var parsedIndex = parseFloat(endIndex);
+        var index = (((parsedIndex-1)*10)+9);
+        return index;
+       }
+
 
     //    return {
     //     totalItems: totalItems,

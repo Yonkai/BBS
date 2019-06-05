@@ -124,6 +124,7 @@ class ExclusiveThreadPage extends React.Component{
             router={this.props.router}
             isThisPartOfAnExclusiveThread={true}
             handleOptimisticReplys={this.handleOptimisticReplys}
+            currentPage={this.props.router.query.currentPage}
             />
             {/* For exlcusive threads only, map props of replys for the exlcusive page*/}
             {this.state.polledExclusiveReplys.length>this.props.exclusiveThreadReplys.length?

@@ -17,10 +17,11 @@ class ExpandToExclusiveThreadPage extends React.Component {
               <div>
                {
                 this.props.router.query.boards_id?
-                <Link href={{ pathname: 'exclusivethread', query: { threadID: this.props.threadID, boardID: this.props.router.query.boards_id, title:this.props.router.query.title } }} >
+                <Link href={{ pathname: 'exclusivethread', query: { threadID: this.props.threadID, boardID: this.props.router.query.boards_id, title:this.props.router.query.title, currentPage:this.props.currentPage } }} >
                     <a className="boardLink">Expand Thread</a>
                 </Link>:
-                  <a onClick={() => Router.back()}>Go Back to {this.props.router.query.title}</a>
+                  <a onClick={() => Router.push(`/indivdualboard?boards_id=${this.props.router.query.boardID}&title=${this.props.router.query.title}&initialPage=${this.props.router.query.currentPage}`)}>Go Back to {this.props.router.query.title}</a>
+                
                }
              </div>
             }

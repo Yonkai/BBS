@@ -5,7 +5,7 @@ import ThreadReplyCount from './ThreadReplyCount';
 const ReplyFooterContainerComponent = (props) => (
     <>
       <div>
-          <ExpandToExclusiveThreadPage router={props.router} threadID={props.threadID}/>
+          <ExpandToExclusiveThreadPage router={props.router} threadID={props.threadID} currentPage={props.currentPage}/>
           <ThreadReplyCount replyCount={props.replyCount} threadID={props.threadID}/>
       </div>
         <style jsx>{`
