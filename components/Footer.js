@@ -6,7 +6,7 @@ const Footer = () => (
               {/* Content: */}
               <div className="linkGroup"> 
                 <Link href="/">    
-                <a>Home Page</a>   
+                <a>Home</a>   
                 </Link>
                 <Link href="/news">
                   <a>News</a>
@@ -17,6 +17,9 @@ const Footer = () => (
                 <Link href="/rules">
                   <a>Rules</a>
                 </Link>
+                <Link>                  
+                  <a href="https://github.com/Yonkai/BBS">Github</a>
+                </Link>   
               <span>© 2019</span> 
               </div>
             </div>
@@ -30,7 +33,7 @@ const Footer = () => (
             }
             .linkGroup{
               display:grid;
-              grid-template-columns:1fr 1fr 1fr 1fr;
+              grid-template-columns:1fr 1fr 1fr 1fr 1fr;
               margin-top:20px;
             }
             .mainFooterContainer{
