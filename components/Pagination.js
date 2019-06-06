@@ -28,27 +28,27 @@ class Pagination extends React.Component{
     render(){
         return(
             <ul>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(null,'FIRST')}>⏪</a>
+                <li onClick={() => this.updateCurrentPage(null,'FIRST')}>
+                    <a>⏪</a>
                 </li>
-                <li>
-                    <a onClick={() => this.updateCurrentPage(null,'PREVIOUS')}>◀️</a>
+                <li onClick={() => this.updateCurrentPage(null,'PREVIOUS')}>
+                    <a>◀️</a>
                 </li>
                 {Array.from({length: 10}, (v, k) => k+1).map((arr)=>
-                    <li key={arr}>
-                            <a onClick={() => this.updateCurrentPage(arr)}>{arr}</a>
+                    <li onClick={() => this.updateCurrentPage(arr)} key={arr}>
+                        <a>{arr}</a>
                     </li>
                 )}
-                <li>
-                    <a onClick={() => this.updateCurrentPage(null,'NEXT')}>▶️</a>
+                <li onClick={() => this.updateCurrentPage(null,'NEXT')}>
+                    <a>▶️</a>
                 </li>                
-                <li>
-                    <a onClick={() => this.updateCurrentPage(null,'LAST')}>⏩</a>
+                <li onClick={() => this.updateCurrentPage(null,'LAST')}>
+                    <a>⏩</a>
                 </li>
                 <style jsx>{`
                     li{
                         display: inline;
-                        padding:3px;
+                        padding:5px;
                         background:rgb(248,251,245,1);
                     }
                     li:nth-child(${this.props.currentPage+2}){

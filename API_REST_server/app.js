@@ -4,6 +4,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var helmet = require('helmet')
+var compression = require('compression');
+
 var APIRouter = require('./routes/APIRouter');
 var SeedRouter = require('./config/seeder');
 
@@ -12,6 +14,7 @@ var app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(helmet());
+app.use(compression());
 
 // configure the app to use bodyParser()
 app.use(bodyParser.urlencoded({
@@ -35,3 +38,4 @@ app.use('/api', APIRouter);
 app.use('/seed', SeedRouter);
 
 module.exports = app;
+
