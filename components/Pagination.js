@@ -48,7 +48,7 @@ class Pagination extends React.Component{
                 <style jsx>{`
                     li{
                         display: inline;
-                        padding:5px;
+                        padding:4px;
                         background:rgb(248,251,245,1);
                     }
                     li:nth-child(${this.props.currentPage+2}){
