@@ -62,23 +62,23 @@ class IndivdualBoardPage extends React.Component {
     //     pages: pages
     // };
     
-    queryBBSAPIs(){
+    async queryBBSAPIs(){
       this.setState({isLoading:true});
-      axios.post('http://localhost:4000/api/readallthreadsreplycount')
+    await axios.post('http://localhost:4000/api/readallthreadsreplycount')
       .then((response)=>this.setState({replyCount:response.data}))
       .catch(error => this.setState({
         error,
         isLoading: false
       }));
       
-      axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
+    await axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
       .then((response)=>this.setState({threads:response.data}))
       .catch(error => this.setState({
         error,
         isLoading: false
       }));
 
-    axios.post('http://localhost:4000/api/readboards')
+    await axios.post('http://localhost:4000/api/readboards')
     .then((response)=>this.setState({boards:response.data, isLoading: false}))
     .catch(error => this.setState({
       error,
