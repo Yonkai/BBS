@@ -17,8 +17,8 @@ const Footer = () => (
                 <Link href="/rules">
                   <a>Rules</a>
                 </Link>
-                <Link>                  
-                  <a href="https://github.com/Yonkai/BBS">Github</a>
+                <Link href="https://github.com/Yonkai/BBS">                  
+                  <a>Github</a>
                 </Link>   
               <span>© 2019</span> 
               </div>
