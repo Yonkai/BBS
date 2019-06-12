@@ -210,12 +210,20 @@ router.post('/readthreadsreplycount/:threadsthreadsid', function(req, res, next)
   });
 });
 
-router.post('/readallthreadsreplycount', function(req, res, next) {
+router.post('/readallthreadsreplycount/:boardsboardsid', function(req, res, next) {
   console.log(req.body);
   
-  hidden_connection.query(`SELECT threads.threads_id,COUNT(replys.threads_threads_id) AS number_of_replys         
-  FROM threads LEFT JOIN replys ON (threads.threads_id = replys.threads_threads_id)
-   GROUP BY threads.threads_id`, function (error, results, fields) {
+  // SELECT threads.threads_id,COUNT(replys.threads_threads_id) AS number_of_replys            
+  // FROM threads LEFT JOIN replys ON (threads.threads_id = replys.threads_threads_id) WHERE threads.boards_boards_id=4 GROUP BY threads.threads_id;
+
+  hidden_connection.query(`SELECT threads.threads_id,
+  COUNT(replys.threads_threads_id) 
+  AS number_of_replys         
+  FROM threads 
+  LEFT JOIN replys 
+  ON (threads.threads_id = replys.threads_threads_id)
+  WHERE threads.boards_boards_id=?
+  GROUP BY threads.threads_id`,req.params.boardsboardsid,function (error, results, fields) {
     if (error) throw error;
     console.log('The original replys/thread starters are and also threads are: ', results);
     res.json(results);

@@ -64,7 +64,7 @@ class IndivdualBoardPage extends React.Component {
     
      queryBBSAPIs(){
       this.setState({isLoading:true});
-     axios.post('http://localhost:4000/api/readallthreadsreplycount')
+     axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`)
       .then((response)=>this.setState({replyCount:response.data}))
       .catch(error => this.setState({
         error,
