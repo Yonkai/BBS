@@ -3,28 +3,17 @@ import React from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 
-//Util
-var faker = require('faker');
-
-//components
+//Components
 import Header from '../components/Header.js';
 import BoardLink from '../components/BoardLink.js';
 import Footer from '../components/Footer.js';
 import Statistics from '../components/Statistics.js';
 import About from '../components/About.js';
 
-
-// const PostLink = (props) => (
-//   <li>
-//     <Link href={`/post?title=${props.title}`}>
-//       <a>{props.title}</a>
-//     </Link>
-//   </li>
-// )
-
 const Index = (props) => (
    
-  // React Fragment
+  //React Fragment
+  //Docs: https://reactjs.org/docs/fragments.html
   <>
     <Head>
       <title>{'Index'}</title>
@@ -101,22 +90,17 @@ const Index = (props) => (
 
 //Pull boardnames and load into app:
 //See axios npm docs for response schema.
-//Can only use getInitialProps on NextJS pages files
+//Can only use 'getInitialProps' on NextJS pages files, see explaination in NextJS Docs.
 //Need absolute path unless using a baseurl in axios
 
-//Looking into logging client vs server on for prod.
 Index.getInitialProps =  async() => {
-  const boards_response = await axios.post('http://localhost:4000/api/readboards');
-  const readtotalreplys_response = await axios.post('http://localhost:4000/api/readtotalreplys');
-  // console.log(
-  //   response.data, 
-  //   response.status,
-  //   response.statusText,
-  //   response.headers,
-  //   // response.config,
-  //   // response.request
-  //   );
-    //TODO: add error handler
+  const boards_response = await axios.post('http://localhost:4000/api/readboards').catch(function (error) {
+    console.log(error);
+  });
+  const readtotalreplys_response = await axios.post('http://localhost:4000/api/readtotalreplys').catch(function (error) {
+    console.log(error);
+  });
+
   return {boards:boards_response.data,statistics:readtotalreplys_response.data};
 }
 
