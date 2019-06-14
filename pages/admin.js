@@ -3,7 +3,6 @@ import React from 'react';
 import Head from 'next/head';
 
 export default () => (
-  // React Fragment
   <>
     <Head>
       <title>BBS title</title>
@@ -15,7 +14,6 @@ export default () => (
     </Head>
     <h3>Admin</h3>
     <h4>Needs authroization, access controls, authenication. passportjs? https://auth0.com/?</h4>
-
 
     <style jsx global>{`
       html {
