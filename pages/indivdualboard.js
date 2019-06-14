@@ -62,31 +62,45 @@ class IndivdualBoardPage extends React.Component {
     //     pages: pages
     // };
     
-     queryBBSAPIs(){
+    async queryBBSAPIs(){
       this.setState({isLoading:true});
-     axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`)
-      .then((response)=>this.setState({replyCount:response.data}))
-      .catch(error =>{
-        this.setState({
-        error,
-        isLoading: false
-      });
-      console.log(error);
-      });
-      
-     axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
-      .then((response)=>this.setState({threads:response.data}))
-      .catch(error => this.setState({
-        error,
-        isLoading: false
-      }));
+      //Change to axios.all to avoid race conditions in production verison
+      //See axios npm docs and also Promises docs on MDN.
 
-     axios.post('http://localhost:4000/api/readboards')
-    .then((response)=>this.setState({boards:response.data, isLoading: false}))
-    .catch(error => this.setState({
-      error,
-      isLoading:false
-    }));
+    //  axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`)
+    //   .then((response)=>this.setState({replyCount:response.data}))
+    //   .catch(error =>{
+    //     this.setState({
+    //     error,
+    //     isLoading: false
+    //   });
+    //   console.log(error);
+    //   });
+      
+    //  axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
+    //   .then((response)=>this.setState({threads:response.data}))
+    //   .catch(error => this.setState({
+    //     error,
+    //     isLoading: false
+    //   }));
+
+    //  axios.post('http://localhost:4000/api/readboards')
+    // .then((response)=>this.setState({boards:response.data, isLoading: false}))
+    // .catch(error => this.setState({
+    //   error,
+    //   isLoading:false
+    // }));
+    let replyCounts = await axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`);
+    let readThreads = await axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`);
+    let readBoards = await axios.post('http://localhost:4000/api/readboards');
+    Promise.all([replyCounts, readThreads, readBoards]).then((values) => {
+      this.setState({
+        replyCount:values[0].data,
+        threads:values[1].data,
+        boards:values[2].data
+      });
+    });
+
     }
 
   //TODO:Abstract pagination component && remove gross magic numbers && DRY code.
