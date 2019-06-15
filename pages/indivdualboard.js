@@ -48,20 +48,7 @@ class IndivdualBoardPage extends React.Component {
         var index = (((parsedIndex-1)*10)+9);
         return index;
        }
-
-
-    //    return {
-    //     totalItems: totalItems,
-    //     currentPage: currentPage,
-    //     pageSize: pageSize,
-    //     totalPages: totalPages,
-    //     startPage: startPage,
-    //     endPage: endPage,
-    //     startIndex: startIndex,
-    //     endIndex: endIndex,
-    //     pages: pages
-    // };
-    
+  
     async queryBBSAPIs(){
       this.setState({isLoading:true});
       //Change to axios.all to avoid race conditions in production verison
