@@ -50,19 +50,9 @@ class IndivdualBoardPage extends React.Component {
        }
 
 
-    //    return {
-    //     totalItems: totalItems,
-    //     currentPage: currentPage,
-    //     pageSize: pageSize,
-    //     totalPages: totalPages,
-    //     startPage: startPage,
-    //     endPage: endPage,
-    //     startIndex: startIndex,
-    //     endIndex: endIndex,
-    //     pages: pages
-    // };
     
-    queryBBSAPIs(){
+  
+     queryBBSAPIs(){
       this.setState({isLoading:true});
       //Change to axios.all to avoid race conditions in production verison
       //See axios npm docs and also Promises docs on MDN.
