@@ -196,6 +196,7 @@ console.log('context object:',context);
   // ???Promise.All these???
   const board_response = await axios.post('http://localhost:4000/api/readboards')
   .catch(function (error) {console.log(error);});
+  console.log(board_response);
   const exclusive_thread = await axios.post(`http://localhost:4000/api/readexclusivethread/${context.query.threadID}`)
   .catch(function (error) {console.log(error);});
   const exclusive_thread_replys = await axios.post(`http://localhost:4000/api/readexclusivereplys/${context.query.threadID}`)

@@ -62,7 +62,7 @@ class IndivdualBoardPage extends React.Component {
     //     pages: pages
     // };
     
-    async queryBBSAPIs(){
+    queryBBSAPIs(){
       this.setState({isLoading:true});
       //Change to axios.all to avoid race conditions in production verison
       //See axios npm docs and also Promises docs on MDN.
@@ -90,9 +90,9 @@ class IndivdualBoardPage extends React.Component {
     //   error,
     //   isLoading:false
     // }));
-    let replyCounts = await axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`);
-    let readThreads = await axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`);
-    let readBoards = await axios.post('http://localhost:4000/api/readboards');
+    let replyCounts = axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`);
+    let readThreads = axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`);
+    let readBoards = axios.post('http://localhost:4000/api/readboards');
     Promise.all([replyCounts, readThreads, readBoards]).then((values) => {
       this.setState({
         replyCount:values[0].data,
