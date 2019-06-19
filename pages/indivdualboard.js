@@ -59,6 +59,7 @@ class IndivdualBoardPage extends React.Component {
           boards:values[2].data
         });
       });
+      this.setState({isLoading:false});
 
     }
 
@@ -115,6 +116,8 @@ class IndivdualBoardPage extends React.Component {
               <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
       integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" 
       crossorigin="anonymous"></link>
+              <script src="https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit" 
+          async defer></script>
             </Head>
 
              <IndividualBoard

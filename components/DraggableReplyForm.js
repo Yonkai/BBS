@@ -2,32 +2,53 @@ import React, { Component } from 'react';
 import Draggable, {DraggableCore} from 'react-draggable'; // Both at the same time
 import {withRouter} from 'next/router';
 import axios from 'axios';
+import Recaptcha from 'react-recaptcha';
 
 class DraggableReplyForm extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
+        this.verifyCallback = this.verifyCallback.bind(this);
+        this.state = {
+            isVerified:false
+        }
     };
 
+    verifyCallback(response){
+        if(response){
+            this.setState({
+                isVerified:true
+            })
+        }
+    }
+
+    recaptchaLoaded(){
+        console.log('captcha loaded');
+    }
     
     handleSubmit(event) {
         event.preventDefault();
-        if(this.props.isThisPartOfAnExclusiveThread){
-            axios.post('http://localhost:4000/api/createreply', {
-                name: this.props.name,
-                comments: this.props.comments,
-                threadsthreadsid:this.props.router.query.threadID,
-                threadsboardsboardsid:this.props.router.query.boardID
-              });
+        if(this.state.isVerified){
+            if(this.props.isThisPartOfAnExclusiveThread){
+                console.info('Console say: You are a human.');
+                axios.post('http://localhost:4000/api/createreply', {
+                    name: this.props.name,
+                    comments: this.props.comments,
+                    threadsthreadsid:this.props.router.query.threadID,
+                    threadsboardsboardsid:this.props.router.query.boardID
+                });
 
-              if(this.props.handleOptimisticReplys){
-                this.props.handleOptimisticReplys(
-                    this.props.name,
-                    this.props.comments
-                );
-              }
-          }
-          }
+                if(this.props.handleOptimisticReplys){
+                    this.props.handleOptimisticReplys(
+                        this.props.name,
+                        this.props.comments,
+
+                    );
+                }
+            }
+            }
+        }
 
     render() {
         return (
@@ -57,6 +78,14 @@ class DraggableReplyForm extends Component {
                              maxLength="300" value={this.props.comments}
                             name="comments" id="comments" placeholder="comments"
                             rows="3" cols="22"/>
+                            <Recaptcha
+                            sitekey="6LdRu6kUAAAAADJKt4O2u0MADCH_Z5GNXUSgcRTX"
+                            render="explicit"
+                            onloadCallback={this.recaptchaLoaded}
+                            verifyCallback={this.verifyCallback}
+                            theme="dark"
+                            // size="compact"
+                            />
                         <button>Send!</button>
                         </form> 
                     </div>

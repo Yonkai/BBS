@@ -104,6 +104,8 @@ class ExclusiveThreadPage extends React.Component{
           <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
       integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" 
       crossorigin="anonymous"></link>
+          <script src="https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit" 
+          async defer></script>
         </Head>
         <Navigator boards={this.props.boards}/>
           <h2>{this.props.router.query.title} {this.props.exclusiveThread[0].threads_subject} {this.props.router.query.threadID} </h2>

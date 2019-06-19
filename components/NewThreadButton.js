@@ -1,6 +1,7 @@
 // Use 'Formik' library? Maybe when I have a ton of forms.
 import React from 'react';
 import axios from 'axios';
+import Recaptcha from 'react-recaptcha';
 
 class NewThreadButton extends React.Component {
     constructor(props) {
@@ -9,11 +10,26 @@ class NewThreadButton extends React.Component {
             openStatus: false, 
             name:'anon',
             subject:'', 
-            comments:''
+            comments:'',
+            isVerified:false
         };
         this.openNewThreadForm = this.openNewThreadForm.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
+        this.verifyCallback = this.verifyCallback.bind(this);
+    }
+
+    verifyCallback(response){
+        if(response){
+            this.setState({
+                isVerified:true
+            })
+        }
+    }
+
+    recaptchaLoaded(){
+        console.log('captcha loaded');
     }
 
     openNewThreadForm(e){
@@ -31,46 +47,40 @@ class NewThreadButton extends React.Component {
         }
     }
     
-    //3. TODO: Write to database here through the express routes...
     //TODO: Also, add error handlers here as well.
     handleSubmit(event) {
         event.preventDefault();
-        //alert('A thing was submitted: ' + this.state.name + this.state.subject + this.state.comments);
-        // const data = {name:this.state.name,subject:this.state.subject,comments:this.state.comments};
-        // console.log(data);
-        // fetch('http://localhost:4000/api/', {
-        //   method: 'POST',
-        //   body: JSON.stringify(data),
-        //   mode: "cors",
-        //   headers:{
-        //     'Content-Type': 'application/json'
-        //   },
-        //  credentials: 'omit',
-        // });
+        if(this.state.isVerified){
         if(this.props.isThisPartOfAnExclusiveThread){
-            axios.post('http://localhost:4000/api/createreply', {
-                name: this.state.name,
-                comments: this.state.comments,
-                threadsthreadsid:this.props.threadID,
-                threadsboardsboardsid:this.props.boardID
-              });
-
-              if(this.props.handleOptimisticReplys){
-                this.props.handleOptimisticReplys(
-                    this.state.name,
-                    this.state.comments
-                );
-
-              }
-          }
-
-          else{
-            axios.post('http://localhost:4000/api/createthread', {
-                name: this.state.name,
-                subject: this.state.subject,
-                comments: this.state.comments,
-                boardsboardsid:this.props.boardID
-              });
+                console.info('Console say: You are a human.');
+                axios.post('http://localhost:4000/api/createreply', {
+                    name: this.state.name,
+                    comments: this.state.comments,
+                    threadsthreadsid:this.props.threadID,
+                    threadsboardsboardsid:this.props.boardID
+                });
+                if(this.props.handleOptimisticReplys){
+                    this.props.handleOptimisticReplys(
+                        this.state.name,
+                        this.state.comments
+                        );
+                    }
+                }
+                
+                else{
+                    axios.post('http://localhost:4000/api/createthread', {
+                        name: this.state.name,
+                        subject: this.state.subject,
+                        comments: this.state.comments,
+                        boardsboardsid:this.props.boardID
+                    });
+                    //Bodge solution for now, should reload state instead.
+                    setTimeout(function() {
+                        location.reload();
+                      }, 1400);
+                }
+            }else{
+                alert('Please verify you are a human.');
             }
           }
     
@@ -90,13 +100,21 @@ class NewThreadButton extends React.Component {
                 {
                     this.props.isThisPartOfAnExclusiveThread?<span>{/*nothing. not rendered because of ternary operator.*/}</span>:
                     <div>
-                    <input onChange={this.handleChange('subject')} placeholder='Subject' required value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
+                        <input onChange={this.handleChange('subject')} placeholder='Subject' required value={this.state.subject} type="text" id="subject" name="subject" maxLength="12"/>
                     </div>
                 }
                     <textarea autoFocus onChange={this.handleChange('comments')} placeholder='comments' maxLength="500" required value={this.state.comments} name="comments" id="comments" rows="5" cols="25"/>
                     {/* <input type="text" name="image" placeholder="Image?"/>
                         <input type="text" name="captcha" placeholder="captcha"/> */}
-                <button className="button-xlarge pure-button">Send!</button>
+                  <Recaptcha
+                    sitekey="6LdRu6kUAAAAADJKt4O2u0MADCH_Z5GNXUSgcRTX"
+                    render="explicit"
+                    onloadCallback={this.recaptchaLoaded}
+                    verifyCallback={this.verifyCallback}
+                    theme="dark"
+                    // size="compact"
+                  />
+                    <button className="button-xlarge pure-button">Send!</button>
             </form>
             {/* This might disable using enter? bad ux if so(the onClick): */}
             <button className="pure-button close-form-button" onClick={this.openNewThreadForm}>Close Form</button>
