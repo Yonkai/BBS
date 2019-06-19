@@ -62,3 +62,4 @@ typings/
 
 socketiotest.js
 prodVSdevDifferences.txt
+/API_SocketIO/api_ignored.js

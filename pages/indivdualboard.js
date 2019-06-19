@@ -7,8 +7,6 @@ import axios from 'axios';
 
 //Side note: Renders happen top-down, mounts happen down-top
 // http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-// http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-// http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 // ^ Obviously manual is better but this was really useful for debugging.
 
 class IndivdualBoardPage extends React.Component {
@@ -49,47 +47,18 @@ class IndivdualBoardPage extends React.Component {
         return index;
        }
 
-
-    
-  
      queryBBSAPIs(){
       this.setState({isLoading:true});
-      //Change to axios.all to avoid race conditions in production verison
-      //See axios npm docs and also Promises docs on MDN.
-
-    //  axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`)
-    //   .then((response)=>this.setState({replyCount:response.data}))
-    //   .catch(error =>{
-    //     this.setState({
-    //     error,
-    //     isLoading: false
-    //   });
-    //   console.log(error);
-    //   });
-      
-    //  axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`)
-    //   .then((response)=>this.setState({threads:response.data}))
-    //   .catch(error => this.setState({
-    //     error,
-    //     isLoading: false
-    //   }));
-
-    //  axios.post('http://localhost:4000/api/readboards')
-    // .then((response)=>this.setState({boards:response.data, isLoading: false}))
-    // .catch(error => this.setState({
-    //   error,
-    //   isLoading:false
-    // }));
-    let replyCounts = axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`);
-    let readThreads = axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`);
-    let readBoards = axios.post('http://localhost:4000/api/readboards');
-    Promise.all([replyCounts, readThreads, readBoards]).then((values) => {
-      this.setState({
-        replyCount:values[0].data,
-        threads:values[1].data,
-        boards:values[2].data
+      let replyCounts = axios.post(`http://localhost:4000/api/readallthreadsreplycount/${this.props.router.query.boards_id}`);
+      let readThreads = axios.post(`http://localhost:4000/api/readthreads/${this.props.router.query.boards_id}`);
+      let readBoards = axios.post('http://localhost:4000/api/readboards');
+      Promise.all([replyCounts, readThreads, readBoards]).then((values) => {
+        this.setState({
+          replyCount:values[0].data,
+          threads:values[1].data,
+          boards:values[2].data
+        });
       });
-    });
 
     }
 

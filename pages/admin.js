@@ -5,15 +5,15 @@ import Head from 'next/head';
 export default () => (
   <>
     <Head>
-      <title>BBS title</title>
+      <title>Admin Panel</title>
       <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" 
       integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" 
       crossorigin="anonymous"></link>
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
       </meta>
     </Head>
-    <h3>Admin</h3>
-    <h4>Needs authroization, access controls, authenication. passportjs? https://auth0.com/?</h4>
+    <h3>Admin Panel</h3>
+    {/* <h4>Needs authroization, access controls, authenication. passportjs? https://auth0.com/?</h4> */}
 
     <style jsx global>{`
       html {

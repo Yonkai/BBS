@@ -6,7 +6,7 @@ const About = () => (
             Welcome to the BBS! There are many boards and topics to discuss on this
             website, just make sure you follow the rules or you'll get banned and stuff.
           </p>
-          <p>(WIP)</p>
+          {/* <p>(WIP)</p> */}
       </div>
         {/* Content: Information on single boards */}
         <style jsx>{`
