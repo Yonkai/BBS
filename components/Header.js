@@ -2,8 +2,6 @@ import Link from 'next/link';
 
 const Header = () => (
     <>
-        {/* <h1>BBS Header Component</h1> */}
-        {/* <p>Content: Image logo</p> */}
         <div className="grid-header-item">
           <Link href="/">
             <a>
