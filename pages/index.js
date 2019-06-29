@@ -23,6 +23,7 @@ const Index = (props) => (
       crossorigin="anonymous"></link>
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
       </meta>
+      <meta name="description" content="This website is a anonymous text board, use it to communicate with strangers across the web on various topics."/>
     </Head>
     <div className="grid-container-index">
       <Header/>
