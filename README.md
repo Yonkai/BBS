@@ -14,13 +14,14 @@ Each time a thread is created it is put on the top of a queue, when another user
 * Reply anonymously or named
 * Individual boards are self-sorting based on activity
 * Website is protected by reCAPTCHA and ngninx rate limtiing to prevent spam
+* Uses RESTful API implemented with ExpressJS and MySQL
 
 # Technologies Used
- * NextJS
- * MySQL
- * Nginx
- * ExpressJS
- * reCAPTCHA
- * react-draggable
- * CSS Grid
- * PM2
+ * [NextJS](https://nextjs.org/docs)
+ * [MySQL](https://www.mysql.com/)
+ * [Nginx](http://nginx.org/)
+ * [ExpressJS](https://expressjs.com/)
+ * [reCAPTCHA](https://www.google.com/recaptcha/intro/v3.html)
+ * [react-draggable](https://www.npmjs.com/package/react-draggable)
+ * [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+ * [PM2](http://pm2.keymetrics.io/)
