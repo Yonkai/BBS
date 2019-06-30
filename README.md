@@ -9,6 +9,12 @@ The website is made of "boards", "threads", and "replies". A board is the main h
 
 Each time a thread is created it is put on the top of a queue, when another user or the original poster replies to that thread, it is "bumped" to the top of the queue, therefore, more active threads stay on the queue for longer. Threads are dequeued when they fall below the 100 top most active threads.
 
+# Features
+* Post threads anonymously or named
+* Reply anonymously
+* Individual boards are self-sorting based on activity
+* Website is protected by reCAPTCHA and ngninx rate limtiing to prevent spam
+
 # Technologies Used
  * NextJS
  * MySQL
