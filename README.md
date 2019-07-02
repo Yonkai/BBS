@@ -13,8 +13,9 @@ Each time a thread is created it is put on the top of a queue, when another user
 * Post threads anonymously or named
 * Reply anonymously or named
 * Individual boards are self-sorting based on activity
-* Website is protected by reCAPTCHA and ngninx rate limtiing to prevent spam
+* Website is protected by reCAPTCHA and nginx rate limtiing to prevent spam
 * Uses RESTful API implemented with ExpressJS and MySQL
+* Responsive Design with CSS Grid
 
 # Technologies Used
  * [NextJS](https://nextjs.org/docs)
