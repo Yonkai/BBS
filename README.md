@@ -9,18 +9,24 @@ The website is made of "boards", "threads", and "replies". A board is the main h
 
 Each time a thread is created it is put on the top of a queue, when another user or the original poster replies to that thread, it is "bumped" to the top of the queue, therefore, more active threads stay on the queue for longer. Threads are dequeued when they fall below the 100 top most active threads.
 
+# Setup
+
+wip
+
 # Features
 * Post threads anonymously or named
 * Reply anonymously or named
 * Individual boards are self-sorting based on activity
-* Website is protected by reCAPTCHA and ngninx rate limtiing to prevent spam
+* Website is protected by reCAPTCHA and nginx rate limtiing to prevent spam
+* Uses RESTful API implemented with ExpressJS and MySQL
+* Responsive Design with CSS Grid
 
 # Technologies Used
- * NextJS
- * MySQL
- * Nginx
- * ExpressJS
- * reCAPTCHA
- * react-draggable
- * CSS Grid
- * PM2
+ * [NextJS](https://nextjs.org/docs)
+ * [MySQL](https://www.mysql.com/)
+ * [Nginx](http://nginx.org/)
+ * [ExpressJS](https://expressjs.com/)
+ * [reCAPTCHA](https://www.google.com/recaptcha/intro/v3.html)
+ * [react-draggable](https://www.npmjs.com/package/react-draggable)
+ * [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+ * [PM2](http://pm2.keymetrics.io/)
